@@ -1,0 +1,259 @@
+body {
+    background: #fafafa;
+    font-family: "Poppins", sans-serif;
+    color: #212427;
+    position: relative;
+}
+
+.main-container {
+    margin-left: 96px;
+    margin-right: 96px;
+}
+
+.navbar {
+    background: #fafafa;
+    padding-left: 96px;
+    padding-right: 96px;
+    font-weight: 600;
+}
+
+.navbar .navbar-collapse .navbar-nav li a {
+    color: #212427;
+    active: #ffc600;
+    padding-left: 64px;
+}
+
+.navbar .navbar-collapse .navbar-nav li a:hover {
+    color: #26471d;
+}
+
+.btn.btn-primary {
+    background-color: #26471d;
+    border-color: #26471d;
+    border-radius: 8px;
+    font-weight: 600;
+    color: white;
+}
+
+.btn.btn-outline-primary {
+    background-color: transparent;
+    border-color: #26471d;
+    border-width: 2px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #26471d;
+}
+
+.carousel-inner {
+    width: 1225px;
+    height: 300px;
+    border-radius: 16px;
+}
+
+.content {
+    margin-top: 60px;
+}
+
+.sub-content {
+    margin-top: 56px;
+}
+
+.card-produk-home {
+    width: 288px;
+    margin-right: 24px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.card-produk-home.image {
+    margin-top: 20px;
+    margin-left: 8px;
+    width: 248px;
+    height: 248px;
+    border-radius: 8px;
+}
+
+.card-produk-home.title {
+    font-size: 18px;
+    margin-top: 12px;
+    margin-left: -12px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.card-produk-home.price {
+    font-size: 16px;
+    margin-top: 12px;
+    margin-left: -12px;
+    text-align: center;
+    font-weight: 500;
+    padding-bottom: 12px;
+}
+
+.card-benefit {
+    width: 1225px;
+    height: 361px;
+    border-radius: 8px;
+    background-color: #26471d;
+    color: white;
+}
+
+.content-card-benefit {
+    width: 288px;
+    background: transparent;
+    margin-right: 84px;
+}
+
+.content-card-benefit.bg-icon {
+    margin-top: 20px;
+    margin-left: 90px;
+    width: 90px;
+    height: 90px;
+    background: #1d3616;
+}
+
+.content-card-benefit.title {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-left: -12px;
+    margin-top: 8px;
+}
+
+.content-card-benefit.desc {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 16px;
+    padding-bottom: 20px;
+}
+
+.card-review {
+    width: 440px;
+    background-color: white;
+    margin-right: 116px;
+}
+
+.card-review.image {
+    width: 440px;
+    height: 210px;
+    margin-left: -12px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.card-review.info {
+    width: 426px;
+    background-color: white;
+    padding-bottom: 12px;
+    padding-right: 12px;
+}
+
+.card-masuk {
+    width: 500px;
+    border-radius: 8px;
+    background-color: white;
+    padding-left: 64px;
+    padding-right: 64px;
+    padding-top: 48px;
+    padding-bottom: 24px;
+}
+
+.card-masuk a {
+    color: #ffc600;
+    font-weight: 600;
+}
+
+.card-masuk.lupa-kata-sandi a {
+    color: #212427 !important;
+    font-size: 14px;
+}
+
+.content.masuk {
+    /* background-image: url("https://i.ibb.co/mbvmgxf/background-daftar.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+.card-produk {
+    width: 288px;
+    margin-right: 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    background-color: white;
+}
+
+.card-produk.image {
+    margin-top: 20px;
+    margin-left: 8px;
+    width: 248px;
+    height: 173px;
+    border-radius: 8px;
+}
+
+.card-produk.title {
+    font-size: 18px;
+    margin-top: 12px;
+    margin-left: -12px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.card-produk.price {
+    font-size: 16px;
+    margin-top: 12px;
+    margin-left: -12px;
+    text-align: center;
+    font-weight: 500;
+    padding-bottom: 12px;
+}
+
+.card-buat-pesanan {
+    width: 1248px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.card-buat-pesanan th {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.card-buat-pesanan td {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.card-buat-pesanan table {
+    text-align: center;
+}
+
+.sub-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.card-pembayaran {
+    width: 500px;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 32px;
+    border-radius: 8px;
+}
+
+.logo-bank {
+    width: 90px;
+    height: 50px;
+}
+
+.accordion-item {
+    background-color: transparent;
+    border-width: 0px;
+}
