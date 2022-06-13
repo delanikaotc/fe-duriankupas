@@ -42,8 +42,8 @@
                                         <div class="col d-flex justify-content-end">Rp50.000</div>
                                     </div>
                                     <div>
-                                        <a class="btn btn-primary mb-2" href="/pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>
-                                        <a class="btn btn-outline-primary" href="/pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Cek Status Pembayaran</a>
+                                        <a class="btn btn-primary mb-2" href="/ulasan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>
+                                        <a class="btn btn-outline-primary" href="/rincian-pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Rincian Pesanan</a>
                                     </div>
                                 </div>
                             {{-- </div> --}}
@@ -52,7 +52,8 @@
                                     <div class="mb-4">
                                         <div class="card-pesanan-title">Pesanan #12345JKT</div>
                                         <div>7 April 2022</div>
-                                        <div class="label-selesai">Selesai</div>                                    </div>
+                                        <div class="label-selesai">Selesai</div>                                    
+                                    </div>
                                     <div>
                                         <div>Durian Montong Kupas (x1)</div>
                                         <div>Rp50.000</div>
@@ -67,8 +68,8 @@
                                         <div class="col d-flex justify-content-end">Rp50.000</div>
                                     </div>
                                     <div>
-                                        <a class="btn btn-primary mb-2" href="/pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>
-                                        <a class="btn btn-outline-primary" href="/pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Cek Status Pembayaran</a>
+                                        <a class="btn btn-primary mb-2" href="/ulasan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>
+                                        <a class="btn btn-outline-primary" href="/rincian-pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Rincian Pesanan</a>
                                     </div>
                                 </div>
                             {{-- </div> --}}
@@ -93,8 +94,8 @@
                                         <div class="col d-flex justify-content-end">Rp50.000</div>
                                     </div>
                                     <div>
-                                        <a class="btn btn-primary mb-2" href="/pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>
-                                        <a class="btn btn-outline-primary" href="/pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Cek Status Pembayaran</a>
+                                        <a class="btn btn-primary mb-2" href="/ulasan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>
+                                        <a class="btn btn-outline-primary" href="/rincian-pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Rincian Pesanan</a>
                                     </div>
                                 </div>
                             {{-- </div> --}}
@@ -119,7 +120,7 @@
                                 </div>
                                 <div>
                                     <a class="btn btn-primary mb-2" href="/ulasan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>
-                                    <a class="btn btn-outline-primary" href="/pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Cek Status Pembayaran</a>
+                                    <a class="btn btn-outline-primary" href="/rincian-pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Rincian Pesanan</a>
                                 </div>
                             </div>
                         </div>

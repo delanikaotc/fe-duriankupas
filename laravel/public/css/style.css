@@ -454,3 +454,12 @@ body {
     background-color: #ffbebe;
     border-radius: 4px;
 }
+
+.card-summary-admin {
+    width: 220px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 20px;
+    padding-left: 24px;
+    margin-right: 38px;
+}

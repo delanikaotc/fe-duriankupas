@@ -22,16 +22,23 @@
                     Nomor Rekening Bank
                     <div style="font-weight: 600">80777082246680464</div>
                 </div>
-                <div>
+                <div class="mb-3">
                     Total Pembayaran
                     <div style="font-weight: 600">Rp159.000</div>
                 </div>
+                <div>
+                  Unggah Bukti Pembayaran
+                  <form>
+                    <div class="form-group">
+                      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                  </form>
+              </div>
             </div>
         </div>
         <div class="row mb-5">
             <div class="col d-flex justify-content-center">
-                <a class="btn btn-outline-primary me-3" href="/" role="button">Unggah Bukti Pembayaran</a>
-                <a class="btn btn-primary" href="/produk" role="button" style="width: 235px">Belanja Lagi</a>
+                <a class="btn btn-primary" href="/pesanan" role="button" style="width: 500px">Kirim Bukti Pembayaran</a>
             </div>
         </div>
         <div style="margin-left: 375px; margin-bottom: 60px">

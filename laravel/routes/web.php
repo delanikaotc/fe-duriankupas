@@ -71,6 +71,12 @@ Route::get('/ulasan', function () {
     ]);
 });
 
+Route::get('/rincian-pesanan', function () {
+    return view('user/user_rincian_pesanan', [
+        "title" => "Rincian Pesanan"
+    ]);
+});
+
 Route::get('/reseller', function () {
     return view('reseller/reseller_home', [
         "title" => "Reseller"
@@ -80,5 +86,18 @@ Route::get('/reseller', function () {
 Route::get('/reseller-data-pemesanan', function () {
     return view('reseller/reseller_data_pemesanan', [
         "title" => "Data Pemesanan"
+    ]);
+});
+
+
+Route::get('/admin', function () {
+    return view('admin/admin_home', [
+        "title" => "Admin"
+    ]);
+});
+
+Route::get('/data-pengguna', function () {
+    return view('admin/admin_data_pengguna', [
+        "title" => "Admin"
     ]);
 });
