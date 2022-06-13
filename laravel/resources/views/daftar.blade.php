@@ -3,7 +3,7 @@
 @section('content')
 <div class="content masuk" style="margin-bottom: 60px">
     <div class="title-page">
-        <h1 style="font-weight: 600pxs">Daftar</h1>
+        <h1 style="font-weight: 600">Daftar</h1>
     </div>
     <div class="sub-content">
         <div class="card-masuk">

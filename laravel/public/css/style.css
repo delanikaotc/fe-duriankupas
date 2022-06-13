@@ -31,14 +31,23 @@ body {
     background-color: #26471d;
     border-color: #26471d;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 400;
     color: white;
 }
 
 .btn.btn-outline-primary {
     background-color: transparent;
     border-color: #26471d;
-    border-width: 2px;
+    border-width: 1px;
+    border-radius: 8px;
+    font-weight: 400;
+    color: #26471d;
+}
+
+.btn.btn-outline-secondary {
+    background-color: transparent;
+    border-color: #26471d;
+    border-width: 1px;
     border-radius: 8px;
     font-weight: 600;
     color: #26471d;
@@ -52,6 +61,10 @@ body {
 
 .content {
     margin-top: 60px;
+}
+
+.content-reseller {
+    margin-left: 240px;
 }
 
 .sub-content {
@@ -256,4 +269,188 @@ body {
 .accordion-item {
     background-color: transparent;
     border-width: 0px;
+}
+
+.ava-navbar {
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+}
+
+.sidebar-user {
+    width: 288px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.sidebar-user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.sidebar-user-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.sidebar-user-subtitle {
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.sidebar-user-subtitle a {
+    text-decoration: none;
+    color: #c4c4c4;
+}
+
+.bg-user {
+    width: 900px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 60px;
+}
+
+.card-biodata {
+    width: 240px;
+    border-width: 1px;
+    border-color: #c4c4c4;
+    border-style: solid;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.card-biodata-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.card-pesanan {
+    width: 270px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c4c4c4;
+    padding: 20px;
+    font-size: 14px;
+    margin-bottom: 18px;
+    margin-right: 4px;
+    margin-left: 12px;
+}
+
+.card-pesanan-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.label-sedang-diantar {
+    width: 140px;
+    height: 20px;
+    color: white;
+    background-color: #f2c94c;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.label-selesai {
+    width: 86px;
+    height: 20px;
+    color: white;
+    background-color: #27ae60;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.sub-container {
+    margin-left: 280px;
+}
+
+.card-summary-reseller {
+    width: 319px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 20px;
+    padding-left: 24px;
+    margin-right: 20px;
+}
+
+.card-summary-reseller-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    padding-top: 12px;
+    text-align: center;
+}
+
+.card-summary-reseller-title {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.card-summary-reseller-numbers {
+    font-weight: 600;
+    font-size: 24px;
+    color: #ffc600;
+}
+
+.bg {
+    width: 996px;
+    background-color: white;
+    border-radius: 8px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: -12px;
+    text-align: center;
+}
+
+.table-produk {
+    text-align: center;
+}
+
+.list-produk {
+    background-color: #fafafa;
+    border-radius: 12px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.title-list-produk {
+    font-weight: 600;
+}
+
+.label-ada-stok {
+    color: #27ae60;
+}
+
+.label-sedang-dikirim {
+    width: 160px;
+    height: 26px;
+    background: #f2c94c;
+    border-radius: 16px;
+}
+
+.icon-edit {
+    width: 20px;
+    /* text-align: center; */
+    background-color: #fff4d1;
+    border-radius: 4px;
+}
+
+.icon-hapus {
+    width: 20px;
+    /* text-align: center; */
+    background-color: #ffbebe;
+    border-radius: 4px;
 }

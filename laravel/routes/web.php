@@ -52,3 +52,33 @@ Route::get('/pembayaran', function () {
         "title" => "Pembayaran"
     ]);
 });
+
+Route::get('/user', function () {
+    return view('user/user_home', [
+        "title" => "User"
+    ]);
+});
+
+Route::get('/pesanan', function () {
+    return view('user/user_pesanan', [
+        "title" => "Pesanan Saya"
+    ]);
+});
+
+Route::get('/ulasan', function () {
+    return view('user/user_ulasan', [
+        "title" => "Ulasan Pesanan"
+    ]);
+});
+
+Route::get('/reseller', function () {
+    return view('reseller/reseller_home', [
+        "title" => "Reseller"
+    ]);
+});
+
+Route::get('/reseller-data-pemesanan', function () {
+    return view('reseller/reseller_data_pemesanan', [
+        "title" => "Data Pemesanan"
+    ]);
+});
