@@ -31,12 +31,24 @@
                     <a href="/ulasan">Ulasan Pesanan</a>
                 </div>
             </div>
-            <div class="sidebar-user-title">Gabung Reseller</div>
+            <hr>
+            <div>
+                @if (!empty(Cookie::get('accessToken')))
+                <form action="{{ route('keluar') }}" method="POST" class="inline-block">
+                    {!! method_field('post') . csrf_field() !!}
+                    <button type="submit">
+                        Logout
+                    </button>
+                </form>
+                @endif
+                {{-- <a href="" style="text-decoration: none; color: #EB5757">Keluar</a> --}}
+            </div>
+            {{-- <div class="sidebar-user-title">Gabung Reseller</div>
             <div class="sidebar-user-subtitle">
                 <div>
                     <a href="/gabung-reseller">Form Reseller</a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

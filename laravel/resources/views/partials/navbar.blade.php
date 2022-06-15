@@ -1,4 +1,5 @@
 
+
 <nav id="scrollspyNav"class="navbar navbar-expand-lg mt-2">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
@@ -17,11 +18,22 @@
             </li>
         </ul>
         </div>
+        @if (!empty(Cookie::get('accessToken')))
+        <a href="{{ route('userProfileView') }}" style="color: #26471D; font-weight:600; text-decoration: none;">
+            <div class="d-flex" style="padding-right:16px;">
+                <div class="row">
+                    <div class="col">
+                        <img class="ava-navbar" src="{{ asset('images/icon1.png') }}" alt="">
+                    </div>
+                    <div class="col" style="margin-top: 5px">Yunita</div>
+                </div>
+            </div>
+        </a>
+        @else
         <div class="d-flex">
-            <a class="btn btn-outline-primary me-3" href="/daftar" role="button">Daftar</a>
-            <a class="btn btn-primary" href="/masuk" role="button">Masuk</a>
-        </div>
+            <a class="btn btn-outline-primary me-3" href="{{ route('daftar') }}" role="button">Daftar</a>
+            <a class="btn btn-primary" href="{{ route('masuk') }}" role="button">Masuk</a>
+        </div>       
+        @endif
     </div>
 </nav>
-
-

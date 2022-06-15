@@ -34,6 +34,10 @@
     <div class="title">
         <h2 style="color:#26471D; font-weight: 600; text-align: center">Produk Kami</h2>
     </div>
+        @if (!empty(Cookie::get('accessToken')))
+        <p> access token user : {{ Cookie::get('accessToken') }}</p><br>
+        <p> id user : {{ Cookie::get('idUser') }}</p><br>
+        @endif
     <div class="sub-content row d-flex justify-content-center">
         <div class="card-produk-home">
             <div>

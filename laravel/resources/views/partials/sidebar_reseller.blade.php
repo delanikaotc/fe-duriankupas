@@ -41,7 +41,7 @@
           </li>
         </ul>
         <div class="row">
-          <a href="" style="color: #EB5757; text-decoration: none; text-align: center;">Log Out</a>
+          <a href="" style="color: #EB5757; text-decoration: none; text-align: center;">Keluar</a>
         </div>
     </div>
 {{-- </main> --}}

@@ -13,7 +13,7 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-    @include('partials.navbar_user')
+    @include('partials.navbar')
     <div class="main-container" data-bs-spy="scroll" data-bs-target="#scrollspyNav">
         @yield('content')
     </div>

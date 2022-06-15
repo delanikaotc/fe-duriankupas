@@ -3,7 +3,7 @@
 @section('content')
 <div class="content">
     <div class="title-page">
-        <h1 style="font-weight: 600">Biodata Diri</h1>
+        <h1 style="font-weight: 600">Profil</h1>
     </div>
     <div class="sub-content">
         <div class="row">
