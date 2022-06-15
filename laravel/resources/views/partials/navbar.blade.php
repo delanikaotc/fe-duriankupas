@@ -25,7 +25,11 @@
                     <div class="col">
                         <img class="ava-navbar" src="{{ asset('images/icon1.png') }}" alt="">
                     </div>
-                    <div class="col" style="margin-top: 5px">Yunita</div>
+                    @if (empty($data['username']))
+                    <div class="col" style="margin-top: 5px">{{ $data['savedUser']['username'] }}</div>
+                    @else
+                    <div class="col" style="margin-top: 5px">{{ $data['username'] }}</div>     
+                    @endif
                 </div>
             </div>
         </a>

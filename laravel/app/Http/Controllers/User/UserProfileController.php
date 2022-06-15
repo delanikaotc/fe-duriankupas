@@ -14,14 +14,14 @@ class UserProfileController extends Controller
     function index()
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/profile/' . Cookie::get('idUser');
+        $URI = 'https://beduriankupas.herokuapp.com/api/users/profile/' . cookie::get('idUser');
 
         $params['headers'] = array (
-            'token' => 'Bearer ' . Cookie::get('accessToken'),
+            'token' => 'Bearer ' . cookie::get('accessToken'),
         );
 
         try{
-            $action= $client->get($URI, $params);
+            $action = $client->get($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
             Log::info($response);
 
@@ -34,5 +34,6 @@ class UserProfileController extends Controller
             Log::error($e);
         }
     }
+
 
 }

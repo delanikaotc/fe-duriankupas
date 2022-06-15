@@ -286,7 +286,7 @@ body {
 
 .active-sidebar-user {
     font-weight: 600;
-    color: #26471d;
+    color: #26471d !important;
 }
 
 .sidebar-user-avatar {

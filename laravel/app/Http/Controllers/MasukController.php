@@ -26,16 +26,16 @@ class MasukController extends Controller
 
         try {
             $action = $client->post($URI, $params);
-            $response = json_decode($action->getBody(), true);
-            Log::info($response);
+            $responseJson = $action->getBody();
+            $response = json_decode($responseJson, true);
 
+            $profile = cookie('profileUser', $responseJson, 60);
             $idUser = cookie('idUser', $response['_id'], 60);
             $tokenCookie = cookie('accessToken', $response['accessToken'], 60);
 
-            Log::info($idUser);
-            Log::info($tokenCookie);
-
-            return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser]);
+            Log::info($profile);
+    
+            return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser, $profile]);
         }
         catch(Exception $e) {
             Log::error($e);
@@ -48,6 +48,8 @@ class MasukController extends Controller
     {
         Cookie::expire('accessToken');
         Cookie::expire('idUser');
+        Cookie::expire('profileUser');
+
 
         return redirect()->route('home');
     }

@@ -27,13 +27,25 @@ class DaftarController extends Controller
 
         try{
             $action = $client->post($URI, $params);
-            $response = json_decode($action->getBody(), true);
-            Log::info($response);
+            $responseJson = $action->getBody();
+            $response = json_decode($responseJson, true);
 
+            $profile = cookie('profileUser', $responseJson, 60);
             $idUser = cookie('idUser', $response['savedUser']['_id'], 60);
             $tokenCookie = cookie('accessToken', $response['accessToken'], 60);
 
-            return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser]);
+            Log::info($profile);
+
+            return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser, $profile]);
+
+            // $action = $client->post($URI, $params);
+            // $response = json_decode($action->getBody(), true);
+            // Log::info($response);
+
+            // $idUser = cookie('idUser', $response['savedUser']['_id'], 60);
+            // $tokenCookie = cookie('accessToken', $response['accessToken'], 60);
+
+            // return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser]);
         }
         catch (Exception $e){
             Log::error($e);
