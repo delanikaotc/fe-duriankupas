@@ -10,7 +10,7 @@ class isAuth
 {
     public function handle(Request $request, Closure $next)
     {
-        if(!empty(Cookie::get('accesToken'))) {
+        if(!empty(Cookie::get('accessToken'))) {
             return $next($request);
         }
         return redirect()->route('home');

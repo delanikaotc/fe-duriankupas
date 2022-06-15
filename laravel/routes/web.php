@@ -22,12 +22,6 @@ Route::get('/tentang', function () {
     return view('tentang');
 });
 
-Route::get('/masuk', function () {
-    return view('masuk', [
-        "title" => "Masuk"
-    ]);
-});
-
 Route::get('/produk', function () {
     return view('produk', [
         "title" => "Produk Kami"
@@ -98,8 +92,9 @@ Route::get('/daftar', [DaftarController::class, 'index'])->name('daftarView')->m
 Route::post('/daftar', [DaftarController::class, 'daftar'])->name('daftar')->middleware('isMasuk');
 
 //Masuk
-Route::get('/masuk', [MasukController::class, 'index'])->name('masuk')->middleware('isMasuk');
-Route::post('/keluar', [MasukController::class, 'keluar'])->name('keluar')->middleware('isMasuk');
+Route::get('/masuk', [MasukController::class, 'index'])->name('masukView')->middleware('isMasuk');
+Route::post('masuk', [MasukController::class, 'masuk'])->name('masuk')->middleware('isMasuk');
+Route::post('/keluar', [MasukController::class, 'keluar'])->name('keluar')->middleware('isAuth');
 
 // User
-Route::get('/profil', [UserProfileController::class, 'index'])->name('userProfileView');
+Route::get('/profil', [UserProfileController::class, 'index'])->name('userProfileView')->middleware('isAuth');

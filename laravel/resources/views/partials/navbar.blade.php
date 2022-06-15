@@ -31,8 +31,8 @@
         </a>
         @else
         <div class="d-flex">
-            <a class="btn btn-outline-primary me-3" href="{{ route('daftar') }}" role="button">Daftar</a>
-            <a class="btn btn-primary" href="{{ route('masuk') }}" role="button">Masuk</a>
+            <a class="btn btn-outline-primary me-3" href="{{ route('daftarView') }}" role="button">Daftar</a>
+            <a class="btn btn-primary" href="{{ route('masukView') }}" role="button">Masuk</a>
         </div>       
         @endif
     </div>

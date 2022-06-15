@@ -6,7 +6,7 @@
             </div>
             <div class="col">
                 <div class="row">
-                    <div style="font-weight: 600; font-size: 18px">Yunita Pratiwi</div>
+                    <div style="font-weight: 600; font-size: 18px">{{ $data['username'] }}</div>
                     <div>#ID123467JKT</div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
             <div class="sidebar-user-title">Profil Saya</div>
             <div class="sidebar-user-subtitle">
                 <div class="mb-1">
-                    <a style="font-weight: 600; color: #26471d" href="/user">Biodata Diri</a> 
+                    <a class="{{ $title === "Profil" ? 'active-sidebar-user' : '' }}" href="{{ route('userProfileView') }}">Biodata Diri</a>               
                 </div>
                 <div>
                     <a href="/user">Ubah Kata Sandi</a>

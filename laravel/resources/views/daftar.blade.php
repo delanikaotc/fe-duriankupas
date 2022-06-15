@@ -15,8 +15,8 @@
             <form action="{{ route('daftar') }}" method="POST">
                 {!! method_field('post') . csrf_field() !!}
                 <div class="mb-3">
-                    <label for="inputNama" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Nama">
+                    <label for="inputUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                 </div>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Email address</label>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="sudah-punya-akun">
                     <p style="text-align: center; font-weight: 400px; font-size: 14px">Sudah punya akun? 
-                        <a href="">Masuk</a>
+                        <a href="{{ route('masukView') }}">Masuk</a>
                     </p>
                 </div>
             </form>
