@@ -13,6 +13,6 @@ class IsAuth
         if(!empty(Cookie::get('accessToken'))) {
             return $next($request);
         }
-        return redirect()->route('home');
+        return redirect()->route('home')->withErrors(['Kamu belum login!']);
     }
 }

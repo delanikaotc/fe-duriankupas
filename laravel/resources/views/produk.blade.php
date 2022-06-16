@@ -25,17 +25,24 @@
             <div class="card-produk price">
                 Rp{{ $item['harga'] }}
             </div>
-            <div class="input-group mb-3" style="text-align: center;">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
-              </div>
+            <form action="" method="post">
+            {!! method_field('post') . csrf_field() !!}
+                <div class="row d-flex justify-content-center">
+                    <div class="input-group mb-3" style="width: 150px">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
+                        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" style="text-align: center;">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
+                      </div>
+                </div>
+            </form>
         </div> 
         @endforeach
-        @if (Cookie::get('roleUser') == 'user')
-            <div class="row d-flex justify-content-center mt-3" style="margin-bottom:60px;">
-                <a class="btn btn-primary me-3" href="/buat-pesanan" role="button" style="width: 300px">Buat Pesanan</a>
-            </div>
+        @if (Cookie::get('roleUser') == 'reseller' || Cookie::get('roleUser') == 'admin')
+        <div></div>
+        @else
+        <div class="row d-flex justify-content-center mt-3" style="margin-bottom:60px;">
+            <a class="btn btn-primary me-3" href="/buat-pesanan" role="button" style="width: 300px">Buat Pesanan</a>
+        </div>
         @endif
     </div>
 </div>

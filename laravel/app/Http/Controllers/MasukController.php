@@ -37,11 +37,14 @@ class MasukController extends Controller
             Log::info($profile);
             Log::info($roleUser);
 
-            if(Cookie::get('roleUser') == 'user'){
+            if($response['role'] == 'user'){
                 return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
             }
-            elseif (Cookie::get('roleUser') == 'reseller') {
+            elseif ($response['role'] == 'reseller') {
                 return redirect()->route('resellerDashboardView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
+            }
+            elseif ($response['role'] == 'admin') {
+                return redirect()->route('adminDashboardView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
             }
         }
         catch(Exception $e) {

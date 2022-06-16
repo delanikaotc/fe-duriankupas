@@ -19,10 +19,13 @@ body {
 
 .navbar .navbar-collapse .navbar-nav li a {
     color: #212427;
-    active: #ffc600;
     padding-left: 64px;
 }
 
+.active li a {
+    color: #ffc600 !important;
+    padding-left: 64px;
+}
 .navbar .navbar-collapse .navbar-nav li a:hover {
     color: #26471d;
 }

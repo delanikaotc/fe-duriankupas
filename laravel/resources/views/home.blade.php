@@ -91,7 +91,7 @@
         </div>
         <div class="sub content row">
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary">Beli Durian Sekarang</button>    
+                <a class="btn btn-primary" href="/produk" role="button">Beli Durian Sekarang</a>
             </div>
         </div>
     </div>

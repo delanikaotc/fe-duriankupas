@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link {{ $title === "produk" ? 'active' : '' }}" href="/produk">Produk</a>
+            <a class="nav-link" href="{{ route('produkView') }}" style="{{ $title == "Produk Kami" ? 'color: #ffc600' : '' }}">Produk</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">Tentang</a>

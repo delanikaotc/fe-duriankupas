@@ -7,6 +7,7 @@ use App\Http\Controllers\MasukController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\Reseller\ResellerDashboardController;
+use App\Http\Controllers\Reseller\ResellerDataPemesananController;
 
 
 /*
@@ -54,13 +55,6 @@ Route::get('/rincian-pesanan', function () {
     ]);
 });
 
-Route::get('/reseller-data-pemesanan', function () {
-    return view('reseller/reseller_data_pemesanan', [
-        "title" => "Data Pemesanan"
-    ]);
-});
-
-
 Route::get('/admin', function () {
     return view('admin/admin_home', [
         "title" => "Admin"
@@ -91,6 +85,8 @@ Route::get('/profil', [UserProfileController::class, 'index'])->name('userProfil
 
 // Reseller
 Route::get('/dashboard', [ResellerDashboardController::class, 'index'])->name('resellerDashboardView')->middleware(['IsAuth', 'IsReseller']);
+Route::get('/data-pemesanan', [ResellerDataPemesananController::class, 'index'])->name('resellerDataPemesananView')->middleware(['IsAuth', 'IsReseller']);
+
 
 // Main Page
 //Home

@@ -16,13 +16,13 @@
         </div>
         <ul class="nav nav-pills flex-column mb-auto" style="margin-top: 60px">
           <li>
-            <a href="/reseller" class="nav-link active" aria-current="page">
+            <a href="{{ route('resellerDashboardView') }}" class="nav-link active" aria-current="page">
               <span class="bi me-2 iconify" data-icon="fluent:home-16-regular" style="font-size: 20px;"></span>              
               Dashboard
             </a>
           </li>
           <li>
-            <a href="/reseller-data-pemesanan" class="nav-link link-dark">
+            <a href="{{ route('resellerDataPemesananView') }}" class="nav-link link-dark">
               <span class="bi me-2 iconify" data-icon="bi:table" style="font-size: 20px;"></span>              
               Data Pemesanan
             </a>
