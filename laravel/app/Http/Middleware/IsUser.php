@@ -6,13 +6,13 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
-class IsAuth
+class IsUser
 {
     public function handle(Request $request, Closure $next)
     {
-        if(!empty(Cookie::get('accessToken'))) {
+        if(Cookie::get('roleUser') == 'user') {
             return $next($request);
         }
-        return redirect()->route('home');
+        return redirect()->route('home')->withErrors(['Kamu tidak memiliki akses!']);
     }
 }

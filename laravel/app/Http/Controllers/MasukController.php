@@ -31,11 +31,18 @@ class MasukController extends Controller
 
             $profile = cookie('profileUser', $responseJson, 60);
             $idUser = cookie('idUser', $response['_id'], 60);
+            $roleUser = cookie('roleUser', $response['role'], 60);
             $tokenCookie = cookie('accessToken', $response['accessToken'], 60);
 
             Log::info($profile);
-    
-            return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser, $profile]);
+            Log::info($roleUser);
+
+            if(Cookie::get('roleUser') == 'user'){
+                return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
+            }
+            elseif (Cookie::get('roleUser') == 'reseller') {
+                return redirect()->route('resellerDashboardView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
+            }
         }
         catch(Exception $e) {
             Log::error($e);
@@ -49,7 +56,7 @@ class MasukController extends Controller
         Cookie::expire('accessToken');
         Cookie::expire('idUser');
         Cookie::expire('profileUser');
-
+        Cookie::expire('roleUser');
 
         return redirect()->route('home');
     }

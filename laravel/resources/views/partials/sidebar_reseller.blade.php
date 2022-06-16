@@ -40,8 +40,16 @@
             </a>
           </li>
         </ul>
-        <div class="row">
+        @if (!empty(Cookie::get('accessToken')))
+          <form action="{{ route('keluar') }}" method="POST" class="inline-block">
+              {!! method_field('post') . csrf_field() !!}
+              <button type="submit">
+                  Logout
+              </button>
+          </form>
+        @endif
+        {{-- <div class="row">
           <a href="" style="color: #EB5757; text-decoration: none; text-align: center;">Keluar</a>
-        </div>
+        </div> --}}
     </div>
 {{-- </main> --}}

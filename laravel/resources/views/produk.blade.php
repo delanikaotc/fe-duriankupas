@@ -13,138 +13,30 @@
               </form>
         </div>
     </div>
-    <div class="sub-content row">
+    <div class="sub-content row d-flex justify-content-center">
+        @foreach ($dataProduk as $item)
         <div class="card-produk">
             <div>
-                <img src="{{ asset('images/durian.jpeg') }}" alt="" class="card-produk image">
+                <img src="{{ $item['img'] }}" alt="" class="card-produk image">
             </div>
             <div class="card-produk title">
-                Durian Manis Kupas
+                {{ $item['nama'] }}
             </div>
             <div class="card-produk price">
-                Rp50.000
+                Rp{{ $item['harga'] }}
             </div>
             <div class="input-group mb-3" style="text-align: center;">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
                 <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
               </div>
-        </div>
-        <div class="card-produk">
-            <div>
-                <img src="{{ asset('images/durian.jpeg') }}" alt="" class="card-produk image">
+        </div> 
+        @endforeach
+        @if (Cookie::get('roleUser') == 'user')
+            <div class="row d-flex justify-content-center mt-3" style="margin-bottom:60px;">
+                <a class="btn btn-primary me-3" href="/buat-pesanan" role="button" style="width: 300px">Buat Pesanan</a>
             </div>
-            <div class="card-produk title">
-                Durian Manis Kupas
-            </div>
-            <div class="card-produk price">
-                Rp50.000
-            </div>
-            <div class="input-group mb-3" style="text-align: center;">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
-            </div>
-        </div>
-        <div class="card-produk">
-            <div>
-                <img src="{{ asset('images/durian.jpeg') }}" alt="" class="card-produk image">
-            </div>
-            <div class="card-produk title">
-                Durian Manis Kupas
-            </div>
-            <div class="card-produk price">
-                Rp50.000
-            </div>
-            <div class="input-group mb-3" style="text-align: center;">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
-            </div>
-        </div>
-        <div class="card-produk">
-            <div>
-                <img src="{{ asset('images/durian.jpeg') }}" alt="" class="card-produk image">
-            </div>
-            <div class="card-produk title">
-                Durian Manis Kupas
-            </div>
-            <div class="card-produk price">
-                Rp50.000
-            </div>
-            <div class="input-group mb-3" style="text-align: center;">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
-            </div>
-        </div>
-        <div class="card-produk">
-            <div>
-                <img src="{{ asset('images/durian.jpeg') }}" alt="" class="card-produk image">
-            </div>
-            <div class="card-produk title">
-                Durian Manis Kupas
-            </div>
-            <div class="card-produk price">
-                Rp50.000
-            </div>
-            <div class="input-group mb-3" style="text-align: center;">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
-            </div>
-        </div>
-        <div class="card-produk">
-            <div>
-                <img src="{{ asset('images/durian.jpeg') }}" alt="" class="card-produk image">
-            </div>
-            <div class="card-produk title">
-                Durian Manis Kupas
-            </div>
-            <div class="card-produk price">
-                Rp50.000
-            </div>
-            <div class="input-group mb-3" style="text-align: center;">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
-            </div>
-        </div>
-        <div class="card-produk">
-            <div>
-                <img src="{{ asset('images/durian.jpeg') }}" alt="" class="card-produk image">
-            </div>
-            <div class="card-produk title">
-                Durian Manis Kupas
-            </div>
-            <div class="card-produk price">
-                Rp50.000
-            </div>
-            <div class="input-group mb-3" style="text-align: center;">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
-            </div>
-        </div>
-        <div class="card-produk">
-            <div>
-                <img src="{{ asset('images/durian.jpeg') }}" alt="" class="card-produk image">
-            </div>
-            <div class="card-produk title">
-                Durian Manis Kupas
-            </div>
-            <div class="card-produk price">
-                Rp50.000
-            </div>
-            <div class="input-group mb-3" style="text-align: center;">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center mt-3" style="margin-bottom:60px;">
-             <a class="btn btn-primary me-3" href="/buat-pesanan" role="button" style="width: 300px">Buat Pesanan</a>
-        </div>
+        @endif
     </div>
 </div>
 @endsection

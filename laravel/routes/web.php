@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MasukController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\Reseller\ResellerDashboardController;
 
 
 /*
@@ -20,12 +22,6 @@ use App\Http\Controllers\User\UserProfileController;
 
 Route::get('/tentang', function () {
     return view('tentang');
-});
-
-Route::get('/produk', function () {
-    return view('produk', [
-        "title" => "Produk Kami"
-    ]);
 });
 
 Route::get('/buat-pesanan', function () {
@@ -58,12 +54,6 @@ Route::get('/rincian-pesanan', function () {
     ]);
 });
 
-Route::get('/reseller', function () {
-    return view('reseller/reseller_home', [
-        "title" => "Reseller"
-    ]);
-});
-
 Route::get('/reseller-data-pemesanan', function () {
     return view('reseller/reseller_data_pemesanan', [
         "title" => "Data Pemesanan"
@@ -88,13 +78,20 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 // Daftar
-Route::get('/daftar', [DaftarController::class, 'index'])->name('daftarView')->middleware('isMasuk');
-Route::post('/daftar', [DaftarController::class, 'daftar'])->name('daftar')->middleware('isMasuk');
+Route::get('/daftar', [DaftarController::class, 'index'])->name('daftarView')->middleware('IsMasuk');
+Route::post('/daftar', [DaftarController::class, 'daftar'])->name('daftar')->middleware('IsMasuk');
 
 //Masuk
-Route::get('/masuk', [MasukController::class, 'index'])->name('masukView')->middleware('isMasuk');
-Route::post('masuk', [MasukController::class, 'masuk'])->name('masuk')->middleware('isMasuk');
-Route::post('/keluar', [MasukController::class, 'keluar'])->name('keluar')->middleware('isAuth');
+Route::get('/masuk', [MasukController::class, 'index'])->name('masukView')->middleware('IsMasuk');
+Route::post('masuk', [MasukController::class, 'masuk'])->name('masuk')->middleware('IsMasuk');
+Route::post('/keluar', [MasukController::class, 'keluar'])->name('keluar')->middleware('IsAuth');
 
 // User
-Route::get('/profil', [UserProfileController::class, 'index'])->name('userProfileView')->middleware('isAuth');
+Route::get('/profil', [UserProfileController::class, 'index'])->name('userProfileView')->middleware(['IsAuth', 'IsUser']);
+
+// Reseller
+Route::get('/dashboard', [ResellerDashboardController::class, 'index'])->name('resellerDashboardView')->middleware(['IsAuth', 'IsReseller']);
+
+// Main Page
+//Home
+Route::get('/produk', [ProdukController::class, 'index'])->name('produkView');

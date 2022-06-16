@@ -1,7 +1,13 @@
 @extends('layouts.main')
 
 @section('content') 
-
+<div class="content">
+    @if ($errors->any())
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ $errors->first() }}
+    </div>
+    @endif
+</div>
 <div class="content">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
         <div class="carousel-indicators">

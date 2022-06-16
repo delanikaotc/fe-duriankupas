@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Reseller;
 use App\Http\Controllers\Controller;
 
 use GuzzleHttp\Client;
@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 
-class UserProfileController extends Controller 
+class ResellerDashboardController extends Controller 
 {
     function index()
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/profile/' . cookie::get('idUser');
+        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/';
 
         $params['headers'] = array (
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -24,12 +24,10 @@ class UserProfileController extends Controller
             $action = $client->get($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
             Log::info($response);
-            Log::info(cookie::get('accessToken'));
-            Log::info(cookie::get('roleUser'));
 
-            return view('user/user_home')->with([
+            return view('reseller/reseller_home')->with([
                 'data' => $response,
-                'title' =>"Profil"
+                'title' =>"Dashboard"
             ]);
         }
         catch (Exception $e){
