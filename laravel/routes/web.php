@@ -8,6 +8,11 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\Reseller\ResellerDashboardController;
 use App\Http\Controllers\Reseller\ResellerDataPemesananController;
+use App\Http\Controllers\Admin\AdminDataPemesananController;
+use App\Http\Controllers\Admin\AdminDataPembeliController;
+use App\Http\Controllers\Admin\AdminDataResellerController;
+use App\Http\Controllers\Admin\AdminDataProdukController;
+
 
 
 /*
@@ -55,18 +60,6 @@ Route::get('/rincian-pesanan', function () {
     ]);
 });
 
-Route::get('/admin', function () {
-    return view('admin/admin_home', [
-        "title" => "Admin"
-    ]);
-});
-
-Route::get('/data-pengguna', function () {
-    return view('admin/admin_data_pengguna', [
-        "title" => "Admin"
-    ]);
-});
-
 //Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -82,12 +75,23 @@ Route::post('/keluar', [MasukController::class, 'keluar'])->name('keluar')->midd
 
 // User
 Route::get('/profil', [UserProfileController::class, 'index'])->name('userProfileView')->middleware(['IsAuth', 'IsUser']);
+Route::post('/buat-pesanan', [ProdukController::class, 'buatPesanan'])->name('buatPesanan')->middleware(['IsAuth', 'IsUser']);
+
 
 // Reseller
 Route::get('/dashboard', [ResellerDashboardController::class, 'index'])->name('resellerDashboardView')->middleware(['IsAuth', 'IsReseller']);
-Route::get('/data-pemesanan', [ResellerDataPemesananController::class, 'index'])->name('resellerDataPemesananView')->middleware(['IsAuth', 'IsReseller']);
+Route::get('/data-pemesanan-baru', [ResellerDataPemesananController::class, 'indexPemesananBaru'])->name('resellerDataPemesananBaruView')->middleware(['IsAuth', 'IsReseller']);
+Route::get('/riwayat-data-pemesanan', [ResellerDataPemesananController::class, 'indexRiwayatPemesanan'])->name('resellerRiwayatDataPemesananView')->middleware(['IsAuth', 'IsReseller']);
+
+
+// Admin
+Route::get('/admin/data-pemesanan', [AdminDataPemesananController::class, 'index'])->name('adminDataPemesananView')->middleware(['IsAuth', 'IsAdmin']);
+Route::get('/admin/data-reseller', [AdminDataResellerController::class, 'index'])->name('adminDataResellerView')->middleware(['IsAuth', 'IsAdmin']);
+Route::get('/admin/data-produk', [AdminDataProdukController::class, 'index'])->name('adminDataProdukView')->middleware(['IsAuth', 'IsAdmin']);
+Route::get('/admin/data-pembeli', [AdminDataPembeliController::class, 'index'])->name('adminDataPembeliView')->middleware(['IsAuth', 'IsAdmin']);
+Route::delete('/admin/hapus/{id}', [AdminDataPembeliController::class, 'hapusPembeli'])->middleware(['IsAuth', 'IsAdmin']);
 
 
 // Main Page
-//Home
+//Produk
 Route::get('/produk', [ProdukController::class, 'index'])->name('produkView');

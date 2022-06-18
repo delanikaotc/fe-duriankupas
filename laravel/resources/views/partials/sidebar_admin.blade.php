@@ -15,28 +15,28 @@
           </div>
         </div>
         <ul class="nav nav-pills flex-column mb-auto" style="margin-top: 60px">
-          <li>
+          {{-- <li>
             <a href="/admin" class="nav-link active" aria-current="page">
               <span class="bi me-2 iconify" data-icon="fluent:home-16-regular" style="font-size: 20px;"></span>              
               Dashboard
             </a>
-          </li>
+          </li> --}}
           <li>
-            <a href="/data-pengguna" class="nav-link link-dark">
-                <span class="bi me-2 iconify" data-icon="fluent:person-money-20-regular" style="color: #212427; font-size: 20px;"></span>              
-                Data Pengguna
+            <a href="{{ route('adminDataPemesananView') }}" class="nav-link {{ $title === "Data Pemesanan" ? 'active' : 'link-dark' }}">
+                <span class="bi me-2 iconify" data-icon="akar-icons:shopping-bag" style="color: #212427; font-size: 20px;"></span>             
+                 Data Pemesanan
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('adminDataPembeliView') }}" class="nav-link {{ $title === "Data Pembeli" ? 'active' : 'link-dark' }}">
+                <span class="bi me-2 iconify" data-icon="fluent:person-money-20-regular" style="color: #212427; font-size: 20px;"></span>              
+                Data Pembeli
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('adminDataResellerView') }}" class="nav-link {{ $title === "Data Reseller" ? 'active' : 'link-dark' }}">
                 <span class="bi me-2 bi me-2 iconify" data-icon="ant-design:user-outlined" style="color: #212427; font-size: 20px;"></span>              
                 Data Reseller
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link link-dark">
-                <span class="bi me-2 iconify" data-icon="akar-icons:shopping-bag" style="color: #212427; font-size: 20px;"></span>             
-                 Pemesanan
             </a>
           </li>
           <li>
@@ -46,14 +46,22 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('adminDataProdukView') }}" class="nav-link {{ $title === "Data Produk" ? 'active' : 'link-dark' }}">
                 <span class="bi me-2 iconify" data-icon="fluent:table-simple-16-regular" style="color: #212427; font-size: 20px;"></span>              
                 Produk
             </a>
           </li>
         </ul>
-        <div class="row">
+        @if (!empty(Cookie::get('accessToken')))
+          <form action="{{ route('keluar') }}" method="POST" class="inline-block">
+              {!! method_field('post') . csrf_field() !!}
+              <button type="submit">
+                  Logout
+              </button>
+          </form>
+        @endif
+        {{-- <div class="row">
           <a href="" style="color: #EB5757; text-decoration: none; text-align: center;">Log Out</a>
-        </div>
+        </div> --}}
     </div>
 {{-- </main> --}}

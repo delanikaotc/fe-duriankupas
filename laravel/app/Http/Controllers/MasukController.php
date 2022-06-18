@@ -44,7 +44,7 @@ class MasukController extends Controller
                 return redirect()->route('resellerDashboardView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
             }
             elseif ($response['role'] == 'admin') {
-                return redirect()->route('adminDashboardView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
+                return redirect()->route('adminDataPemesananView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
             }
         }
         catch(Exception $e) {

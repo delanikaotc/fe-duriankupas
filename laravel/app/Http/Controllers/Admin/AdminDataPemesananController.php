@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 
-class AdminDashboardController extends Controller 
+class AdminDataPemesananController extends Controller 
 {
     function index()
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/';
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datapesanan';
 
         $params['headers'] = array (
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -25,9 +25,9 @@ class AdminDashboardController extends Controller
             $response = json_decode($action->getBody()->getContents(), true);
             Log::info($response);
 
-            return view('reseller/reseller_home')->with([
+            return view('admin/admin_data_pemesanan')->with([
                 'data' => $response,
-                'title' =>"Dashboard"
+                'title' =>"Data Pemesanan"
             ]);
         }
         catch (Exception $e){

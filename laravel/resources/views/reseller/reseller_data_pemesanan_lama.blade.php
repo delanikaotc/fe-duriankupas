@@ -9,8 +9,18 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
               </form>
         </div>
+        <div class="tab-bar">
+            <div class="row">
+                <div class="col-6 pt-2">
+                    <a href="{{ route('resellerDataPemesananBaruView') }}">Pesanan Baru</a>
+                </div>
+                <div class="col-6 bg-active pt-2">
+                    <a style="text-decoration: underline; color: white;" href="{{ route('resellerRiwayatDataPemesananView') }}">Riwayat Pesanan</a>
+                </div>
+            </div>
+        </div>
         <div class="bg">
-            <table class="table table-borderless">
+            <table class="table table-borderless align-center">
                 <thead>
                   <tr>
                     <th scope="col">ID Pembeli</th>
@@ -21,17 +31,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
+                    @foreach ($data['pesananLama'] as $item)
                     <tr>
                         <th scope="row">{{ $item['id_user'] }}</th>
                         <td>
                             @foreach ($item['pesanan'] as $pesanan)
-                            <div>{{ $pesanan['product'] }} ({{ $pesanan['jumlah'] }})</div>
+                            <div>{{ $pesanan['product'] }} (x{{ $pesanan['jumlah'] }})</div>
                             @endforeach
                         </td>
                         <td>{{ $item['total'] }}</td>
                         <td align="center">
-                            <div class="label-sedang-dikirim">
+                            {{-- <div class="label-sedang-dikirim"> --}}
+                            <div>
                                 {{ $item['status'] }}
                             </div> 
                         </td>

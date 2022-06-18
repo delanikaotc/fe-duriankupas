@@ -10,6 +10,12 @@ body {
     margin-right: 96px;
 }
 
+.icon-footer {
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+}
+
 .navbar {
     background: #fafafa;
     padding-left: 96px;
@@ -126,6 +132,14 @@ body {
     width: 90px;
     height: 90px;
     background: #1d3616;
+    border-radius: 8px;
+    padding-top: 12px;
+}
+
+.icon-benefit {
+    color: white;
+    text-align: center;
+    font-size: 64px;
 }
 
 .content-card-benefit.title {
@@ -200,6 +214,7 @@ body {
     border-radius: 8px;
     margin-bottom: 24px;
     background-color: white;
+    text-align: center;
 }
 
 .card-produk.image {
@@ -216,6 +231,7 @@ body {
     margin-left: -12px;
     text-align: center;
     font-weight: 600;
+    background-color: transparent;
 }
 
 .card-produk.price {
@@ -421,6 +437,17 @@ body {
     text-align: center;
 }
 
+.bg-informasi-toko {
+    width: 996px;
+    background-color: white;
+    border-radius: 8px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: -12px;
+}
+
 .table-produk {
     text-align: center;
 }
@@ -470,4 +497,36 @@ body {
     padding: 20px;
     padding-left: 24px;
     margin-right: 38px;
+}
+
+.tab-bar {
+    width: 996px;
+    background-color: white;
+    border-radius: 8px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: -12px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.tab-bar a {
+    text-decoration: none;
+    color: #c4c4c4;
+    text-align: center;
+    font-weight: 600;
+}
+
+.bg-active {
+    background-color: #26471d;
+    border-radius: 8px;
+    height: 40px;
+}
+
+.foto-produk {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
 }

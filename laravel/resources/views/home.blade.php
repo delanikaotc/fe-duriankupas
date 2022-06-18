@@ -103,33 +103,36 @@
         </div>
         <div class="sub-content row" style="margin-left: 100px">
             <div class="content-card-benefit">
-                <div class="content-card-benefit bg-icon">
+                <div class="content-card-benefit bg-icon d-flex justify-content-center">
+                    <span class="iconify icon-benefit" data-icon="bi:emoji-smile-fill"></span>                
                 </div>
                 <div class="content-card-benefit title">
                     Terpercaya
                 </div>
                 <div class="content-card-benefit desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Terpercaya akan mengantarkan durian kupas untuk kamu    
                 </div>
             </div>
             <div class="content-card-benefit">
-                <div class="content-card-benefit bg-icon">
+                <div class="content-card-benefit bg-icon d-flex justify-content-center">
+                    <span class="iconify icon-benefit" data-icon="fa-solid:money-bill-wave"></span>
                 </div>
                 <div class="content-card-benefit title">
-                    Terpercaya
+                    Murah
                 </div>
                 <div class="content-card-benefit desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Harga pas untuk durian kupas berkualitas, rasa dijamin enak
                 </div>
             </div>
             <div class="content-card-benefit">
-                <div class="content-card-benefit bg-icon">
+                <div class="content-card-benefit bg-icon d-flex justify-content-center">
+                    <span class="iconify icon-benefit" data-icon="fa-solid:shipping-fast"></span>
                 </div>
                 <div class="content-card-benefit title">
-                    Terpercaya
+                    Cepat
                 </div>
                 <div class="content-card-benefit desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Durian kupas kamu cepat sampai ke tangan kamu
                 </div>
             </div>
         </div>

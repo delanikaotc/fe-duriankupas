@@ -32,4 +32,37 @@ class ProdukController extends Controller
             Log::error($e);
         }
     }
+
+    function buatPesanan(Request $request)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/users/pesan';
+        $params['headers'] = array (
+            'token' => 'Bearer ' . cookie::get('accessToken'),
+        );
+
+        $params['form_params'] = array(
+            'userId' => Cookie::get('idUser'),
+            'pesanan' => [
+                'product' => $request->product,
+                'jumlah' => $request->jumlah
+            ]
+        );
+
+        try {
+            $action = $client->post($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+            Log::info($response);
+
+            $data = json_decode(Cookie::get('profileUser'), true);
+
+            return view('buat_pesanan', [
+                'data' => $data,
+                'title' => "Buat Pesanan"
+            ]);
+        } 
+        catch (Exception $e) {
+            Log::error($e);
+        }
+    }
 }

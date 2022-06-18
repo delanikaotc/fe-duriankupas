@@ -23,6 +23,8 @@
             <a href="{{ route('userProfileView') }}" style="color: #26471D; font-weight:600; text-decoration: none;">
             @elseif (Cookie::get('roleUser') == 'reseller')
             <a href="{{ route('resellerDashboardView') }}" style="color: #26471D; font-weight:600; text-decoration: none;">
+            @elseif (Cookie::get('roleUser') == 'admin')
+            <a href="{{ route('adminDataPemesananView') }}" style="color: #26471D; font-weight:600; text-decoration: none;">
             @endif
             <div class="d-flex" style="padding-right:16px;">
                 <div class="row">
