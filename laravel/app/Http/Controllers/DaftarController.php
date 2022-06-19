@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+
+
 
 class DaftarController extends Controller
 {
@@ -25,7 +28,7 @@ class DaftarController extends Controller
             'phone' => $request->phone
         );
 
-        try{
+        try {
             $action = $client->post($URI, $params);
             $responseJson = $action->getBody();
             $response = json_decode($responseJson, true);
@@ -46,8 +49,7 @@ class DaftarController extends Controller
             // $tokenCookie = cookie('accessToken', $response['accessToken'], 60);
 
             // return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser]);
-        }
-        catch (Exception $e){
+        } catch (Exception $e) {
             Log::error($e);
             return redirect()->route('daftarView')->withErrors([$e->getMessage()]);
         }

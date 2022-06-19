@@ -22,7 +22,7 @@
             </a>
           </li>
           <li>
-            <a href="{{ route('resellerDataPemesananBaruView') }}" class="nav-link {{ $title === "Data Pemesanan" ? 'active' : 'link-dark' }}">
+            <a href="{{ route('resellerDataPemesananBaruView') }}" class="nav-link {{ $title === "Data" ? 'active' : 'link-dark' }}">
               <span class="bi me-2 iconify" data-icon="bi:table" style="font-size: 20px;"></span>              
               Data Pemesanan
             </a>

@@ -34,8 +34,15 @@
                                 </a>
                             </div>
                             <div class="col-2 icon-hapus">
-                                <a href="/admin/hapus/{{ $item['_id'] }}">
-                                    <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                            </a>
+                            <form action="{{ route('hapusPembeli', $item['_id']) }}" method="post">
+                                {!! method_field('post') . csrf_field() !!}
+                                <button type="submit">
+                                    <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                            
+                                </button>
+                            </form>
+                                {{-- <a href="{}">
+                                    <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                            
+                                </a> --}}
                             </div>
                         </td>
                       </tr>

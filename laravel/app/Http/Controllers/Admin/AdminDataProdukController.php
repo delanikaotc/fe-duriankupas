@@ -1,39 +1,38 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 
+use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 
-class AdminDataProdukController extends Controller 
+class AdminDataProdukController extends Controller
 {
     function index()
     {
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/dataproduct';
 
-        $params['headers'] = array (
+        $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
 
-        try{
+        try {
             $action = $client->get($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
             Log::info($response);
 
             return view('admin/admin_data_produk')->with([
                 'data' => $response,
-                'title' =>"Data Produk"
+                'title' => "Data Produk"
             ]);
-        }
-        catch (Exception $e){
+        } catch (Exception $e) {
             Log::error($e);
         }
     }
-
-
 }

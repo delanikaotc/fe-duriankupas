@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -37,21 +38,17 @@ class MasukController extends Controller
             Log::info($profile);
             Log::info($roleUser);
 
-            if($response['role'] == 'user'){
+            if ($response['role'] == 'user') {
                 return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
-            }
-            elseif ($response['role'] == 'reseller') {
+            } elseif ($response['role'] == 'reseller') {
                 return redirect()->route('resellerDashboardView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
-            }
-            elseif ($response['role'] == 'admin') {
+            } elseif ($response['role'] == 'admin') {
                 return redirect()->route('adminDataPemesananView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
             }
-        }
-        catch(Exception $e) {
+        } catch (Exception $e) {
             Log::error($e);
             return redirect()->route('masukView')->withErrors([$e->getMessage()]);
         }
-
     }
 
     function keluar()

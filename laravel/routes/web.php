@@ -6,14 +6,16 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MasukController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\User\BuatPesananController;
+use App\Http\Controllers\User\PembayaranController;
 use App\Http\Controllers\Reseller\ResellerDashboardController;
 use App\Http\Controllers\Reseller\ResellerDataPemesananController;
 use App\Http\Controllers\Admin\AdminDataPemesananController;
 use App\Http\Controllers\Admin\AdminDataPembeliController;
 use App\Http\Controllers\Admin\AdminDataResellerController;
 use App\Http\Controllers\Admin\AdminDataProdukController;
-
-
+use App\Http\Controllers\User\UserPesananController;
+use App\Http\Controllers\User\BeriUlasanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,18 +30,6 @@ use App\Http\Controllers\Admin\AdminDataProdukController;
 
 Route::get('/tentang', function () {
     return view('tentang');
-});
-
-Route::get('/buat-pesanan', function () {
-    return view('buat_pesanan', [
-        "title" => "Buat Pesanan"
-    ]);
-});
-
-Route::get('/pembayaran', function () {
-    return view('pembayaran', [
-        "title" => "Pembayaran"
-    ]);
 });
 
 Route::get('/pesanan', function () {
@@ -75,8 +65,11 @@ Route::post('/keluar', [MasukController::class, 'keluar'])->name('keluar')->midd
 
 // User
 Route::get('/profil', [UserProfileController::class, 'index'])->name('userProfileView')->middleware(['IsAuth', 'IsUser']);
-Route::post('/buat-pesanan', [ProdukController::class, 'buatPesanan'])->name('buatPesanan')->middleware(['IsAuth', 'IsUser']);
-
+Route::post('/buat-pesanan', [BuatPesananController::class, 'buatPesanan'])->name('buatPesanan')->middleware(['IsAuth', 'IsUser']);
+Route::post('/buat-pesanan/{id}', [BuatPesananController::class, 'updatePesanan'])->name('updatePesanan')->middleware(['IsAuth', 'IsUser']);
+Route::get('/pesanan', [UserPesananController::class, 'index'])->name('userPesananView')->middleware(['IsAuth', 'IsUser']);
+Route::get('/beri-ulasan/{id}', [BeriUlasanController::class, 'index'])->name('beriUlasanView')->middleware(['IsAuth', 'IsUser']);
+Route::post('/beri-ulasan/{id}', [BeriUlasanController::class, 'kirimUlasan'])->name('kirimUlasan')->middleware(['IsAuth', 'IsUser']);
 
 // Reseller
 Route::get('/dashboard', [ResellerDashboardController::class, 'index'])->name('resellerDashboardView')->middleware(['IsAuth', 'IsReseller']);
@@ -89,7 +82,7 @@ Route::get('/admin/data-pemesanan', [AdminDataPemesananController::class, 'index
 Route::get('/admin/data-reseller', [AdminDataResellerController::class, 'index'])->name('adminDataResellerView')->middleware(['IsAuth', 'IsAdmin']);
 Route::get('/admin/data-produk', [AdminDataProdukController::class, 'index'])->name('adminDataProdukView')->middleware(['IsAuth', 'IsAdmin']);
 Route::get('/admin/data-pembeli', [AdminDataPembeliController::class, 'index'])->name('adminDataPembeliView')->middleware(['IsAuth', 'IsAdmin']);
-Route::delete('/admin/hapus/{id}', [AdminDataPembeliController::class, 'hapusPembeli'])->middleware(['IsAuth', 'IsAdmin']);
+Route::post('/admin/hapus/{id}', [AdminDataPembeliController::class, 'hapusPembeli'])->name('hapusPembeli')->middleware(['IsAuth', 'IsAdmin']);
 
 
 // Main Page

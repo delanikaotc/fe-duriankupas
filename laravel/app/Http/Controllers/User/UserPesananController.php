@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 
@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 
-class AdminDataPemesananController extends Controller
+class UserPesananController extends Controller
 {
     function index()
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datapesanan';
+        $URI = 'https://beduriankupas.herokuapp.com/api/users/mytransaction/' . cookie::get('idUser');
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -27,9 +27,12 @@ class AdminDataPemesananController extends Controller
             $response = json_decode($action->getBody()->getContents(), true);
             Log::info($response);
 
-            return view('admin/admin_data_pemesanan')->with([
-                'data' => $response,
-                'title' => "Data Pemesanan"
+            $data = json_decode(Cookie::get('profileUser'), true);
+
+            return view('user/user_pesanan')->with([
+                'dataPesanan' => $response,
+                'data' => $data,
+                'title' => "Pesanan Saya"
             ]);
         } catch (Exception $e) {
             Log::error($e);

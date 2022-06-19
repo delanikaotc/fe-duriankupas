@@ -25,7 +25,7 @@
             <div class="sidebar-user-title">Pesanan</div>
             <div class="sidebar-user-subtitle">
                 <div class="mb-1">
-                    <a href="/pesanan">Daftar Pesanan</a>
+                    <a class="{{ $title === "Pesanan Saya" ? 'active-sidebar-user' : '' }}" href="{{ route('userPesananView') }}">Daftar Pesanan</a>
                 </div>
                 <div>
                     <a href="/ulasan">Ulasan Pesanan</a>
@@ -36,8 +36,8 @@
                 @if (!empty(Cookie::get('accessToken')))
                 <form action="{{ route('keluar') }}" method="POST" class="inline-block">
                     {!! method_field('post') . csrf_field() !!}
-                    <button type="submit">
-                        Logout
+                    <button type="submit" class="btn btn-danger">
+                        Keluar
                     </button>
                 </form>
                 @endif
