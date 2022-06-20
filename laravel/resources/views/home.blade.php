@@ -45,50 +45,19 @@
         <p> id user : {{ Cookie::get('idUser') }}</p><br>
         @endif --}}
     <div class="sub-content row d-flex justify-content-center">
+        @foreach ($dataProduk as $item)
         <div class="card-produk-home">
             <div>
-                <img class="card-produk-home image" src="{{ asset('images/durian.jpeg') }}" alt="">
+                <img class="card-produk-home image" src="{{ $item['img'] }}" alt="">
             </div>
             <div class="card-produk-home title">
-                Durian Kupas Montong
+                {{ $item['nama'] }}
             </div>
             <div class="card-produk-home price">
-                Rp50.000
+                {{ $item['harga'] }}
             </div>
         </div>
-        <div class="card-produk-home">
-            <div>
-                <img class="card-produk-home image" src="{{ asset('images/durian.jpeg') }}" alt="">
-            </div>
-            <div class="card-produk-home title">
-                Durian Kupas Montong
-            </div>
-            <div class="card-produk-home price">
-                Rp50.000
-            </div>
-        </div>
-        <div class="card-produk-home">
-            <div>
-                <img class="card-produk-home image" src="{{ asset('images/durian.jpeg') }}" alt="">
-            </div>
-            <div class="card-produk-home title">
-                Durian Kupas Montong
-            </div>
-            <div class="card-produk-home price">
-                Rp50.000
-            </div>
-        </div>
-        <div class="card-produk-home">
-            <div>
-                <img class="card-produk-home image" src="{{ asset('images/durian.jpeg') }}" alt="">
-            </div>
-            <div class="card-produk-home title">
-                Durian Kupas Montong
-            </div>
-            <div class="card-produk-home price">
-                Rp50.000
-            </div>
-        </div>
+        @endforeach
         <div class="sub content row">
             <div class="d-flex justify-content-center">
                 <a class="btn btn-primary" href="/produk" role="button">Beli Durian Sekarang</a>

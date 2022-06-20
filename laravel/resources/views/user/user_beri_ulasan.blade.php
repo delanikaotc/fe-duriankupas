@@ -9,7 +9,8 @@
             @include('partials.sidebar_user')
             <div class="col">
                 <div class="bg-user">
-                    <form action="{{ route('kirimUlasan'), }}">
+                    <form action="{{ route('kirimUlasan'), }}" method="POST">
+                        {!! method_field('post') . csrf_field() !!}
                         <div class="mb-3 row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Rating</label>
                             <div class="col-sm-3">
@@ -24,7 +25,7 @@
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Ulasan</label>
                             <div class="col-sm-10">
                                 <textarea placeholder="Beri Ulasan"name="review" class="form-control form-control-sm" id="inputReview" rows="2" style="resize: none"></textarea>                            
                             </div>

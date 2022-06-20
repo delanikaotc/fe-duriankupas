@@ -27,7 +27,11 @@ class ResellerDataPemesananController extends Controller
             $response = json_decode($action->getBody()->getContents(), true);
             Log::info($response);
 
+            $data = json_decode(Cookie::get('profileUser'), true);
+
+
             return view('reseller/reseller_data_pemesanan_baru')->with([
+                'dataProfile' => $data,
                 'data' => $response,
                 'title' => "Data Pemesanan"
             ]);
@@ -50,11 +54,32 @@ class ResellerDataPemesananController extends Controller
             $response = json_decode($action->getBody()->getContents(), true);
             Log::info($response);
 
+            $data = json_decode(Cookie::get('profileUser'), true);
+
             return view('reseller/reseller_data_pemesanan_lama')->with([
+                'dataProfile' => $data,
                 'data' => $response,
                 'title' => "Data Pemesanan"
             ]);
         } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
+
+    function barangDikirim($id)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/dikirim/' . $id;
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . cookie::get('accessToken'),
+        );
+
+        try {
+            $client->put($URI, $params);
+            return redirect()->route('resellerDataPemesananBaruView')->with('success', 'Pembayaran berhasil terverifikasi!');
+        } catch (Exception $e) {
+
             Log::error($e);
         }
     }

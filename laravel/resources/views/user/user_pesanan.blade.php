@@ -40,7 +40,11 @@
                                     <div class="col d-flex justify-content-end">{{ $item['total'] }}</div>
                                 </div>
                                 <div>
-                                    <a class="btn btn-primary mb-2" href="{{ route('beriUlasanView', $item['_id']) }}" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>
+                                    @if ($item['status'] == 'Selesai')
+                                    <a class="btn btn-primary mb-2" href="{{ route('beriUlasanView', $item['_id']) }}" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>        
+                                    @elseif ($item['status'] == 'Menunggu Pembayaran')        
+                                    <a class="btn btn-primary mb-2" href="{{ route('pembayaranView', $item['_id']) }}" role="button" style="width: 227px; height: 30px; font-size: 12px;">Bayar Pesanan</a>                 
+                                    @endif
                                     <a class="btn btn-outline-primary" href="/rincian-pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Rincian Pesanan</a>
                                 </div>
                             </div>

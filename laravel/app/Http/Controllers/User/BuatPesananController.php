@@ -90,7 +90,8 @@ class BuatPesananController extends Controller
             return view('user/user_pembayaran', [
                 'dataPesanan' => $response,
                 'data' => $data,
-                'title' => "Pembayaran"
+                'title' => "Pembayaran",
+                'success' => "Data Pesanan berhasil dibuat!"
             ]);
         } catch (Exception $e) {
             Log::error($e);

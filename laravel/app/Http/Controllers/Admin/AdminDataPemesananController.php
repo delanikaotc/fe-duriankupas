@@ -35,4 +35,21 @@ class AdminDataPemesananController extends Controller
             Log::error($e);
         }
     }
+
+    function terimaBuktiPembayaran($id)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/pembayaranterverifikasi/' . $id;
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . cookie::get('accessToken'),
+        );
+        try {
+            $client->put($URI, $params);
+            return redirect()->route('adminDataPemesananView')->with('success', 'Pembayaran berhasil terverifikasi!');
+        } catch (Exception $e) {
+
+            Log::error($e);
+        }
+    }
 }

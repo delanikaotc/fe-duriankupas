@@ -35,18 +35,16 @@
                                     <div class="col-4" style="margin-left:12px">
                                         <select name="provinsi" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                             <option selected>Pilih Provinsi</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option value="Jawa Barat">Jawa Barat</option>
+                                            <option value="DKI Jakarta">DKI Jakarta</option>
                                         </select>
                                     </div>
                                     <label for="staticEmail" class="col-sm-2 col-form-label" style="text-align: right">Kab/Kota</label>
                                     <div class="col-3">
                                         <select name="kota"class="form-select form-select-sm" aria-label=".form-select-sm example">
                                             <option selected>Pilih Kab/Kota</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option value="Depok">Depok</option>
+                                            <option value="Jakarta Utara">Jakarta Utara</option>
                                         </select>
                                     </div>
                                 </div>
@@ -55,12 +53,7 @@
                                 <div class="row">
                                     <label for="staticEmail" class="col-sm-2 col-form-label">Kecamatan</label>
                                     <div class="col-4" style="margin-left:12px">
-                                        <select name="kecamatan" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                            <option selected>Pilih Kecamatan</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
+                                        <input name="kecamatan" class="form-control form-control-sm" type="text" placeholder="Kecamatan" aria-label=".form-control-sm example">                               
                                     </div>
                                     <label for="staticEmail" class="col-sm-2 col-form-label" style="text-align: right">Kode Pos</label>
                                     <div class="col-3">
@@ -82,9 +75,9 @@
                                 <div class="col-2">
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
                                         <option selected>Pilih Pembayaran</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option value="Transfer BNI">Transfer BNI</option>
+                                        <option value="Transfer BRI">Transfer BRI</option>
+                                        <option value="Transfer BCA">Transfer BCA</option>
                                     </select>
                                 </div>
                             </div>
@@ -149,7 +142,7 @@
                             </tr>
                             <tr class="d-flex" style="text-align: right; margin-top: 16px" >
                                 <td class="col-12">
-                                    <button type="submit" class="btn btn-primary" style="width: 300px">Buat Pesanan</button>    
+                                    <button type="submit" class="btn btn-primary" style="width: 300px">Lanjut Pembayaran</button>    
                                     {{-- <a class="btn btn-primary" href="/pembayaran" role="button">Buat Pesanan</a> --}}
                                 </td>
                             </tr>

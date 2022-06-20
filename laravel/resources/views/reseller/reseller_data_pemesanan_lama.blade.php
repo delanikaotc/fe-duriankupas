@@ -27,7 +27,6 @@
                     <th scope="col">Pesanan</th>
                     <th scope="col">Total Harga</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,17 +44,6 @@
                             <div>
                                 {{ $item['status'] }}
                             </div> 
-                        </td>
-                        <td class="row d-flex justify-content-center">
-                            <div class="col-2 icon-edit me-1">
-                                <a href="">
-                                    <span class="iconify" data-icon="clarity:edit-solid" style="color: #f2c94c; font-size: 12px; margin-left: -6px"></span>
-                                </a>
-                            </div>
-                            <div class="col-2 icon-hapus">
-                                <a href="">
-                                    <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                            </a>
-                            </div>
                         </td>
                     </tr>
                     @endforeach

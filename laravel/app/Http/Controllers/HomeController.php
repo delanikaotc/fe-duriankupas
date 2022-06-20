@@ -13,11 +13,23 @@ class HomeController extends Controller
 {
     function index()
     {
-        $data = json_decode(Cookie::get('profileUser'), true);
-        Log::info($data);
-        return view('home', [
-            'data' => $data,
-            'title' => "duriankupas.id"
-        ]);
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/users';
+
+        try {
+            $action = $client->get($URI);
+            $response = json_decode($action->getBody()->getContents(), true);
+
+            $data = json_decode(Cookie::get('profileUser'), true);
+
+            Log::info($data);
+            return view('home', [
+                'dataProduk' => $response,
+                'data' => $data,
+                'title' => "duriankupas.id"
+            ]);
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 }

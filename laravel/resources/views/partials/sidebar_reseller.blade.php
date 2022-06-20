@@ -10,8 +10,8 @@
             <img src="{{ asset('images/icon1.png') }}" alt="" class="sidebar-ava">
           </div>
           <div class="col">
-            <div style="font-weight: 600; font-size: 18px">Yunita Pratiwi</div>
-            <div>Reseller</div>
+            <div style="font-weight: 600; font-size: 18px">{{ $dataProfile['username'] }}</div>
+            <div>{{ $dataProfile['role'] }}</div>
           </div>
         </div>
         <ul class="nav nav-pills flex-column mb-auto" style="margin-top: 60px">

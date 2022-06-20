@@ -21,7 +21,6 @@ class UserPesananController extends Controller
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
-
         try {
             $action = $client->get($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);

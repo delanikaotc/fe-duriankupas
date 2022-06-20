@@ -3,6 +3,13 @@
 @section('content')
 <div class="content">
     <div class="content-reseller">
+        @if (session()->has('success'))
+        <div class="sub-content">
+            <div class="alert alert-success" role="alert">
+                {{ session()->get('success') }}
+            </div>
+        </div>
+        @endif
         <div class="row justify-content-end mb-5">
             <form class="col-4 d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -47,14 +54,14 @@
                             </div> 
                         </td>
                         <td class="row d-flex justify-content-center">
-                            <div class="col-2 icon-edit me-1">
-                                <a href="">
-                                    <span class="iconify" data-icon="clarity:edit-solid" style="color: #f2c94c; font-size: 12px; margin-left: -6px"></span>
-                                </a>
-                            </div>
-                            <div class="col-2 icon-hapus">
-                                <a href="">
-                                    <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                            </a>
+                            <div class="col">
+                                <form action="{{ route('barangDikirim', $item['_id']) }}" method="post">
+                                {!! method_field('post') . csrf_field() !!}
+                                    <button class="btn btn-terima"type="submit">                                    
+                                        <span class="iconify" data-icon="akar-icons:check" style="color: #479360; font-size: 12px; margin-left: -6px"></span>                                
+                                        Kirim Barang
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>

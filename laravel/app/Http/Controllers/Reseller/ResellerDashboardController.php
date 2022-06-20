@@ -25,9 +25,13 @@ class ResellerDashboardController extends Controller
         try {
             $action = $client->get($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
+
+            $data = json_decode(Cookie::get('profileUser'), true);
+
             Log::info($response);
 
             return view('reseller/reseller_home')->with([
+                'dataProfile' => $data,
                 'data' => $response,
                 'title' => "Dashboard"
             ]);

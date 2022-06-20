@@ -62,6 +62,24 @@ body {
     color: #26471d;
 }
 
+.btn.btn-terima {
+    /* text-align: center; */
+    background-color: #e0f2e6;
+    border-radius: 4px;
+    color: #479360;
+}
+
+.btn.btn-terima:hover {
+    border-color: #e0f2e6;
+}
+.btn.btn-tolak {
+    width: 20px;
+    /* text-align: center; */
+    background-color: #ffbebe;
+    border-radius: 4px;
+    border-color: #ffbebe;
+}
+
 .carousel-inner {
     width: 1225px;
     height: 300px;
@@ -274,6 +292,14 @@ body {
 
 .card-pembayaran {
     width: 500px;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 32px;
+    border-radius: 8px;
+}
+
+.card-bank {
+    width: 200px;
     background-color: white;
     padding: 20px;
     margin-bottom: 32px;
