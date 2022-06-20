@@ -35,7 +35,6 @@
                                 <button type="submit" class="btn btn-primary col-2">Kirim</button>
                             </div>
                         </div>
-    
                     </form>
                 </div>
             </div>

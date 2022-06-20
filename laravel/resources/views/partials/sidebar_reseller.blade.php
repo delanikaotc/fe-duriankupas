@@ -22,19 +22,19 @@
             </a>
           </li>
           <li>
-            <a href="{{ route('resellerDataPemesananBaruView') }}" class="nav-link {{ $title === "Data" ? 'active' : 'link-dark' }}">
+            <a href="{{ route('resellerDataPemesananBaruView') }}" class="nav-link {{ $title === "Data Pemesanan" ? 'active' : 'link-dark' }}">
               <span class="bi me-2 iconify" data-icon="bi:table" style="font-size: 20px;"></span>              
               Data Pemesanan
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('resellerDataRestockView') }}" class="nav-link {{ $title === "Data Restock" ? 'active' : 'link-dark' }}">
               <span class="bi me-2 iconify" data-icon="carbon:product" style="font-size: 20px;"></span>              
               Request Restock
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('resellerDataTarikUangView') }}" class="nav-link {{ $title === "Data Tarik Uang" ? 'active' : 'link-dark' }}">
               <span class="bi me-2 iconify" data-icon="uil:money-withdrawal" style="font-size: 20px;"></span>              
               Penarikan Uang
             </a>

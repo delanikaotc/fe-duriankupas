@@ -24,6 +24,7 @@
                     @foreach ($data as $item)
                     <tr>
                         <th scope="row">{{ $item['username'] }}</th>
+                        <td>{{ $item['_id'] }}</td>
                         <td>{{ $item['email'] }}</td>
                         <td>{{ $item['phone'] }}</td>
                         <td>Jakarta</td>
@@ -33,10 +34,10 @@
                                     <span class="iconify" data-icon="clarity:edit-solid" style="color: #f2c94c; font-size: 12px; margin-left: -6px"></span>
                                 </a>
                             </div>
-                            <div class="col-2 icon-hapus">
+                            <div class="col-2">
                             <form action="{{ route('hapusPembeli', $item['_id']) }}" method="post">
                                 {!! method_field('post') . csrf_field() !!}
-                                <button type="submit">
+                                <button type="submit" class="btn btn-tolak">
                                     <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                            
                                 </button>
                             </form>

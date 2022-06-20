@@ -35,13 +35,19 @@
           </li>
           <li>
             <a href="{{ route('adminDataResellerView') }}" class="nav-link {{ $title === "Data Reseller" ? 'active' : 'link-dark' }}">
-                <span class="bi me-2 bi me-2 iconify" data-icon="ant-design:user-outlined" style="color: #212427; font-size: 20px;"></span>              
+                <span class="bi me-2 iconify" data-icon="ant-design:user-outlined" style="color: #212427; font-size: 20px;"></span>              
                 Data Reseller
             </a>
           </li>
           <li>
+            <a href="{{ route('adminDataRestockView') }}" class="nav-link {{ $title === "Data Restock" ? 'active' : 'link-dark' }}">
+              <span class="bi me-2 iconify" data-icon="carbon:product" style="font-size: 20px;"></span>              
+              Data Restock
+            </a>
+          </li>
+          <li>
             <a href="#" class="nav-link link-dark">
-              <span class="bi me-2 bi me-2 iconify" data-icon="uil:money-withdrawal" style="font-size: 20px;"></span>              
+              <span class="bi me-2 iconify" data-icon="uil:money-withdrawal" style="font-size: 20px;"></span>              
               Penarikan Uang
             </a>
           </li>

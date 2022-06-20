@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 
-class AdminDataResellerController extends Controller
+class AdminDataRestockController extends Controller
 {
     function index()
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datareseller';
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datarestock';
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -27,28 +27,32 @@ class AdminDataResellerController extends Controller
             $response = json_decode($action->getBody()->getContents(), true);
             Log::info($response);
 
-            return view('admin/admin_data_reseller')->with([
+            $data = json_decode(Cookie::get('profileUser'), true);
+
+
+            return view('admin/admin_data_restock')->with([
+                'dataProfile' => $data,
                 'data' => $response,
-                'title' => "Data Reseller"
+                'title' => "Data Restock"
             ]);
         } catch (Exception $e) {
             Log::error($e);
         }
     }
 
-    function hapusReseller($id)
+    function kirimRestock($id)
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/deletetoko/' . $id;
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/restockdikirim/' . $id;
 
         $params['headers'] = array(
-            'token' => 'Bearer ' . Cookie::get('accessToken'),
+            'token' => 'Bearer ' . cookie::get('accessToken'),
         );
-
         try {
-            $client->delete($URI, $params);
-            return redirect()->route('adminDataResellerView')->with('success', 'Data Reseller berhasil dihapus!');
+            $client->put($URI, $params);
+            return redirect()->route('adminDataRestockView')->with('success', 'Pengajuan restock sudah dikirim!');
         } catch (Exception $e) {
+            echo $e;
             Log::error($e);
         }
     }

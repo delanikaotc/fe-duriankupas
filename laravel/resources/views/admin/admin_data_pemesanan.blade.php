@@ -22,7 +22,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
+                    @foreach ($data['datapesanan'] as $item)
                     <tr>
                         <th scope="row">{{ $item['id_user'] }}</th>
                         <td>
@@ -36,6 +36,7 @@
                                 {{ $item['status'] }}
                             </div> 
                         </td>
+                        @if ($item['status'] == 'Verifikasi Pembayaran')
                         <td class="row d-flex justify-content-center">
                             <div class="col-4">
                                 <form action="{{ route('terimaBuktiPembayaran', $item['_id']) }}" method="post">
@@ -54,6 +55,7 @@
                                 </form>                           
                             </div>
                         </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
