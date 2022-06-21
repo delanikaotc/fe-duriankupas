@@ -25,10 +25,12 @@ class AdminDataResellerController extends Controller
         try {
             $action = $client->get($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
+            $data = json_decode(Cookie::get('profileUser'), true);
             Log::info($response);
 
             return view('admin/admin_data_reseller')->with([
                 'data' => $response,
+                'dataProfile' => $data,
                 'title' => "Data Reseller"
             ]);
         } catch (Exception $e) {

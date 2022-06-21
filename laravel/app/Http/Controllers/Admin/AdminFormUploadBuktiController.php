@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 
-class AdminDataRestockController extends Controller
+class AdminFormUploadBuktiController extends Controller
 {
-    function index()
+    function index($id)
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datarestock';
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datatarikuang/' . $id;
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -25,35 +25,42 @@ class AdminDataRestockController extends Controller
         try {
             $action = $client->get($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
-            Log::info($response);
 
             $data = json_decode(Cookie::get('profileUser'), true);
 
-
-            return view('admin/admin_data_restock')->with([
+            return view('admin/admin_form_upload_bukti')->with([
+                'dataTarikUang' => $response,
                 'dataProfile' => $data,
-                'data' => $response,
-                'title' => "Data Restock"
+                'title' => "Form Upload Bukti"
             ]);
         } catch (Exception $e) {
             Log::error($e);
         }
     }
 
-    function kirimRestock($id)
+    function uploadBukti(Request $request, $id)
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/restockdikirim/' . $id;
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/transfer/' . $id;
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
+
+        $params['form_params'] = array(
+            'image' => $request->image
+        );
+
         try {
-            $client->put($URI, $params);
-            return redirect()->route('adminDataRestockView')->with('success', 'estock sudah dikirim!');
+            $action = $client->put($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+
+            Log::info($response);
+
+            return redirect()->route('adminDataTarikUangView')->with('success', 'Bukti berhasil diunggah!');
         } catch (Exception $e) {
-            echo $e;
             Log::error($e);
+            return redirect()->route('adminDataTarikUangView')->withErrors(['Gagal mengunggah bukti!']);
         }
     }
 }

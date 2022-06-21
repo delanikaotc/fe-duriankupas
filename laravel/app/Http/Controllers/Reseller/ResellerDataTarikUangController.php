@@ -15,28 +15,28 @@ class ResellerDataTarikUangController extends Controller
 {
     function index()
     {
-        // $client = new Client();
-        // $URI = 'https://beduriankupas.herokuapp.com/api/reseller/datarestock';
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/datatarikuang';
 
-        // $params['headers'] = array(
-        //     'token' => 'Bearer ' . cookie::get('accessToken'),
-        // );
+        $params['headers'] = array(
+            'token' => 'Bearer ' . cookie::get('accessToken'),
+        );
 
-        // try {
-        //     $action = $client->get($URI, $params);
-        //     $response = json_decode($action->getBody()->getContents(), true);
-        //     Log::info($response);
+        try {
+            $action = $client->get($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+            Log::info($response);
 
-        $data = json_decode(Cookie::get('profileUser'), true);
+            $data = json_decode(Cookie::get('profileUser'), true);
 
 
-        return view('reseller/reseller_data_tarik_uang')->with([
-            'dataProfile' => $data,
-            // 'data' => $response,
-            'title' => "Data Tarik Uang"
-        ]);
-        // } catch (Exception $e) {
-        //     Log::error($e);
-        // }
+            return view('reseller/reseller_data_tarik_uang')->with([
+                'dataProfile' => $data,
+                'data' => $response,
+                'title' => "Data Tarik Uang"
+            ]);
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 }

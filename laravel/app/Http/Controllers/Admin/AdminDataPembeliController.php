@@ -25,8 +25,11 @@ class AdminDataPembeliController extends Controller
             $action = $client->get($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
 
+            $data = json_decode(Cookie::get('profileUser'), true);
+
             return view('admin/admin_data_pembeli')->with([
                 'data' => $response,
+                'dataProfile' => $data,
                 'title' => "Data Pembeli"
             ]);
         } catch (Exception $e) {

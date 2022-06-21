@@ -25,12 +25,86 @@ class AdminDataProdukController extends Controller
         try {
             $action = $client->get($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
+            $data = json_decode(Cookie::get('profileUser'), true);
             Log::info($response);
 
             return view('admin/admin_data_produk')->with([
                 'data' => $response,
+                'dataProfile' => $data,
                 'title' => "Data Produk"
             ]);
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
+
+    function hapusProduk($id)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/deleteproduct/' . $id;
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . Cookie::get('accessToken'),
+        );
+
+        try {
+            $client->delete($URI, $params);
+            return redirect()->route('adminDataProdukView')->with('success', 'Data Produk berhasil dihapus!');
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
+
+    function indexEditProduk($id)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/dataproduct/' . $id;
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . Cookie::get('accessToken'),
+        );
+
+        try {
+            $action = $client->get($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+            $data = json_decode(Cookie::get('profileUser'), true);
+
+            Log::info($response);
+
+            return view('admin/admin_edit_produk')->with([
+                'dataProduk' => $response,
+                'dataProfile' => $data,
+                'title' => "Edit Produk"
+            ]);
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
+
+    function simpanEditProduk(Request $request, $id)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/updateproduct/' . $id;
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . Cookie::get('accessToken'),
+        );
+
+        $params['form_params'] = array(
+            'nama' => $request->nama,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+            'img' => $request->img
+        );
+
+        try {
+            $action = $client->put($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+            $data = json_decode(Cookie::get('profileUser'), true);
+
+            Log::info($response);
+
+            return redirect()->route('adminDataProdukView')->with('success', 'Data produk berhasil diubah!');
         } catch (Exception $e) {
             Log::error($e);
         }

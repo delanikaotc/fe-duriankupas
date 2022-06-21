@@ -80,13 +80,23 @@
                 <div class="col-3">Status</div>
                 <div class="col-3">Stock</div>
             </div>
+            @php
+            $no = 1;
+            @endphp
             @foreach ($data['tokonya']['stock'] as $item)
             <div class="row mb-3 list-produk">
-                <div class="col-1">1</div>
+                <div class="col-1">{{ $no }}</div>
                 <div class="col-5">{{ $item['product'] }}</div>
+                @if ($item['jumlah'] > 0)
                 <div class="col-3 label-ada-stok">Ada Stok</div>
+                @elseif ($item['jumlah'] = 0)
+                <div class="col-3">Stok Habis</div>
+                @endif
                 <div class="col-3">{{ $item['jumlah'] }}</div>
             </div>
+            @php
+                $no++;
+            @endphp
             @endforeach
         </div>
     </div>

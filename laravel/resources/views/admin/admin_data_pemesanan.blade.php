@@ -23,6 +23,7 @@
                 </thead>
                 <tbody>
                     @foreach ($data['datapesanan'] as $item)
+                    @if ($item['status'] != 'Menunggu Konfirmasi')
                     <tr>
                         <th scope="row">{{ $item['id_user'] }}</th>
                         <td>
@@ -57,6 +58,7 @@
                         </td>
                         @endif
                     </tr>
+                    @endif
                     @endforeach
                 </tbody>
               </table>

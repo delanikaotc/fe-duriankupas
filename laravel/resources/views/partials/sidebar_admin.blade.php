@@ -10,17 +10,11 @@
             <img src="{{ asset('images/icon1.png') }}" alt="" class="sidebar-ava">
           </div>
           <div class="col">
-            <div style="font-weight: 600; font-size: 18px">Yunita Pratiwi</div>
-            <div>Admin</div>
+            <div style="font-weight: 600; font-size: 18px">{{ $dataProfile['username'] }}</div>
+            <div>{{ $dataProfile['role'] }}</div>
           </div>
         </div>
         <ul class="nav nav-pills flex-column mb-auto" style="margin-top: 60px">
-          {{-- <li>
-            <a href="/admin" class="nav-link active" aria-current="page">
-              <span class="bi me-2 iconify" data-icon="fluent:home-16-regular" style="font-size: 20px;"></span>              
-              Dashboard
-            </a>
-          </li> --}}
           <li>
             <a href="{{ route('adminDataPemesananView') }}" class="nav-link {{ $title === "Data Pemesanan" ? 'active' : 'link-dark' }}">
                 <span class="bi me-2 iconify" data-icon="akar-icons:shopping-bag" style="color: #212427; font-size: 20px;"></span>             
@@ -46,7 +40,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('adminDataTarikUangView') }}" class="nav-link {{ $title === "Data Tarik Uang" ? 'active' : 'link-dark' }}">
               <span class="bi me-2 iconify" data-icon="uil:money-withdrawal" style="font-size: 20px;"></span>              
               Penarikan Uang
             </a>

@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="content">
+    @if (session()->has('success'))
+            <div class="sub-content">
+                <div class="alert alert-success" role="alert">
+                    {{ session()->get('success') }}
+                </div>
+            </div>
+        @endif
     <div class="title-page">
         <h1 style="font-weight: 600">Daftar Pesanan</h1>
     </div>
@@ -41,11 +48,20 @@
                                 </div>
                                 <div>
                                     @if ($item['status'] == 'Selesai')
-                                    <a class="btn btn-primary mb-2" href="{{ route('beriUlasanView', $item['_id']) }}" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>        
+                                        @if ($item['review'] == false)
+                                            <a class="btn btn-primary mb-2" href="{{ route('beriUlasanView', $item['_id']) }}" role="button" style="width: 227px; height: 30px; font-size: 12px;">Beri Ulasan</a>              
+                                        @endif
                                     @elseif ($item['status'] == 'Menunggu Pembayaran')        
-                                    <a class="btn btn-primary mb-2" href="{{ route('pembayaranView', $item['_id']) }}" role="button" style="width: 227px; height: 30px; font-size: 12px;">Bayar Pesanan</a>                 
+                                    <a class="btn btn-primary mb-2" href="{{ route('pembayaranView', $item['_id']) }}" role="button" style="width: 227px; height: 30px; font-size: 12px;">Bayar Pesanan</a>     
+                                    @elseif ($item['status'] == 'Sudah Dikirim')        
+                                    <form action="{{ route('pesananSampai', $item['_id']) }}" method="post">
+                                        {!! method_field('post') . csrf_field() !!}   
+                                        <button class="btn btn-primary mb-2" type="submit" style="width: 227px; height: 30px; font-size: 12px;">
+                                            Pesanan Sudah Sampai
+                                        </button>  
+                                    </form>                    
                                     @endif
-                                    <a class="btn btn-outline-primary" href="/rincian-pesanan" role="button" style="width: 227px; height: 30px; font-size: 12px;">Rincian Pesanan</a>
+                                    <a class="btn btn-outline-primary" href="{{ route('rincianPesananView', $item['_id']) }}" role="button" style="width: 227px; height: 30px; font-size: 12px;">Rincian Pesanan</a>
                                 </div>
                             </div>
                             @endif

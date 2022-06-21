@@ -28,6 +28,9 @@ use App\Http\Controllers\Admin\AdminDataResellerController;
 use App\Http\Controllers\Admin\AdminDataProdukController;
 use App\Http\Controllers\Admin\AdminFormTambahResellerController;
 use App\Http\Controllers\Admin\AdminDataRestockController;
+use App\Http\Controllers\Admin\AdminDataTarikUangController;
+use App\Http\Controllers\Admin\AdminFormTambahProdukController;
+use App\Http\Controllers\Admin\AdminFormUploadBuktiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +80,9 @@ Route::get('/pembayaran/{id}', [PembayaranController::class, 'index'])->name('pe
 Route::post('/upload-bukti-pembayaran/{id}', [PembayaranController::class, 'uploadBuktiPembayaran'])->name('uploadBuktiPembayaran')->middleware(['IsAuth', 'IsUser']);
 Route::get('/pesanan', [UserPesananController::class, 'index'])->name('userPesananView')->middleware(['IsAuth', 'IsUser']);
 Route::get('/beri-ulasan/{id}', [BeriUlasanController::class, 'index'])->name('beriUlasanView')->middleware(['IsAuth', 'IsUser']);
-Route::post('/beri-ulasan', [BeriUlasanController::class, 'kirimUlasan'])->name('kirimUlasan')->middleware(['IsAuth', 'IsUser']);
+Route::post('/beri-ulasan/{id}', [BeriUlasanController::class, 'kirimUlasan'])->name('kirimUlasan')->middleware(['IsAuth', 'IsUser']);
+Route::post('/pesanan-sampai/{id}', [UserPesananController::class, 'pesananSampai'])->name('pesananSampai')->middleware(['IsAuth', 'IsUser']);
+Route::get('/rincian-pesanan/{id}', [UserPesananController::class, 'rincianPesanan'])->name('rincianPesananView')->middleware(['IsAuth', 'IsUser']);
 
 // Reseller
 Route::get('/dashboard', [ResellerDashboardController::class, 'index'])->name('resellerDashboardView')->middleware(['IsAuth', 'IsReseller']);
@@ -89,6 +94,7 @@ Route::get('/form-restock', [ResellerFormRestockController::class, 'index'])->na
 Route::post('/form-restock', [ResellerFormRestockController::class, 'ajukanRestock'])->name('ajukanRestock')->middleware(['IsAuth', 'IsReseller']);
 Route::get('/data-tarik-uang', [ResellerDataTarikUangController::class, 'index'])->name('resellerDataTarikUangView')->middleware(['IsAuth', 'IsReseller']);
 Route::get('/form-tarik-uang', [ResellerFormTarikUangController::class, 'index'])->name('resellerFormTarikUangView')->middleware(['IsAuth', 'IsReseller']);
+Route::post('/form-tarik-uang', [ResellerFormTarikUangController::class, 'ajukanPenarikan'])->name('ajukanPenarikan')->middleware(['IsAuth', 'IsReseller']);
 
 
 
@@ -106,8 +112,20 @@ Route::post('/admin/hapus-reseller/{id}', [AdminDataResellerController::class, '
 Route::get('/admin/data-restock', [AdminDataRestockController::class, 'index'])->name('adminDataRestockView')->middleware(['IsAuth', 'IsAdmin']);
 Route::post('/admin/kirim-restock/{id}', [AdminDataRestockController::class, 'kirimRestock'])->name('kirimRestock')->middleware(['IsAuth', 'IsAdmin']);
 
+//Admin -> Tarik Uang
+Route::get('/admin/data-tarik-uang', [AdminDataTarikUangController::class, 'index'])->name('adminDataTarikUangView')->middleware(['IsAuth', 'IsAdmin']);
+Route::get('/admin/upload-bukti/{id}', [AdminFormUploadBuktiController::class, 'index'])->name('adminFormUploadBuktiView')->middleware(['IsAuth', 'IsAdmin']);
+Route::post('/admin/upload-bukti/{id}', [AdminFormUploadBuktiController::class, 'uploadBukti'])->name('uploadBukti')->middleware(['IsAuth', 'IsAdmin']);
 
+//Admin -> Produk
 Route::get('/admin/data-produk', [AdminDataProdukController::class, 'index'])->name('adminDataProdukView')->middleware(['IsAuth', 'IsAdmin']);
+Route::get('/admin/form-tambah-produk', [AdminFormTambahProdukController::class, 'index'])->name('adminFormTambahProdukView')->middleware(['IsAuth', 'IsAdmin']);
+Route::post('/admin/form-tambah-produk', [AdminFormTambahProdukController::class, 'tambahProduk'])->name('tambahProduk')->middleware(['IsAuth', 'IsAdmin']);
+Route::post('/admin/hapus-produk/{id}', [AdminDataProdukController::class, 'hapusProduk'])->name('hapusProduk')->middleware(['IsAuth', 'IsAdmin']);
+Route::get('/admin/edit-produk/{id}', [AdminDataProdukController::class, 'indexEditProduk'])->name('adminEditProdukView')->middleware(['IsAuth', 'IsAdmin']);
+Route::post('/admin/edit-produk/{id}', [AdminDataProdukController::class, 'simpanEditProduk'])->name('simpanEditProduk')->middleware(['IsAuth', 'IsAdmin']);
+
+
 Route::get('/admin/data-pembeli', [AdminDataPembeliController::class, 'index'])->name('adminDataPembeliView')->middleware(['IsAuth', 'IsAdmin']);
 Route::post('/admin/hapus/{id}', [AdminDataPembeliController::class, 'hapusPembeli'])->name('hapusPembeli')->middleware(['IsAuth', 'IsAdmin']);
 

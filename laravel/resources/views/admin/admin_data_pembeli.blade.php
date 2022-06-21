@@ -3,6 +3,13 @@
 @section('content')
 <div class="content">
     <div class="content-reseller">
+        @if (session()->has('success'))
+        <div class="sub-content">
+            <div class="alert alert-success" role="alert">
+                {{ session()->get('success') }}
+            </div>
+        </div>
+        @endif
         <div class="row justify-content-end mb-5">
             <form class="col-4 d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

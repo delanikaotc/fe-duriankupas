@@ -10,31 +10,36 @@
             </div>
         </div>
         @endif
+        @if ($errors->any())
+        <div class="sub-content">
+            <div class="alert alert-danger" role="alert">
+                {{ $errors->first() }}
+            </div>
+        </div>
+        @endif
         <div class="bg">
             <table class="table table-borderless">
                 <thead>
                     <tr>
                         <th scope="col">Waktu</th>
                         <th scope="col">ID Reseller</th>
+                        <th scope="col">Jumlah</th>
                         <th scope="col">Status</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data['dataRestock'] as $item)
+                    @foreach ($data['datatarikuang'] as $item)
                     <tr>
                         <th scope="row">{{ $item['createdAt'] }}</th>
-                        <td style="text-align: left;">{{ $item['_id'] }}</td>
-                        <td></td>
+                        <td style="text-align: left;">{{ $item['id_toko'] }}</td>
+                        <td>{{ $item['jumlah'] }}</td>
                         <td>{{ $item['status'] }}</td>
                         <td class="row d-flex justify-content-center">
                             <div class="col-4">
-                                <form action="{{ route('kirimRestock', $item['_id']) }}" method="post">
-                                    {!! method_field('post') . csrf_field() !!}
-                                    <button class="btn btn-terima" type="submit">
-                                        <span class="iconify" data-icon="akar-icons:check" style="color: #479360; font-size: 12px; margin-left: -6px"></span>
-                                    </button>
-                                </form>
+                                <a class="btn btn-terima" href="{{ route('adminFormUploadBuktiView', $item['_id']) }}">
+                                    <span class="iconify" data-icon="akar-icons:check" style="color: #479360; font-size: 12px; margin-left: -6px"></span>
+                                </a>
                             </div>
                             <div class="col-4">
                                 {{-- <form action="{{ route('terimaBuktiPembayaran') }}" method="post"> --}}
@@ -46,31 +51,15 @@
                             </div>
                         </td>
                     </tr>
-                    @foreach ($item['product'] as $dataRestock)
-                    <tr>
-                        <th></th>
-                        <td style="text-align: left;">{{ $dataRestock['product'] }}</td>
-                        <td>{{ $dataRestock['jumlah'] }}</td>
-                    </tr>
                     @endforeach
-                    @endforeach
-
-                    @foreach ($data['doneRestock'] as $item)
+                    @foreach ($data['donetarikuang'] as $item)
                     <tr>
                         <th scope="row">{{ $item['createdAt'] }}</th>
-                        <td style="text-align: left;">{{ $item['_id'] }}</td>
-                        <td></td>
+                        <td style="text-align: left;">{{ $item['id_toko'] }}</td>
+                        <td>{{ $item['jumlah'] }}</td>
                         <td>{{ $item['status'] }}</td>
                     </tr>
-                    @foreach ($item['product'] as $dataRestock)
-                    <tr>
-                        <th></th>
-                        <td style="text-align: left;">{{ $dataRestock['product'] }}</td>
-                        <td>{{ $dataRestock['jumlah'] }}</td>
-                    </tr>
                     @endforeach
-                    @endforeach
-
                 </tbody>
             </table>
         </div>

@@ -17,7 +17,7 @@ class BuatPesananController extends Controller
     {
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/users/pesan';
-        $URI2 = 'https://beduriankupas.herokuapp.com/api/users';
+        $URIProduk = 'https://beduriankupas.herokuapp.com/api/users';
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -41,18 +41,18 @@ class BuatPesananController extends Controller
         try {
             if (!empty($semuaProduk)) {
                 $action = $client->post($URI, $params);
-                $action2 = $client->get($URI2);
+                $actionProduk = $client->get($URIProduk);
                 $response = json_decode($action->getBody()->getContents(), true);
-                $response2 = json_decode($action2->getBody()->getContents(), true);
+                $responseProduk = json_decode($actionProduk->getBody()->getContents(), true);
 
                 Log::info($response);
-                Log::info($response2);
+                Log::info($responseProduk);
 
                 $data = json_decode(Cookie::get('profileUser'), true);
 
                 return view('user/user_buat_pesanan', [
                     'dataPesanan' => $response,
-                    'dataProduk' => $response2,
+                    'dataProduk' => $responseProduk,
                     'data' => $data,
                     'title' => "Buat Pesanan"
                 ]);

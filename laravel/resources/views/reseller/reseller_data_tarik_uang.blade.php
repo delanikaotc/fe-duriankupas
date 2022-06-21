@@ -18,29 +18,22 @@
         <div class="bg">
             <table class="table table-borderless">
                 <thead>
-                  <tr>
-                    <th scope="col">Waktu</th>
-                    <th scope="col">Produk</th>
-                    <th scope="col">Jumlah</th>
-                    <th scope="col">Status</th>
-                  </tr>
+                    <tr>
+                        <th scope="col">Waktu</th>
+                        <th scope="col">ID Reseller</th>
+                        <th scope="col">Jumlah</th>
+                        <th scope="col">Status</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($data as $item)
+                    @foreach ($data as $item)
                     <tr>
                         <th scope="row">{{ $item['createdAt'] }}</th>
-                        <td style="text-align: left;">{{ $item['_id'] }}</td>
-                        <td></td>
+                        <td>{{ $item['id_toko'] }}</td>
+                        <td>{{ $item['jumlah'] }}</td>
                         <td>{{ $item['status'] }}</td>
                     </tr>
-                    @foreach ($item['product'] as $dataRestock)
-                    <tr>
-                        <th></th>
-                        <td style="text-align: left;">{{ $dataRestock['product'] }}</td>
-                        <td>{{ $dataRestock['jumlah'] }}</td>
-                    </tr> 
                     @endforeach
-                    @endforeach --}}
                 </tbody>
               </table>
         </div>

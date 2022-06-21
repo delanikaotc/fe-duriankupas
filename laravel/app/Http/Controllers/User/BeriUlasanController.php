@@ -13,14 +13,30 @@ use Illuminate\Support\Facades\Log;
 
 class BeriUlasanController extends Controller
 {
-    function index()
+    function index($id)
     {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/users/transaksi/' . $id;
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . Cookie::get('accessToken'),
+        );
+
         $data = json_decode(Cookie::get('profileUser'), true);
 
-        return view('user/user_beri_ulasan')->with([
-            'data' => $data,
-            'title' => "Beri Ulasan"
-        ]);
+        try {
+            $action = $client->get($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+            Log::info($response);
+
+            return view('user/user_beri_ulasan')->with([
+                'dataProfile' => $data,
+                'data' => $response,
+                'title' => "Beri Ulasan"
+            ]);
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 
     function kirimUlasan(Request $request, $id)
