@@ -43,8 +43,8 @@
         @if (!empty(Cookie::get('accessToken')))
           <form action="{{ route('keluar') }}" method="POST" class="inline-block">
               {!! method_field('post') . csrf_field() !!}
-              <button type="submit">
-                  Logout
+              <button type="submit" class="btn btn-keluar">
+                  Keluar
               </button>
           </form>
         @endif

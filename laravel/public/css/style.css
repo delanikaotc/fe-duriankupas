@@ -88,6 +88,14 @@ body {
     border-color: #fff4d1;
 }
 
+.btn.btn-keluar {
+    background-color: transparent;
+    border-color: transparent;
+    font-weight: 500;
+    color: #eb5757;
+    padding: 0px;
+}
+
 .carousel-inner {
     width: 1225px;
     height: 300px;

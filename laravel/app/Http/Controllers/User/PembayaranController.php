@@ -59,13 +59,13 @@ class PembayaranController extends Controller
         );
 
         $params['form_params'] = array(
-            'buktipembayaran' => $request->buktipembayaran
+            'image' => $request->file('image')
         );
 
         try {
             $action = $client->put($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
-            info($response);
+            Log::info($response);
 
             $data = json_decode(Cookie::get('profileUser'), true);
 

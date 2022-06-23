@@ -44,8 +44,8 @@
               <div class="mb-3">
                 <h6>Unggah Bukti Pembayaran</h6>
                   <div class="form-group">
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="buktiPembayaran">
-                    {{-- <input name="buktipembayaran" type="file" class="form-control-file" id="exampleFormControlFile1"> --}}
+                    {{-- <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="buktiPembayaran"> --}}
+                    <input name="image" type="file" class="form-control-file" id="inputBuktiPembayaran">
                   </div>
               </div>
           </div>
@@ -55,8 +55,8 @@
               </div>
           </div>
           </form>
-        <div style="margin-left: 375px; margin-bottom: 60px">
-            <h5 class="mb-2">Cara Pembayaran</h5>
+        <div style="margin-bottom: 60px" class="row d-flex justify-content-center">
+          <div style="text-align: center;"><h5 class="mb-2">Cara Pembayaran</h5></div>
             <div style="width: 500px">
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
