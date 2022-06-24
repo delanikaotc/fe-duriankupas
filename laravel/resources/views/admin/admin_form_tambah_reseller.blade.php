@@ -21,9 +21,9 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputIdUser" class="col-sm-2 col-form-label">ID User</label>
+                    <label for="inputIdUser" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm-10">
-                      <input name="id_user" placeholder="ID User" type="text" class="form-control" id="inputIdUser">
+                      <input name="username" placeholder="Username" type="text" class="form-control" id="inputUsername">
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -70,7 +70,8 @@
                 <tr>
                     <th scope="row"><img class="foto-produk" src="{{ $item['img'] }}" alt=""></th>
                     <td>
-                        <input style="text-align: center" name="ArrStock[{{ $k }}][product]" type="text" readonly class="form-control-plaintext" id="inputProduct" value="{{ $item['nama'] }}">
+                        {{ $item['nama'] }}
+                        <input type="hidden" style="text-align: center" name="ArrStock[{{ $k }}][product]" type="text" readonly class="form-control-plaintext" id="inputProduct" value="{{ $item['nama'] }}">
                     </td>
                     <td class="d-flex justify-content-center">
                         <div class="col-3">

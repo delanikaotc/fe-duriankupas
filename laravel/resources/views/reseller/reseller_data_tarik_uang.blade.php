@@ -20,7 +20,6 @@
                 <thead>
                     <tr>
                         <th scope="col">Waktu</th>
-                        <th scope="col">ID Reseller</th>
                         <th scope="col">Jumlah</th>
                         <th scope="col">Status</th>
                     </tr>
@@ -28,8 +27,7 @@
                 <tbody>
                     @foreach ($data as $item)
                     <tr>
-                        <th scope="row">{{ $item['createdAt'] }}</th>
-                        <td>{{ $item['id_toko'] }}</td>
+                        <th scope="row">{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</th>
                         <td>@currency($item['jumlah'])</td>
                         <td>{{ $item['status'] }}</td>
                     </tr>

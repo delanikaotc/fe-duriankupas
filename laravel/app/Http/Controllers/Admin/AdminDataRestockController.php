@@ -17,6 +17,7 @@ class AdminDataRestockController extends Controller
     {
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/datarestock';
+        $URIReseller = 'https://beduriankupas.herokuapp.com/api/admin/datareseller';
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -24,13 +25,17 @@ class AdminDataRestockController extends Controller
 
         try {
             $action = $client->get($URI, $params);
+            $actionReseller = $client->get($URIReseller, $params);
             $response = json_decode($action->getBody()->getContents(), true);
+            $responseReseller = json_decode($actionReseller->getBody()->getContents(), true);
             Log::info($response);
+            Log::info($responseReseller);
 
             $data = json_decode(Cookie::get('profileUser'), true);
 
 
             return view('admin/admin_data_restock')->with([
+                'dataReseller' => $responseReseller,
                 'dataProfile' => $data,
                 'data' => $response,
                 'title' => "Data Restock"
@@ -50,9 +55,8 @@ class AdminDataRestockController extends Controller
         );
         try {
             $client->put($URI, $params);
-            return redirect()->route('adminDataRestockView')->with('success', 'estock sudah dikirim!');
+            return redirect()->route('adminDataRestockView')->with('success', 'Restock sudah dikirim!');
         } catch (Exception $e) {
-            echo $e;
             Log::error($e);
         }
     }

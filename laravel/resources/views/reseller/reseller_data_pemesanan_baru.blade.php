@@ -30,7 +30,7 @@
             <table class="table table-borderless">
                 <thead>
                   <tr>
-                    <th scope="col">ID Pembeli</th>
+                    <th scope="col">Username Pembeli</th>
                     <th scope="col">Pesanan</th>
                     <th scope="col">Total Harga</th>
                     <th scope="col">Status</th>
@@ -40,7 +40,7 @@
                 <tbody>
                     @foreach ($data['pesananBaru'] as $item)
                     <tr>
-                        <th scope="row">{{ $item['id_user'] }}</th>
+                        <th scope="row">{{ $item['username'] }}</th>
                         <td>
                             @foreach ($item['pesanan'] as $pesanan)
                             <div>{{ $pesanan['product'] }} (x{{ $pesanan['jumlah'] }})</div>
@@ -57,7 +57,7 @@
                             <div class="col">
                                 <form action="{{ route('barangDikirim', $item['_id']) }}" method="post">
                                 {!! method_field('post') . csrf_field() !!}
-                                    <button class="btn btn-terima"type="submit">                                    
+                                    <button class="btn btn-kirim-barang"type="submit">                                    
                                         <span class="iconify" data-icon="akar-icons:check" style="color: #479360; font-size: 12px; margin-left: -6px"></span>                                
                                         Kirim Barang
                                     </button>

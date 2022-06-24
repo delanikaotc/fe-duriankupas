@@ -14,7 +14,7 @@
                         <div class="mb-3 row">
                             <label for="staticEmail" class="col-sm-4 col-form-label">Tanggal Pesanan</label>
                             <div class="col-sm-3" >
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $data['createdAt'] }}">
+                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ date_format(date_create($data['createdAt']), 'd M Y, G:i') }}">
                             </div>
                         </div>
                         <div class="sub-title">Data Diri Pembeli</div>
@@ -104,8 +104,8 @@
                                 <img style="width: 50px; height: 50px;" src="{{ $produk['img'] }}">
                             <td class="col-5" style="text-align: left;">{{ $item['product'] }}</td>
                             <td class="col-2" >{{ $item['jumlah'] }}</td>
-                            <td class="col-2">{{ $produk['harga'] }}</td>
-                            <td class="col-2" style="text-align: right;">{{ $produk['harga'] * $item['jumlah'] }}</td>
+                            <td class="col-2">@currency($produk['harga'])</td>
+                            <td class="col-2" style="text-align: right;">@currency($produk['harga'] * $item['jumlah'])</td>
                             @php
                                 $subtotal += $produk['harga'] * $item['jumlah'];
                             @endphp
@@ -118,15 +118,15 @@
                         </tr>
                         <tr class="d-flex" style="text-align: right;">
                             <td class="col-10">Subtotal Pesanan:</td>
-                            <td class="col-2">{{ $subtotal }}</td>
+                            <td class="col-2">@currency($subtotal)</td>
                         </tr>
                         <tr class="d-flex" style="text-align: right;">
                             <td class="col-10">Ongkos Kirim:</td>
-                            <td class="col-2">{{ $ongkir }}</td>
+                            <td class="col-2">@currency($ongkir)</td>
                         </tr>
                         <tr class="d-flex" style="text-align: right;">
                             <td class="col-10">Total pesanan:</td>
-                            <td class="col-2">{{ $data['total']}}
+                            <td class="col-2">@currency($data['total'])
                     </tbody>
                 </table>
             </div>

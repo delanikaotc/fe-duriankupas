@@ -54,4 +54,20 @@ class AdminDataPemesananController extends Controller
             Log::error($e);
         }
     }
+
+    function tolakBuktiPembayaran($id)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/pembayaranditolak/' . $id;
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . cookie::get('accessToken'),
+        );
+        try {
+            $client->put($URI, $params);
+            return redirect()->route('adminDataPemesananView')->with('success', 'Pembayaran berhasil ditolak!');
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
 }

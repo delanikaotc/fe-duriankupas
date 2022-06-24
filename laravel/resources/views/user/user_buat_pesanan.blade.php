@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="content">
+    <div class="title-page">
+        <h1 style="font-weight: 600">Pesanan</h1>
+    </div>
     @if ($errors->any())
     <div class="sub-content">
         <div class="alert alert-danger" role="alert">
@@ -9,9 +12,6 @@
         </div>
     </div>
     @endif
-    <div class="title-page">
-        <h1 style="font-weight: 600">Pesanan</h1>
-    </div>
     <form action="{{ route('updatePesanan', $dataPesanan['_id']) }}" method="POST">
         {!! method_field('post') . csrf_field() !!}
         <div class="sub-content">

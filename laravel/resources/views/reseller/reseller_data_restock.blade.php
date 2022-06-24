@@ -21,25 +21,20 @@
                   <tr>
                     <th scope="col">Waktu</th>
                     <th scope="col">Produk</th>
-                    <th scope="col">Jumlah</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach ($data as $item)
                     <tr>
-                        <th scope="row">{{ $item['createdAt'] }}</th>
-                        <td style="text-align: left;">{{ $item['_id'] }}</td>
-                        <td></td>
+                        <th scope="row">{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</th>
+                        <td>
+                            @foreach ($item['product'] as $restock)
+                            <div>{{ $restock['product'] }} (x{{ $restock['jumlah'] }})</div>
+                            @endforeach
+                        </td>
                         <td>{{ $item['status'] }}</td>
                     </tr>
-                    @foreach ($item['product'] as $dataRestock)
-                    <tr>
-                        <th></th>
-                        <td style="text-align: left;">{{ $dataRestock['product'] }}</td>
-                        <td>{{ $dataRestock['jumlah'] }}</td>
-                    </tr> 
-                    @endforeach
                     @endforeach
                 </tbody>
               </table>

@@ -44,6 +44,16 @@ class BeriUlasanController extends Controller
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/users/rating/' . $id;
 
+        $request->validate([
+            'rating' => ['required', 'numeric'],
+            'review' => ['required', 'max:255'],
+        ], [
+            'rating.required' => 'Kamu harus mengisi Rating!',
+            'rating.numeric' => 'Rating harus angka!',
+            'review.required' => 'Kamu harus mengisi Ulasan!',
+            'review.max' => 'Ulasan maksimal 255 karakter!',
+        ]);
+
         $params['headers'] = array(
             'token' => 'Bearer ' . Cookie::get('accessToken'),
         );
@@ -53,6 +63,7 @@ class BeriUlasanController extends Controller
             'review' => $request->review
         );
 
+        Log::info($params['form_params']);
 
         try {
             $action = $client->post($URI, $params);

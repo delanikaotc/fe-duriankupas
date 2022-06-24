@@ -80,31 +80,9 @@ class PembayaranController extends Controller
             $response = json_decode($action->getBody()->getContents(), true);
             Log::info($response);
 
-            return redirect()->route('userPesananView')->with('success', 'Pemnbayaran kamu diterima!');
+            return redirect()->route('userPesananView')->with('success', 'Unggah bukti pembayaran kamu berhasil!');
         } catch (Exception $e) {
             Log::error($e);
         }
     }
-    // function uploadBuktiPembayaran(Request $request)
-    // {
-    //     $image = $request->file('buktipembayaran');
-
-    //     $student = app('firebase.firestore')->database()->collection('buktiPembayaran')->document
-
-    //     try {
-    //         $action = $client->get($URI);
-    //         $response = json_decode($action->getBody()->getContents(), true);
-    //         Log::info($response);
-
-    //         $data = json_decode(Cookie::get('profileUser'), true);
-
-    //         return view('produk', [
-    //             'dataProduk' => $response,
-    //             'data' => $data,
-    //             'title' => "Produk Kami"
-    //         ]);
-    //     } catch (Exception $e) {
-    //         Log::error($e);
-    //     }
-    // }
 }

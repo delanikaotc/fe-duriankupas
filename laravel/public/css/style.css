@@ -64,6 +64,7 @@ body {
 
 .btn.btn-terima {
     /* text-align: center; */
+    width: 20px;
     background-color: #e0f2e6;
     border-radius: 4px;
     color: #479360;
@@ -94,6 +95,13 @@ body {
     font-weight: 500;
     color: #eb5757;
     padding: 0px;
+}
+
+.btn.btn-kirim-barang {
+    /* text-align: center; */
+    background-color: #e0f2e6;
+    border-radius: 4px;
+    color: #479360;
 }
 
 .carousel-inner {

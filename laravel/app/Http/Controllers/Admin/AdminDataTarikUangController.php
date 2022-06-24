@@ -17,6 +17,8 @@ class AdminDataTarikUangController extends Controller
     {
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/datatarikuang';
+        $URIReseller = 'https://beduriankupas.herokuapp.com/api/admin/datareseller';
+
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -24,13 +26,18 @@ class AdminDataTarikUangController extends Controller
 
         try {
             $action = $client->get($URI, $params);
+            $actionReseller = $client->get($URIReseller, $params);
             $response = json_decode($action->getBody()->getContents(), true);
+            $responseReseller = json_decode($actionReseller->getBody()->getContents(), true);
+
             $data = json_decode(Cookie::get('profileUser'), true);
 
             Log::info($response);
+            Log::info($responseReseller);
 
             return view('admin/admin_data_tarik_uang')->with([
                 'data' => $response,
+                'dataReseller' => $responseReseller,
                 'dataProfile' => $data,
                 'title' => "Data Tarik Uang"
             ]);

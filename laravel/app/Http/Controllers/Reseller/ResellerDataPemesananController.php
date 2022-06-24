@@ -77,7 +77,7 @@ class ResellerDataPemesananController extends Controller
 
         try {
             $client->put($URI, $params);
-            return redirect()->route('resellerDataPemesananBaruView')->with('success', 'Pembayaran berhasil terverifikasi!');
+            return redirect()->route('resellerDataPemesananBaruView')->with('success', 'Barang berhasil dikirim!');
         } catch (Exception $e) {
 
             Log::error($e);

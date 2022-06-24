@@ -24,7 +24,7 @@
                 <tbody>
                     @foreach ($data['dataRestock'] as $item)
                     <tr>
-                        <th scope="row">{{ $item['createdAt'] }}</th>
+                        <th scope="row">{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</th>
                         <td style="text-align: left;">{{ $item['_id'] }}</td>
                         <td></td>
                         <td>{{ $item['status'] }}</td>
@@ -58,7 +58,7 @@
 
                     @foreach ($data['doneRestock'] as $item)
                     <tr>
-                        <th scope="row">{{ $item['createdAt'] }}</th>
+                        <th scope="row">{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</th>
                         <td style="text-align: left;">{{ $item['_id'] }}</td>
                         <td></td>
                         <td>{{ $item['status'] }}</td>

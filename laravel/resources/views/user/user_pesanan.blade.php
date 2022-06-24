@@ -2,16 +2,16 @@
 
 @section('content')
 <div class="content">
-    @if (session()->has('success'))
-            <div class="sub-content">
-                <div class="alert alert-success" role="alert">
-                    {{ session()->get('success') }}
-                </div>
-            </div>
-        @endif
     <div class="title-page">
         <h1 style="font-weight: 600">Daftar Pesanan</h1>
     </div>
+    @if (session()->has('success'))
+    <div class="sub-content">
+        <div class="alert alert-success" role="alert">
+            {{ session()->get('success') }}
+        </div>
+    </div>
+    @endif
     <div class="sub-content">
         <div class="row">
             @include('partials.sidebar_user')
@@ -32,8 +32,8 @@
                             @if ($item['status'] != 'Menunggu Konfirmasi')
                             <div class="card-pesanan">
                                 <div class="mb-4">
-                                    <div class="card-pesanan-title">Pesanan {{ $item['_id'] }}</div>
-                                    <div>{{ $item['createdAt'] }}</div>
+                                    <div class="card-pesanan-title">Pesanan</div>
+                                    <div>{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</div>
                                     <div>{{ $item['status'] }}</div>
                                 </div>
                                 @foreach ($item['pesanan'] as $pesanan)

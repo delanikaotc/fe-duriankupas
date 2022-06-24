@@ -82,6 +82,7 @@ class AdminFormTambahProdukController extends Controller
             return redirect()->route('adminDataProdukView')->with('success', 'Produk berhasil ditambahkan!');
         } catch (Exception $e) {
             Log::error($e);
+            return redirect()->route('adminFormTambahProdukView')->withErrors($e->getMessage());
         }
     }
 }

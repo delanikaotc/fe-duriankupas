@@ -64,7 +64,7 @@ Route::post('/keluar', [MasukController::class, 'keluar'])->name('keluar')->midd
 
 // User
 Route::get('/profil', [UserProfileController::class, 'index'])->name('userProfileView')->middleware(['IsAuth', 'IsUser']);
-// Route::get('/buat-pesanan/{id}', [BuatPesananController::class, 'indexBuatPesanan'])->name('buatPesananView')->middleware(['IsAuth', 'IsUser']);
+Route::get('/buat-pesanan/', [BuatPesananController::class, 'indexBuatPesanan'])->name('buatPesananView')->middleware(['IsAuth', 'IsUser']);
 Route::post('/buat-pesanan', [BuatPesananController::class, 'buatPesanan'])->name('buatPesanan')->middleware(['IsAuth', 'IsUser']);
 Route::post('/pembayaran/{id}', [BuatPesananController::class, 'updatePesanan'])->name('updatePesanan')->middleware(['IsAuth', 'IsUser']);
 Route::get('/pembayaran/{id}', [PembayaranController::class, 'index'])->name('pembayaranView')->middleware(['IsAuth', 'IsUser']);
@@ -92,6 +92,7 @@ Route::post('/form-tarik-uang', [ResellerFormTarikUangController::class, 'ajukan
 // Admin -> Pemesanan
 Route::get('/admin/data-pemesanan', [AdminDataPemesananController::class, 'index'])->name('adminDataPemesananView')->middleware(['IsAuth', 'IsAdmin']);
 Route::post('/admin/pembayaran-terverifikasi/{id}', [AdminDataPemesananController::class, 'terimaBuktiPembayaran'])->name('terimaBuktiPembayaran')->middleware(['IsAuth', 'IsAdmin']);
+Route::post('/admin/pembayaran-ditolak/{id}', [AdminDataPemesananController::class, 'tolakBuktiPembayaran'])->name('tolakBuktiPembayaran')->middleware(['IsAuth', 'IsAdmin']);
 
 //Admin -> Reseller
 Route::get('/admin/data-reseller', [AdminDataResellerController::class, 'index'])->name('adminDataResellerView')->middleware(['IsAuth', 'IsAdmin']);

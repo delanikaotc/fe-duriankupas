@@ -41,14 +41,15 @@ class AdminFormTambahResellerController extends Controller
 
         $request->validate([
             'namatoko' => ['required'],
-            'id_user' => ['required'],
+            'username' => ['required'],
             'email' => ['required'],
             'phone' => ['required', 'numeric', 'digits_between:10,15'],
             'provinsi' => ['required'],
             'kota' => ['required']
+
         ], [
             'namatoko.required' => 'Kamu harus mengisi Nama Toko!',
-            'id_user.required' => 'Kamu harus mengisi ID User!',
+            'username.required' => 'Kamu harus mengisi Username!',
             'email.required' => 'Kamu harus mengisi Email!',
             'phone.required' => 'Kamu harus mengisi Nomor Telepon!',
             'phone.digits_between' => 'Nomor Telepon harus 10 s.d. 15 angka!',
@@ -73,7 +74,7 @@ class AdminFormTambahResellerController extends Controller
 
         $params['form_params'] = array(
             'namatoko' => $request->namatoko,
-            'id_user' => $request->id_user,
+            'username' => $request->username,
             'email' => $request->email,
             'phone' => $request->phone,
             'provinsi' => $request->provinsi,
@@ -84,19 +85,17 @@ class AdminFormTambahResellerController extends Controller
 
         try {
             if (!empty($semuaProduk)) {
-                if ($semuaProduk['jumlah'] > 0) {
-                    $action = $client->post($URI, $params);
-                    $response = json_decode($action->getBody()->getContents(), true);
+                $action = $client->post($URI, $params);
+                $response = json_decode($action->getBody()->getContents(), true);
 
-                    Log::info($response);
+                Log::info($response);
 
-                    return redirect()->route('adminDataResellerView')->with('success', 'Reseller berhasil ditambahkan!');
-                }
-                return redirect()->route('adminDataResellerView')->withErrors('Masukkan jumlah dengan benar!');
+                return redirect()->route('adminDataResellerView')->with('success', 'Reseller berhasil ditambahkan!');
             }
+            return redirect()->route('adminFormTambahResellerView')->withErrors(['Masukkan jumlah dengan benar!']);
         } catch (Exception $e) {
             Log::error($e);
-            return redirect()->back()->withErrors(['Masukkan jumlah dengan benar!']);
+            return redirect()->route('adminFormTambahResellerView')->withErrors([$e->getMessage()]);
         }
     }
 }

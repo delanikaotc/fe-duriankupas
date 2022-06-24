@@ -26,7 +26,8 @@
                     <tr>
                         <th scope="row"><img class="foto-produk" src="{{ $item['img'] }}" alt=""></th>
                         <td>
-                            <input style="text-align: center" name="ArrRequest[{{ $k }}][product]" type="text" readonly class="form-control-plaintext" id="inputProduct" value="{{ $item['nama'] }}">
+                            {{ $item['nama'] }}
+                            <input type="hidden" style="text-align: center" name="ArrRequest[{{ $k }}][product]" type="text" readonly class="form-control-plaintext" id="inputProduct" value="{{ $item['nama'] }}">
                         </td>
                         <td class="d-flex justify-content-center">
                             <div class="col-3">

@@ -23,7 +23,7 @@
             <table class="table table-borderless align-center">
                 <thead>
                   <tr>
-                    <th scope="col">ID Pembeli</th>
+                    <th scope="col">Username Pembeli</th>
                     <th scope="col">Pesanan</th>
                     <th scope="col">Total Harga</th>
                     <th scope="col">Status</th>
@@ -32,7 +32,7 @@
                 <tbody>
                     @foreach ($data['pesananLama'] as $item)
                     <tr>
-                        <th scope="row">{{ $item['id_user'] }}</th>
+                        <th scope="row">{{ $item['username'] }}</th>
                         <td>
                             @foreach ($item['pesanan'] as $pesanan)
                             <div>{{ $pesanan['product'] }} (x{{ $pesanan['jumlah'] }})</div>

@@ -19,7 +19,7 @@
                     <a class="{{ $title === "Profil" ? 'active-sidebar-user' : '' }}" href="{{ route('userProfileView') }}">Biodata Diri</a>               
                 </div>
                 <div>
-                    <a href="/user">Ubah Kata Sandi</a>
+                    <a href="">Ubah Kata Sandi</a>
                 </div>
             </div>
             <div class="sidebar-user-title">Pesanan</div>
@@ -28,7 +28,7 @@
                     <a class="{{ $title === "Pesanan Saya" ? 'active-sidebar-user' : '' }}" href="{{ route('userPesananView') }}">Daftar Pesanan</a>
                 </div>
                 <div>
-                    <a href="/ulasan">Ulasan Pesanan</a>
+                    <a href="">Ulasan Pesanan</a>
                 </div>
             </div>
             <hr>

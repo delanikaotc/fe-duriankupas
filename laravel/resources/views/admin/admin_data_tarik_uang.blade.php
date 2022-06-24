@@ -22,7 +22,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Waktu</th>
-                        <th scope="col">ID Reseller</th>
+                        <th scope="col">Nama Toko</th>
                         <th scope="col">Jumlah</th>
                         <th scope="col">Status</th>
                         <th scope="col">Aksi</th>
@@ -31,17 +31,21 @@
                 <tbody>
                     @foreach ($data['datatarikuang'] as $item)
                     <tr>
-                        <th scope="row">{{ $item['createdAt'] }}</th>
-                        <td>{{ $item['id_toko'] }}</td>
-                        <td>@currency($item['jumlah']</td>
+                        <th scope="row">{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</th>
+                        @foreach ($dataReseller['semuatoko'] as $reseller)
+                        @if ($reseller['_id'] == $item['id_toko'])
+                        <td>{{ $reseller['namatoko'] }}</td>
+                        @endif
+                        @endforeach
+                        <td>@currency($item['jumlah'])</td>
                         <td>{{ $item['status'] }}</td>
                         <td class="row d-flex justify-content-center">
-                            <div class="col-4">
+                            <div class="col-3">
                                 <a class="btn btn-terima" href="{{ route('adminFormUploadBuktiView', $item['_id']) }}">
                                     <span class="iconify" data-icon="akar-icons:check" style="color: #479360; font-size: 12px; margin-left: -6px"></span>
                                 </a>
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 {{-- <form action="{{ route('terimaBuktiPembayaran') }}" method="post"> --}}
                                 {!! method_field('post') . csrf_field() !!}
                                 <button class="btn btn-tolak" type="submit">
@@ -54,8 +58,12 @@
                     @endforeach
                     @foreach ($data['donetarikuang'] as $item)
                     <tr>
-                        <th scope="row">{{ $item['createdAt'] }}</th>
-                        <td>{{ $item['id_toko'] }}</td>
+                        <th scope="row">{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</th>
+                        @foreach ($dataReseller['semuatoko'] as $reseller)
+                        @if ($reseller['_id'] == $item['id_toko'])
+                        <td>{{ $reseller['namatoko'] }}</td>
+                        @endif
+                        @endforeach
                         <td>@currency($item['jumlah'])</td>
                         <td>{{ $item['status'] }}</td>
                     </tr>

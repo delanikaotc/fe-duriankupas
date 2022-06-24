@@ -48,14 +48,10 @@ class BuatPesananController extends Controller
                 Log::info($response);
                 Log::info($responseProduk);
 
-                $data = json_decode(Cookie::get('profileUser'), true);
+                $cookiePesanan  =  cookie('pesanan', $action->getBody(), 60);
+                $cookieProduk  =  cookie('produk', $actionProduk->getBody(), 60);
 
-                return view('user/user_buat_pesanan', [
-                    'dataPesanan' => $response,
-                    'dataProduk' => $responseProduk,
-                    'data' => $data,
-                    'title' => "Buat Pesanan"
-                ]);
+                return redirect()->route('buatPesananView')->withCookies([$cookiePesanan, $cookieProduk]);
             }
         } catch (Exception $e) {
             Log::error($e);
@@ -67,6 +63,18 @@ class BuatPesananController extends Controller
     {
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/users/detail/' . $id;
+
+        if ($request->provinsi == 'Pilih Provinsi') {
+            return redirect()->route('buatPesananView')->withErrors(['Pilih Provinsi kamu!']);
+        }
+
+        if ($request->kota == 'Pilih Kab/Kota') {
+            return redirect()->route('buatPesananView')->withErrors(['Pilih Kabupaten/Kota kamu!']);
+        }
+
+        if ($request->metodePembayaran == 'Pilih Pembayaran') {
+            return redirect()->route('buatPesananView')->withErrors(['Pilih Metode Pembayaran kamu!']);
+        }
 
         $request->validate([
             'provinsi' => ['required'],
@@ -114,25 +122,24 @@ class BuatPesananController extends Controller
         }
     }
 
-    // function indexBuatPesanan($id)
-    // {
-    //     $client = new Client();
-    //     $URI = 'https://beduriankupas.herokuapp.com/api/users/transaksi/' . $id;
+    function indexBuatPesanan()
+    {
+        $data = json_decode(Cookie::get('profileUser'), true);
+        $pesanan = json_decode(Cookie::get('pesanan'), true);
+        $produk = json_decode(Cookie::get('produk'), true);
 
-    //     $params['headers'] = array(
-    //         'token' => 'Bearer ' . Cookie::get('accessToken'),
-    //     );
+        Log::info($pesanan);
+        Log::info($produk);
 
-    //     try {
-    //         $action = $client->get($URI, $params);
-    //         $response = json_decode($action->getBody()->getContents(), true);
-    //         Log::info($response);
 
-    //         $data = json_decode(Cookie::get('profileUser'), true);
+        return view('user/user_buat_pesanan', [
+            'dataPesanan' => $pesanan,
+            'dataProduk' => $produk,
+            'data' => $data,
+            'title' => "Buat Pesanan"
+        ]);
 
-    //         return redirect()->route('buatPesanan');
-    //     } catch (Exception $e) {
-    //         Log::error($e);
-    //     }
-    // }
+        Cookie::expire('produk');
+        Cookie::expire('pesanan');
+    }
 }

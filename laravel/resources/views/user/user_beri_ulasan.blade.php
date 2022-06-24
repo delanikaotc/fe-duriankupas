@@ -5,6 +5,13 @@
         <div class="title-page">
             <h1 style="font-weight: 600">Ulasan Pesanan</h1>
         </div>
+        @if ($errors->any())
+        <div class="sub-content">
+            <div class="alert alert-danger" role="alert">
+                {{ $errors->first() }}
+            </div>
+        </div>
+        @endif
         <div class="row">
             @include('partials.sidebar_user')
             <div class="col">

@@ -25,8 +25,8 @@
             <table class="table table-borderless">
                 <thead>
                   <tr>
-                    <th scope="col">ID Reseller</th>
-                    <th scope="col">Nama Reseller</th>
+                    {{-- <th scope="col">ID Reseller</th> --}}
+                    <th scope="col">Username Reseller</th>
                     <th scope="col">Nama Toko</th>
                     <th scope="col">Nomor HP</th>
                     <th scope="col">Provinsi</th>
@@ -39,7 +39,7 @@
                   <tr>
                     @foreach ($data['reseller'] as $reseller)
                     @if ($reseller['_id'] == $item['id_user'])
-                    <th>{{ $reseller['_id'] }}</th>
+                    {{-- <th>{{ $reseller['_id'] }}</th> --}}
                     <td scope="row">{{ $reseller['username'] }}</td>       
                     @endif
                     @endforeach
@@ -48,13 +48,13 @@
                     <td>{{ $item['provinsi'] }}</td>
                     <td>{{ $item['kota'] }}</td>
                     <td class="row d-flex justify-content-center">
-                        <div class="col-2 icon-edit me-1">
-                            <a href="">
+                        <div class="col-3 me-1">
+                            <a href="" class="btn btn-edit ">
                                 <span class="iconify" data-icon="clarity:edit-solid" style="color: #f2c94c; font-size: 12px; margin-left: -6px"></span>
                             </a>
                         </div>
                         
-                        <div class="col-2">
+                        <div class="col-3">
                           <form action="{{ route('hapusReseller', $item['_id']) }}" method="post">
                             {!! method_field('post') . csrf_field() !!}
                                 <button class="btn btn-tolak"type="submit">                                    

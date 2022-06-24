@@ -49,9 +49,8 @@ class UserPesananController extends Controller
 
         try {
             $client->put($URI, $params);
-            return redirect()->route('resellerDataPemesananBaruView')->with('success', 'Terima kasih telah memesan durian kami! Selamat menikmati!');
+            return redirect()->route('userPesananView')->with('success', 'Terima kasih telah memesan durian kami! Selamat menikmati!');
         } catch (Exception $e) {
-
             Log::error($e);
         }
     }
