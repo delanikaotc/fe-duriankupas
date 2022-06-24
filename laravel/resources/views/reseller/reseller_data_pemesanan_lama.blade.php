@@ -12,10 +12,10 @@
         <div class="tab-bar">
             <div class="row">
                 <div class="col-6 pt-2">
-                    <a href="{{ route('resellerDataPemesananBaruView') }}">Pesanan Baru</a>
+                    <a href="{{ route('resellerDataPemesananBaruView') }}">Perlu Dikirim</a>
                 </div>
                 <div class="col-6 bg-active pt-2">
-                    <a style="text-decoration: underline; color: white;" href="{{ route('resellerRiwayatDataPemesananView') }}">Riwayat Pesanan</a>
+                    <a style="text-decoration: underline; color: white;" href="{{ route('resellerRiwayatDataPemesananView') }}">Data Pesanan</a>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                             <div>{{ $pesanan['product'] }} (x{{ $pesanan['jumlah'] }})</div>
                             @endforeach
                         </td>
-                        <td>{{ $item['total'] }}</td>
+                        <td>@currency($item['total'])</td>
                         <td align="center">
                             {{-- <div class="label-sedang-dikirim"> --}}
                             <div>

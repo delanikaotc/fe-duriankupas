@@ -54,20 +54,31 @@ class PembayaranController extends Controller
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/users/payment/' . $id;
 
+        $request->validate([
+            'image' => ['required'], ['mimes:jpeg,jpg,png'],
+        ], [
+            'image.required' => 'Kamu harus menambahkan gambar bukti!',
+            'image.mimes' => 'Gambar harus jpeg, jpg, atau png!'
+        ]);
+
         $params['headers'] = array(
             'token' => 'Bearer ' . Cookie::get('accessToken'),
         );
 
-        $params['form_params'] = array(
-            'image' => $request->file('image')
+        $file = $request->file('image');
+
+        $params['multipart'] = array(
+            [
+                'name' => 'image',
+                'contents' => file_get_contents($file->getPathname()),
+                'filename' => $file->getClientOriginalName()
+            ]
         );
 
         try {
             $action = $client->put($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
             Log::info($response);
-
-            $data = json_decode(Cookie::get('profileUser'), true);
 
             return redirect()->route('userPesananView')->with('success', 'Pemnbayaran kamu diterima!');
         } catch (Exception $e) {

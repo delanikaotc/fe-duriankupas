@@ -60,13 +60,29 @@ class BuatPesananController extends Controller
         } catch (Exception $e) {
             Log::error($e);
         }
-        return redirect()->back()->withErrors(['Masukkan jumlah!']);
+        return redirect()->back()->withErrors(['Masukkan jumlah dengan benar!']);
     }
 
     function updatePesanan(Request $request, $id)
     {
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/users/detail/' . $id;
+
+        $request->validate([
+            'provinsi' => ['required'],
+            'kota' => ['required'],
+            'kecamatan' => ['required'],
+            'alamat' => ['required'],
+            'metodePembayaran' => ['required'],
+            'kodePos' => ['required']
+        ], [
+            'provinsi.required' => 'Kamu harus mengisi Provinsi!',
+            'kota.required' => 'Kamu harus mengisi Kota!',
+            'kecamatan.required' => 'Kamu harus mengisi Kecamatan!',
+            'alamat.required' => 'Kamu harus mengisi Alamat!',
+            'metodePembayaran.required' => 'Kamu harus mengisi  Metode Pembayaran!',
+            'kodePos.required' => 'Kamu harus mengisi Kode Pos!',
+        ]);
 
         $params['headers'] = array(
             'token' => 'Bearer ' . Cookie::get('accessToken'),
@@ -97,4 +113,26 @@ class BuatPesananController extends Controller
             Log::error($e);
         }
     }
+
+    // function indexBuatPesanan($id)
+    // {
+    //     $client = new Client();
+    //     $URI = 'https://beduriankupas.herokuapp.com/api/users/transaksi/' . $id;
+
+    //     $params['headers'] = array(
+    //         'token' => 'Bearer ' . Cookie::get('accessToken'),
+    //     );
+
+    //     try {
+    //         $action = $client->get($URI, $params);
+    //         $response = json_decode($action->getBody()->getContents(), true);
+    //         Log::info($response);
+
+    //         $data = json_decode(Cookie::get('profileUser'), true);
+
+    //         return redirect()->route('buatPesanan');
+    //     } catch (Exception $e) {
+    //         Log::error($e);
+    //     }
+    // }
 }

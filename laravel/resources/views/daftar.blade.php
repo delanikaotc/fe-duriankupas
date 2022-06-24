@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="content masuk" style="margin-bottom: 60px">
+    <div class="title-page">
+        <h1 style="font-weight: 600">Daftar</h1>
+    </div>
     @if ($errors->any())
     <div class="sub-content">
         <div class="alert alert-danger" role="alert">
@@ -9,9 +12,6 @@
         </div>
     </div>
     @endif
-    <div class="title-page">
-        <h1 style="font-weight: 600">Daftar</h1>
-    </div>
     <div class="sub-content">
         <div class="card-masuk">
             <form action="{{ route('daftar') }}" method="POST">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="inputNoTelp" class="form-label">Nomor Telepon</label>
-                    <input type="number" class="form-control" id="phone" name="phone" placeholder="Nomor Telepon">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Telepon">
                 </div>
                 <div class="mb-4">
                     <label for="inputPassword" class="form-label">Kata Sandi</label>

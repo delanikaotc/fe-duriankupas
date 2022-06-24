@@ -20,6 +20,15 @@ class MasukController extends Controller
     {
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/auth/login';
+
+        $request->validate([
+            'username' => ['required'],
+            'password' => ['required']
+        ], [
+            'username.required' => 'Kamu harus mengisi Username!',
+            'password.required' => 'Kamu harus mengisi Kata Sandi!',
+        ]);
+
         $params['form_params'] = array(
             'username' => $request->username,
             'password' => $request->password

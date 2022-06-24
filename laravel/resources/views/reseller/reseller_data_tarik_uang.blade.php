@@ -30,7 +30,7 @@
                     <tr>
                         <th scope="row">{{ $item['createdAt'] }}</th>
                         <td>{{ $item['id_toko'] }}</td>
-                        <td>{{ $item['jumlah'] }}</td>
+                        <td>@currency($item['jumlah'])</td>
                         <td>{{ $item['status'] }}</td>
                     </tr>
                     @endforeach

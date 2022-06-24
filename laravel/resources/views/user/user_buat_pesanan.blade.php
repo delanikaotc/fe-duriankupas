@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="content">
+    @if ($errors->any())
+    <div class="sub-content">
+        <div class="alert alert-danger" role="alert">
+            {{ $errors->first() }}
+        </div>
+    </div>
+    @endif
     <div class="title-page">
         <h1 style="font-weight: 600">Pesanan</h1>
     </div>
@@ -17,13 +24,15 @@
                             <div class="mb-3 row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">Username</label>
                                 <div class="col-sm-9">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $data['username'] }}">
+                                    {{ $data['username'] }}
+                                    <input type="hidden" readonly class="form-control-plaintext" id="staticEmail" value="{{ $data['username'] }}">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">Nomor HP</label>
                                 <div class="col-sm-9">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $data['phone'] }}">
+                                    {{ $data['phone'] }}
+                                    <input type="hidden" readonly class="form-control-plaintext" id="staticEmail" value="{{ $data['phone'] }}">
                                 </div>
                             </div>
                         </div>
@@ -57,7 +66,7 @@
                                     </div>
                                     <label for="staticEmail" class="col-sm-2 col-form-label" style="text-align: right">Kode Pos</label>
                                     <div class="col-3">
-                                        <input class="form-control form-control-sm" type="text" placeholder="Kode Pos" aria-label=".form-control-sm example">                                
+                                        <input name="kodePos" class="form-control form-control-sm" type="text" placeholder="Kode Pos" aria-label=".form-control-sm example">                                
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +82,7 @@
                             <div class="row">
                                 <label for="staticEmail" class="col-sm-2 col-form-label">Metode Pembayaran</label>
                                 <div class="col-2">
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <select name="metodePembayaran" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                         <option selected>Pilih Pembayaran</option>
                                         <option value="Transfer BNI">Transfer BNI</option>
                                         <option value="Transfer BRI">Transfer BRI</option>
@@ -112,9 +121,9 @@
                                     <img style="width: 50px; height: 50px;" src="{{ $produk['img']}}" alt="">
                                 </td>
                                 <td class="col-5" style="text-align: left;">{{ $item['product'] }}</td>
-                                <td class="col-2">{{ $produk['harga']}}</td>
+                                <td class="col-2">@currency($produk['harga'])</td>
                                 <td class="col-2">{{ $item['jumlah'] }}</td>
-                                <td class="col-2" style="text-align: right;">{{ $produk['harga'] * $item['jumlah'] }}
+                                <td class="col-2" style="text-align: right;">@currency ($produk['harga'] * $item['jumlah'])
                                 </td>
                                 @php
                                 $subtotal += $produk['harga'] * $item['jumlah'];
@@ -128,16 +137,17 @@
                             </tr>
                             <tr class="d-flex" style="text-align: right;">
                                 <td class="col-10">Subtotal Pesanan:</td>
-                                <td class="col-2">{{ $subtotal }}</td>
+                                <td class="col-2">@currency($subtotal)</td>
                             </tr>
                             <tr class="d-flex" style="text-align: right;">
                                 <td class="col-10">Ongkos Kirim:</td>
-                                <td class="col-2">{{ $ongkir }}</td>
+                                <td class="col-2">@currency($ongkir)</td>
                             </tr>
                             <tr class="d-flex" style="text-align: right;">
                                 <td class="col-10">Total pesanan:</td>
                                 <td class="col-2">
-                                    <input style="text-align: right; font-weight: 600;" type="text" name="total" readonly class="form-control-plaintext" id="staticEmail" value="{{ $subtotal + $ongkir }}">
+                                    <input style="text-align: right; font-weight: 600;" type="text" readonly class="form-control-plaintext" id="staticEmail" value="@currency($subtotal + $ongkir)">
+                                    <input style="text-align: right; font-weight: 600;" type="hidden" name="total" readonly class="form-control-plaintext" id="staticEmail" value="{{ $subtotal + $ongkir }}">
                                 </td>
                             </tr>
                             <tr class="d-flex" style="text-align: right; margin-top: 16px" >

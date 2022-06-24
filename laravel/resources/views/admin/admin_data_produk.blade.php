@@ -40,7 +40,7 @@
                         </td>
                         <td scope="row">{{ $item['nama'] }}</td>
                         <td>{{ $item['deskripsi'] }}</td>
-                        <td>{{ $item['harga'] }}</td>
+                        <td>@currency($item['harg'])</td>
                         <td class="row d-flex justify-content-center mt-3">
                             <div class="col-2 me-1">
                                 <a class="btn btn-edit" href="{{ route('adminEditProdukView', $item['_id']) }}">

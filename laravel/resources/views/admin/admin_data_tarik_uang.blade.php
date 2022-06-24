@@ -32,8 +32,8 @@
                     @foreach ($data['datatarikuang'] as $item)
                     <tr>
                         <th scope="row">{{ $item['createdAt'] }}</th>
-                        <td style="text-align: left;">{{ $item['id_toko'] }}</td>
-                        <td>{{ $item['jumlah'] }}</td>
+                        <td>{{ $item['id_toko'] }}</td>
+                        <td>@currency($item['jumlah']</td>
                         <td>{{ $item['status'] }}</td>
                         <td class="row d-flex justify-content-center">
                             <div class="col-4">
@@ -55,8 +55,8 @@
                     @foreach ($data['donetarikuang'] as $item)
                     <tr>
                         <th scope="row">{{ $item['createdAt'] }}</th>
-                        <td style="text-align: left;">{{ $item['id_toko'] }}</td>
-                        <td>{{ $item['jumlah'] }}</td>
+                        <td>{{ $item['id_toko'] }}</td>
+                        <td>@currency($item['jumlah'])</td>
                         <td>{{ $item['status'] }}</td>
                     </tr>
                     @endforeach

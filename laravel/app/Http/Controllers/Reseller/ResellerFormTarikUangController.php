@@ -28,6 +28,13 @@ class ResellerFormTarikUangController extends Controller
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/reseller/tarikuang';
 
+        $request->validate([
+            'jumlah' => ['required', 'numeric'],
+        ], [
+            'jumlah.required' => 'Kamu harus mengisi jumlah saldo yang ingin diajukan!',
+            'jumlah.numeric' => 'Jumlah harus berisi angka saja!'
+        ]);
+
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );

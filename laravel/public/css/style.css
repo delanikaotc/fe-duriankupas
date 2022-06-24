@@ -564,3 +564,8 @@ body {
     height: 80px;
     border-radius: 8px;
 }
+
+.img-bukti-pembayaran {
+    height: 50px;
+    width: 50px;
+}

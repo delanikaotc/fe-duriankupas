@@ -43,12 +43,25 @@ class AdminFormUploadBuktiController extends Controller
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/transfer/' . $id;
 
+        $file = $request->file('image');
+
+        $request->validate([
+            'image' => ['required', 'mimes:jpeg,jpg,png'],
+        ], [
+            'image.required' => 'Kamu harus menambahkan Gambar Bukti!',
+            'image.mimes' => 'Gambar harus .jpeg, .jpg, atau .png',
+        ]);
+
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
 
-        $params['form_params'] = array(
-            'image' => $request->image
+        $params['multipart'] = array(
+            [
+                'name' => 'image',
+                'contents' => file_get_contents($file->getPathname()),
+                'filename' => $file->getClientOriginalName()
+            ]
         );
 
         try {

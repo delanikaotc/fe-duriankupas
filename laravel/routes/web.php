@@ -43,19 +43,9 @@ use App\Http\Controllers\Admin\AdminFormUploadBuktiController;
 |
 */
 
-Route::get('/tentang', function () {
-    return view('tentang');
-});
-
 Route::get('/ulasan', function () {
     return view('user/user_ulasan', [
         "title" => "Ulasan Pesanan"
-    ]);
-});
-
-Route::get('/rincian-pesanan', function () {
-    return view('user/user_rincian_pesanan', [
-        "title" => "Rincian Pesanan"
     ]);
 });
 
@@ -74,6 +64,7 @@ Route::post('/keluar', [MasukController::class, 'keluar'])->name('keluar')->midd
 
 // User
 Route::get('/profil', [UserProfileController::class, 'index'])->name('userProfileView')->middleware(['IsAuth', 'IsUser']);
+// Route::get('/buat-pesanan/{id}', [BuatPesananController::class, 'indexBuatPesanan'])->name('buatPesananView')->middleware(['IsAuth', 'IsUser']);
 Route::post('/buat-pesanan', [BuatPesananController::class, 'buatPesanan'])->name('buatPesanan')->middleware(['IsAuth', 'IsUser']);
 Route::post('/pembayaran/{id}', [BuatPesananController::class, 'updatePesanan'])->name('updatePesanan')->middleware(['IsAuth', 'IsUser']);
 Route::get('/pembayaran/{id}', [PembayaranController::class, 'index'])->name('pembayaranView')->middleware(['IsAuth', 'IsUser']);

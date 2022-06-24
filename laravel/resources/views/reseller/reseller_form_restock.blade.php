@@ -30,7 +30,7 @@
                         </td>
                         <td class="d-flex justify-content-center">
                             <div class="col-3">
-                                <input name="ArrRequest[{{ $k }}][jumlah]" style="text-align: center;" type="number" class="form-control" placeholder="Jumlah" aria-label="Example text with button addon" aria-describedby="button-addon1">       
+                                <input min="1" name="ArrRequest[{{ $k }}][jumlah]" style="text-align: center;" type="number" class="form-control" placeholder="Jumlah" aria-label="Example text with button addon" aria-describedby="button-addon1">       
                             </div>
                         </td>
                     </tr>

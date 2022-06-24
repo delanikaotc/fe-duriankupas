@@ -64,13 +64,12 @@ class ResellerFormRestockController extends Controller
 
                 Log::info($response);
 
-                $data = json_decode(Cookie::get('profileUser'), true);
-
                 return redirect()->route('resellerDataRestockView')->with('success', 'Permohonan restock berhasil diajukan!');
             }
         } catch (Exception $e) {
             Log::error($e);
-            return redirect()->back()->withErrors(['Masukkan jumlah!']);
+            return redirect()->back()->withErrors(['Masukkan jumlah dengan benar!']);
         }
+        return redirect()->route('resellerFormRestockView')->withErrors(['Masukkan jumlah dengan benar!']);
     }
 }

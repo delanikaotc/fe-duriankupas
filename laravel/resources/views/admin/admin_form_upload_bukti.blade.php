@@ -11,13 +11,13 @@
         </div>
         @endif
         <div class="bg mb-4">
-            <form action="{{ route('uploadBukti', $dataTarikUang['_id']) }}" method="post">
+            <form action="{{ route('uploadBukti', $dataTarikUang['_id']) }}" method="post" enctype="multipart/form-data">
             {!! method_field('post') . csrf_field() !!}
             <div style="text-align: left;">
                 <div class="mb-3 row">
                     <label for="inputDeskripsi" class="col-sm-2 col-form-label">Bukti Kirim Uang</label>
                     <div class="col-sm-10">
-                      <input name="image" placeholder="Bukti Kirim Uang" type="text" class="form-control" id="inputDeskripsiProduk">
+                        <input name="image" type="file" class="form-control-file" id="inputBuktiPembayaran">
                     </div>
                 </div>
             </div>

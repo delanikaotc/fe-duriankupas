@@ -29,7 +29,7 @@
                     </div>
                     <div class="col">
                         <div class="card-summary-reseller-title">Total Pendapatan</div>
-                        <div class="card-summary-reseller-numbers">{{ $data['pendapatan'] }}</div>
+                        <div class="card-summary-reseller-numbers">@currency($data['pendapatan'])</div>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="col">
                         <div class="card-summary-reseller-title">Saldo Sekarang</div>
-                        <div class="card-summary-reseller-numbers">{{ $data['tokonya']['saldo'] }}</div>
+                        <div class="card-summary-reseller-numbers">@currency($data['tokonya']['saldo'])</div>
                     </div>
                 </div>
             </div>

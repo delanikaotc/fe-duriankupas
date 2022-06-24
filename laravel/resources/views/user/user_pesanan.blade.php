@@ -44,7 +44,7 @@
                                 <hr>
                                 <div class="row mb-4" style="font-weight: 600">
                                     <div class="col">Total Belanja</div>
-                                    <div class="col d-flex justify-content-end">{{ $item['total'] }}</div>
+                                    <div class="col d-flex justify-content-end">@currency($item['total'])</div>
                                 </div>
                                 <div>
                                     @if ($item['status'] == 'Selesai')

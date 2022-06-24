@@ -3,8 +3,15 @@
 @section('content')
 <div class="content">
     <div class="content-reseller">
+        @if ($errors->any())
+        <div class="sub-content">
+            <div class="alert alert-danger" role="alert">
+                {{ $errors->first() }}
+            </div>
+        </div>
+        @endif
         <div class="bg mb-4">
-            <form action="{{ route('tambahProduk') }}" method="post">
+            <form action="{{ route('tambahProduk') }}" method="post" enctype="multipart/form-data">
             {!! method_field('post') . csrf_field() !!}
             <div style="text-align: left;">
                 <div class="mb-3 row">
@@ -30,7 +37,7 @@
                 <div class="mb-3 row">
                     <label for="inputGambar" class="col-sm-2 col-form-label">Gambar Produk</label>
                     <div class="col-sm-10">
-                      <input name="img" placeholder="Gambar Produk" type="text" class="form-control" id="inputGambar">
+                        <input name="image" type="file" class="form-control-file" id="inputBuktiPembayaran">
                     </div>
                 </div>
             </div>

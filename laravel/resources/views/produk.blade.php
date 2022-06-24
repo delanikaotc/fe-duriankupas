@@ -13,6 +13,7 @@
     </div>
     @endif
     <form action="{{ route('buatPesanan') }}" method="post">
+    {!! method_field('post') . csrf_field() !!}
     <div class="sub-content row d-flex justify-content-center">
         @foreach ($dataProduk as $k => $item)
         <div class="card-produk">
@@ -20,23 +21,33 @@
                 <img src="{{ $item['img'] }}" alt="" class="card-produk image">
             </div>
             <div class="card-produk title">
-                <input name="ArrPesanan[{{ $k }}][product]" style="text-align: center;" type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $item['nama'] }}"> 
+                {{ $item['nama'] }}
+                <input type="hidden" name="ArrPesanan[{{ $k }}][product]" style="text-align: center;" type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $item['nama'] }}"> 
             </div>
             <div class="card-produk price">
-                Rp{{ $item['harga'] }}
+                @currency($item['harga'])
             </div>
-            {!! method_field('post') . csrf_field() !!}
+            @if (Cookie::get('roleUser') == 'reseller' || Cookie::get('roleUser') == 'admin' )
+            <div></div>
+            @else
                 <div class="row d-flex justify-content-center">
                     <div class="input-group mb-3" style="width: 150px">
                         {{-- <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button> --}}
-                        <input name="ArrPesanan[{{ $k }}][jumlah]" type="number" class="form-control" placeholder="Jumlah" aria-label="Example text with button addon" aria-describedby="button-addon1" style="text-align: center;">
+                        <input min="1" name="ArrPesanan[{{ $k }}][jumlah]" type="number" class="form-control" placeholder="Jumlah" aria-label="Example text with button addon" aria-describedby="button-addon1" style="text-align: center;">
                         {{-- <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button> --}}
                       </div>
                 </div>
+            @endif
         </div> 
         @endforeach
-        @if (Cookie::get('roleUser') == 'reseller' || Cookie::get('roleUser') == 'admin')
-        <div></div>
+        @if (Cookie::get('roleUser') == 'reseller')
+        <div class="d-flex justify-content-center">   
+            <a href="{{ route('resellerDataPemesananView')}}" class="btn btn-primary">Lihat Data Pemesanan</a>
+        </div>
+        @elseif (Cookie::get('roleUser') == 'admin')
+        <div class="d-flex justify-content-center">   
+            <a href="{{ route('adminDataProdukView')}}" class="btn btn-primary">Edit Data Produk</a>
+        </div>
         @else
         <div class="row mt-3" style="margin-bottom:60px;">
             <div class="d-flex justify-content-center">            

@@ -39,6 +39,24 @@ class AdminFormTambahResellerController extends Controller
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/addtoko';
 
+        $request->validate([
+            'namatoko' => ['required'],
+            'id_user' => ['required'],
+            'email' => ['required'],
+            'phone' => ['required', 'numeric', 'digits_between:10,15'],
+            'provinsi' => ['required'],
+            'kota' => ['required']
+        ], [
+            'namatoko.required' => 'Kamu harus mengisi Nama Toko!',
+            'id_user.required' => 'Kamu harus mengisi ID User!',
+            'email.required' => 'Kamu harus mengisi Email!',
+            'phone.required' => 'Kamu harus mengisi Nomor Telepon!',
+            'phone.digits_between' => 'Nomor Telepon harus 10 s.d. 15 angka!',
+            'phone.numeric' => 'Nomor Telepon harus angka!',
+            'provinsi.required' => 'Kamu harus mengisi Provinsi!',
+            'kota.required' => 'Kamu harus mengisi Kota!',
+        ]);
+
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
@@ -66,18 +84,19 @@ class AdminFormTambahResellerController extends Controller
 
         try {
             if (!empty($semuaProduk)) {
-                $action = $client->post($URI, $params);
-                $response = json_decode($action->getBody()->getContents(), true);
+                if ($semuaProduk['jumlah'] > 0) {
+                    $action = $client->post($URI, $params);
+                    $response = json_decode($action->getBody()->getContents(), true);
 
-                Log::info($response);
+                    Log::info($response);
 
-                $data = json_decode(Cookie::get('profileUser'), true);
-
-                return redirect()->route('adminDataResellerView')->with('success', 'Reseller berhasil ditambahkan!');
+                    return redirect()->route('adminDataResellerView')->with('success', 'Reseller berhasil ditambahkan!');
+                }
+                return redirect()->route('adminDataResellerView')->withErrors('Masukkan jumlah dengan benar!');
             }
         } catch (Exception $e) {
             Log::error($e);
-            return redirect()->back()->withErrors(['Masukkan jumlah!']);
+            return redirect()->back()->withErrors(['Masukkan jumlah dengan benar!']);
         }
     }
 }

@@ -28,15 +28,49 @@ class AdminFormTambahProdukController extends Controller
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/addproduct';
 
+        $request->validate([
+            'nama' => ['required', 'max:30'],
+            'harga' => ['required', 'numeric'],
+            'deskripsi' => ['max:50'],
+            'image' => ['required', 'mimes:jpeg,jpg,png'],
+        ], [
+            'nama.required' => 'Kamu harus mengisi Nama Produk!',
+            'nama.max' => 'Username maksimal 30 karakter!',
+            'harga.required' => 'Kamu harus mengisi Harga Produk!',
+            'harga.numeric' => 'Harga harus angka!',
+            'deskripsi.max' => 'Kata Sandi maksimal 50 karakter!',
+            'image.required' => 'Kamu harus menambahkan Gambar Produk!',
+            'image.mimes' => 'Gambar harus .jpeg, .jpg, atau .png',
+        ]);
+
+        $file = $request->file('image');
+
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
 
-        $params['form_params'] = array(
-            'nama' => $request->nama,
-            'harga' => $request->harga,
-            'deskripsi' => $request->deskripsi,
-            'img' => $request->img
+        // $params['form_params'] = array();
+
+        $params['multipart'] = array(
+            [
+                'name' => 'image',
+                'contents' => file_get_contents($file->getPathname()),
+                'filename' => $file->getClientOriginalName()
+            ],
+            [
+                'name' => 'nama',
+                'contents' => $request->nama
+            ],
+            [
+
+                'name' => 'harga',
+                'contents' => $request->harga
+            ],
+            [
+
+                'name' => 'deskripsi',
+                'contents' => $request->deskripsi
+            ]
         );
 
         try {

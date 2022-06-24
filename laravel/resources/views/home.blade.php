@@ -54,7 +54,7 @@
                 {{ $item['nama'] }}
             </div>
             <div class="card-produk-home price">
-                {{ $item['harga'] }}
+                @currency($item['harga'])
             </div>
         </div>
         @endforeach

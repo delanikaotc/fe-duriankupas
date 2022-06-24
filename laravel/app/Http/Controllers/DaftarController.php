@@ -7,6 +7,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 
 
 
@@ -21,6 +22,26 @@ class DaftarController extends Controller
     {
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/auth/register';
+
+        $request->validate([
+            'username' => ['required', 'min:6', 'max:30'],
+            'email' => ['required'],
+            'password' => ['required', 'min:8', 'max:30'],
+            'phone' => ['required', 'numeric', 'min:10', 'max:15'],
+        ], [
+            'username.required' => 'Kamu harus mengisi Username!',
+            'username.min' => 'Username minimal 6 karakter!',
+            'username.max' => 'Username maksimal 30 karakter!',
+            'email.required' => 'Kamu harus mengisi Email!',
+            'password.required' => 'Kamu harus mengisi Kata Sandi!',
+            'password.min' => 'Kata Sandi minimal 8 karakter!',
+            'password.max' => 'Kata Sandi maksimal 30 karakter!',
+            'phone.required' => 'Kamu harus mengisi Nomor Telepon!',
+            'phone.min' => 'Nomor Telepon minimal 10 karakter!',
+            'phone.max' => 'Nomor Telepon maksimal 15 karakter!',
+            'phone.numeric' => 'Nomor Telepon harus diisi angka!',
+        ]);
+
         $params['form_params'] = array(
             'username' => $request->username,
             'email' => $request->email,

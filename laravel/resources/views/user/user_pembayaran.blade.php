@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="content">
+  @if ($errors->any())
+  <div class="sub-content">
+      <div class="alert alert-danger" role="alert">
+          {{ $errors->first() }}
+      </div>
+  </div>
+  @endif
     <div style="text-align: center">
         <h3 style="font-weight: 500">Pesanan berhasil dibuat!</h3>
         <h3 style="color: #ffc600">Selesaikan pembayaranmu</h3>
@@ -35,11 +42,11 @@
             </div>
           </div>
           <div class="card-pembayaran">
-            <form action="{{ route('uploadBuktiPembayaran', $dataPesanan['_id'])}}" method="POST">
+            <form action="{{ route('uploadBuktiPembayaran', $dataPesanan['_id'])}}" method="POST" enctype="multipart/form-data">
               {!! method_field('post') . csrf_field() !!}
               <div class="mb-3">
                   <h6>Total Pembayaran</h6>
-                  <div style="font-weight: 600">{{ $dataPesanan['total'] }}</div>
+                  <div style="font-weight: 600">@currency($dataPesanan['total'])</div>
               </div>
               <div class="mb-3">
                 <h6>Unggah Bukti Pembayaran</h6>
@@ -49,11 +56,17 @@
                   </div>
               </div>
           </div>
-          <div class="row mb-5">
+          <div class="row mb-3">
               <div class="col d-flex justify-content-center">
-                <button class="btn btn-primary" type="submit" style="width: 500px">Kirim Bukti Pembayaran</button>
+                <button class="btn btn-primary" type="submit" style="width: 500px">Kirim Bukti Pembayaran Sekarang</button>
               </div>
           </div>
+          <div class="row mb-5">
+            <div class="col d-flex justify-content-center">
+              <a href="{{ route('userPesananView') }}" class="btn btn-outline-primary" style="width: 500px;">Nanti Saja</a>
+            </div>
+            </div>
+        </div>
           </form>
         <div style="margin-bottom: 60px" class="row d-flex justify-content-center">
           <div style="text-align: center;"><h5 class="mb-2">Cara Pembayaran</h5></div>

@@ -3,6 +3,13 @@
 @section('content')
 <div class="content">
     <div class="content-reseller">
+        @if ($errors->any())
+        <div class="sub-content">
+            <div class="alert alert-danger" role="alert">
+                {{ $errors->first() }}
+            </div>
+        </div>
+        @endif
         <div class="bg mb-4">
             <form action="{{ route('tambahReseller') }}" method="post">
             {!! method_field('post') . csrf_field() !!}
@@ -67,7 +74,7 @@
                     </td>
                     <td class="d-flex justify-content-center">
                         <div class="col-3">
-                            <input name="ArrStock[{{ $k }}][jumlah]" style="text-align: center;" type="number" class="form-control" placeholder="Jumlah" aria-label="Example text with button addon" aria-describedby="button-addon1">       
+                            <input min="1" name="ArrStock[{{ $k }}][jumlah]" style="text-align: center;" type="number" class="form-control" placeholder="Jumlah" aria-label="Example text with button addon" aria-describedby="button-addon1">       
                         </div>
                     </td>
                 </tr>

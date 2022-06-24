@@ -21,6 +21,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Username</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Email</th>
                     <th scope="col">Nomor HP</th>
                     <th scope="col">Lokasi</th>
