@@ -1,16 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="content masuk" style="margin-bottom: 60px">
+<div class="content-masuk" style="margin-bottom: 60px">
+    @if ($errors->any())
+        <div class="alert alert-danger" role="alert" style="width: 1248px;">
+            {{ $errors->first() }}
+          </div>
+        @endif
     <div class="title-page">
         <h1 style="font-weight: 600">Masuk</h1>
     </div>
     <div class="sub-content">
-        @if ($errors->any())
-        <div class="alert alert-danger" role="alert">
-            {{ $errors->first() }}
-          </div>
-        @endif
         <div class="card-masuk">
             <form action="{{ route('masuk') }}" method="POST">
             {!! method_field('post') . csrf_field() !!}

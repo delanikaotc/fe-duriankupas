@@ -114,6 +114,36 @@ body {
     margin-top: 60px;
 }
 
+.content-daftar {
+    margin-top: 60px;
+    padding-left: 96px;
+    margin-left: -96px;
+    width: 1440px;
+    background-image: url("https://i.ibb.co/MP1Kv1W/Klub-dan-Bar-Faizan-3-1.png");
+    background-repeat: no-repeat;
+}
+
+.content-home {
+    margin-top: 60px;
+    padding-left: 96px;
+    margin-left: -96px;
+    width: 1440px;
+    height: 1780px;
+    background-image: url("https://i.ibb.co/pnckfrk/Landing-Page-2.png");
+    /* background-color: #1d3616; */
+    background-repeat: no-repeat;
+}
+
+.content-masuk {
+    margin-top: 60px;
+    padding-left: 96px;
+    margin-left: -96px;
+    width: 1440px;
+    height: 721px;
+    background-image: url("https://i.ibb.co/MP1Kv1W/Klub-dan-Bar-Faizan-3-1.png");
+    background-repeat: no-repeat;
+}
+
 .content-reseller {
     margin-left: 240px;
 }

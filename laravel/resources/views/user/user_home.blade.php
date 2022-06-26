@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="card-biodata">
-                                <img class="card-biodata-img" src="{{ asset('images/icon1.png') }}" alt="">
+                                <img class="card-biodata-img" src="https://i.ibb.co/PxPg9Jy/person-icon.png" alt="">
                                 <div>
                                     <a class="btn btn-outline-secondary" href="/" role="button" style="width:200px; margin-bottom:20px;">Ganti Foto</a>
                                 </div>

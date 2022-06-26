@@ -17,7 +17,7 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <img class="icon-footer" src="{{ asset('images/logo.png') }}" alt=""> duriankupas.id
+              <img class="icon-footer" src="https://i.ibb.co/p3Zft36/logo.png" alt=""> duriankupas.id
             </h6>
             <p>
               Siap antar durian kupas berkualitas ke rumah kamu! Durian kupas pilihan yang dapat kamu pesan

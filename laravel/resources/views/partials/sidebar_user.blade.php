@@ -2,12 +2,17 @@
     <div class="sidebar-user">
         <div class="row">
             <div class="col-3">
-                <img class="sidebar-user-avatar" src="{{ asset('images/icon1.png') }}" alt="">
+                <img class="sidebar-user-avatar" src="https://i.ibb.co/PxPg9Jy/person-icon.png" alt="">
             </div>
             <div class="col">
                 <div class="row">
+                    @if(!empty($data['username']))
                     <div style="font-weight: 600; font-size: 18px">{{ $data['username'] }}</div>
-                    <div>#ID123467JKT</div>
+                    <div>{{ $data['phone'] }}</div>
+                    @else
+                    <div style="font-weight: 600; font-size: 18px">{{ $data['savedUser']['username'] }}</div>
+                    <div>{{ $data['savedUser']['phone'] }}</div>     
+                    @endif
                 </div>
             </div>
         </div>

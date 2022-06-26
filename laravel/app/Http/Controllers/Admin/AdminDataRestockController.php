@@ -17,7 +17,7 @@ class AdminDataRestockController extends Controller
     {
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/datarestock';
-        $URIReseller = 'https://beduriankupas.herokuapp.com/api/admin/datareseller';
+        $URIToko = 'https://beduriankupas.herokuapp.com/api/admin/dataReseller';
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -25,17 +25,17 @@ class AdminDataRestockController extends Controller
 
         try {
             $action = $client->get($URI, $params);
-            $actionReseller = $client->get($URIReseller, $params);
+            $actionToko = $client->get($URIToko, $params);
             $response = json_decode($action->getBody()->getContents(), true);
-            $responseReseller = json_decode($actionReseller->getBody()->getContents(), true);
+            $responseToko = json_decode($actionToko->getBody()->getContents(), true);
             Log::info($response);
-            Log::info($responseReseller);
+            Log::info($responseToko);
 
             $data = json_decode(Cookie::get('profileUser'), true);
 
 
             return view('admin/admin_data_restock')->with([
-                'dataReseller' => $responseReseller,
+                'dataToko' => $responseToko['semuatoko'],
                 'dataProfile' => $data,
                 'data' => $response,
                 'title' => "Data Restock"

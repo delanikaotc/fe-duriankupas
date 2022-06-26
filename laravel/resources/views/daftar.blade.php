@@ -1,17 +1,17 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="content masuk" style="margin-bottom: 60px">
-    <div class="title-page">
-        <h1 style="font-weight: 600">Daftar</h1>
-    </div>
+<div class="content-daftar" style="margin-bottom: 60px">
     @if ($errors->any())
     <div class="sub-content">
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger" role="alert" style="width: 1248px;">
             {{ $errors->first() }}
         </div>
     </div>
     @endif
+    <div class="title-page">
+        <h1 style="font-weight: 600">Daftar</h1>
+    </div>
     <div class="sub-content">
         <div class="card-masuk">
             <form action="{{ route('daftar') }}" method="POST">
@@ -31,6 +31,10 @@
                 <div class="mb-4">
                     <label for="inputPassword" class="form-label">Kata Sandi</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi">
+                </div>
+                <div class="mb-4">
+                    <label for="inputPassword" class="form-label">Ulangi Kata Sandi</label>
+                    <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Kata Sandi">
                 </div>
                 <div class="row d-flex justify-content-center mb-4" style="width:375px; margin-left: 0px">
                     <button type="submit" class="btn btn-primary">Daftar</button>    

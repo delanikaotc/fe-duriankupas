@@ -37,7 +37,7 @@
                         <td>{{ $item['phone'] }}</td>
                         <td>Jakarta</td>
                         <td class="row d-flex justify-content-center">
-                            <div class="col-3 me-1">
+                            <div class="col-3">
                                 <a href="" class="btn btn-edit">
                                     <span class="iconify" data-icon="clarity:edit-solid" style="color: #f2c94c; font-size: 12px; margin-left: -6px"></span>
                                 </a>
@@ -49,9 +49,6 @@
                                     <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                            
                                 </button>
                             </form>
-                                {{-- <a href="{}">
-                                    <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                            
-                                </a> --}}
                             </div>
                         </td>
                       </tr>

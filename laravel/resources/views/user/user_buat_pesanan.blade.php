@@ -42,18 +42,17 @@
                                 <div class="row">
                                     <label for="staticEmail" class="col-sm-2 col-form-label">Provinsi</label>
                                     <div class="col-4" style="margin-left:12px">
-                                        <select name="provinsi" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                            <option selected>Pilih Provinsi</option>
-                                            <option value="Jawa Barat">Jawa Barat</option>
-                                            <option value="DKI Jakarta">DKI Jakarta</option>
+                                        <select id="provinsi" name="provinsi" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                            <option>Pilih Provinsi</option>
+                                            @foreach ($dataDaerah as $item)
+                                            <option value="{{ $item['provinsi'] }}">{{ $item['provinsi'] }}</option>      
+                                            @endforeach
                                         </select>
                                     </div>
                                     <label for="staticEmail" class="col-sm-2 col-form-label" style="text-align: right">Kab/Kota</label>
                                     <div class="col-3">
-                                        <select name="kota"class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <select id="kota" name="kota" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                             <option selected>Pilih Kab/Kota</option>
-                                            <option value="Depok">Depok</option>
-                                            <option value="Jakarta Utara">Jakarta Utara</option>
                                         </select>
                                     </div>
                                 </div>
@@ -164,3 +163,33 @@
     </form>
 </div>
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+    $(function (){
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="crsf-token"]').attr('content')}
+        });
+
+    $(function(){
+        $('#provinsi').on('change', function(){
+            let nama_provinsi = $('#provinsi').val();
+            console.log(nama_provinsi);
+            $.ajax({
+                type : 'GET',
+                url : "{{ route('getKota') }}",
+                data : {nama_provinsi:nama_provinsi},
+                cache : false,
+
+                success: function(msg){
+                $('#kota').html(msg);
+                },
+                error: function(data){
+                    console.log('error:',data)
+                }
+            })
+        })
+    })
+
+    });
+</script>

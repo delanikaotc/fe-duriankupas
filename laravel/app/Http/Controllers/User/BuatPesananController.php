@@ -42,11 +42,6 @@ class BuatPesananController extends Controller
             if (!empty($semuaProduk)) {
                 $action = $client->post($URI, $params);
                 $actionProduk = $client->get($URIProduk);
-                $response = json_decode($action->getBody()->getContents(), true);
-                $responseProduk = json_decode($actionProduk->getBody()->getContents(), true);
-
-                Log::info($response);
-                Log::info($responseProduk);
 
                 $cookiePesanan  =  cookie('pesanan', $action->getBody(), 60);
                 $cookieProduk  =  cookie('produk', $actionProduk->getBody(), 60);
@@ -119,11 +114,18 @@ class BuatPesananController extends Controller
             ]);
         } catch (Exception $e) {
             Log::error($e);
+            return redirect()->route('indexBuatPesanan')->withErrors([$e->getMessage()]);
         }
     }
 
     function indexBuatPesanan()
     {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/users/region';
+
+        $action = $client->get($URI);
+        $response = json_decode($action->getBody()->getContents(), true);
+
         $data = json_decode(Cookie::get('profileUser'), true);
         $pesanan = json_decode(Cookie::get('pesanan'), true);
         $produk = json_decode(Cookie::get('produk'), true);
@@ -135,11 +137,35 @@ class BuatPesananController extends Controller
         return view('user/user_buat_pesanan', [
             'dataPesanan' => $pesanan,
             'dataProduk' => $produk,
+            'dataDaerah' => $response,
             'data' => $data,
             'title' => "Buat Pesanan"
         ]);
 
         Cookie::expire('produk');
         Cookie::expire('pesanan');
+    }
+
+    function getKota(Request $request)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/users/region';
+
+        $action = $client->get($URI);
+        $response = json_decode($action->getBody()->getContents(), true);
+
+        Log::info($response);
+        $nama_provinsi = $request->nama_provinsi;
+        Log::info($nama_provinsi);
+
+        foreach ($response as $provinsi) {
+            if ($provinsi['provinsi'] ==  $nama_provinsi) {
+                $kota = $provinsi['kota'];
+                Log::info($kota);
+                foreach ($kota as $k) {
+                    echo "<option value='$k'>$k</option>";
+                }
+            }
+        }
     }
 }

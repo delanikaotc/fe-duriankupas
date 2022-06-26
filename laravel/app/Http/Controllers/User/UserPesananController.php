@@ -27,6 +27,7 @@ class UserPesananController extends Controller
             Log::info($response);
 
             $data = json_decode(Cookie::get('profileUser'), true);
+            Log::info($data);
 
             return view('user/user_pesanan')->with([
                 'dataPesanan' => $response,

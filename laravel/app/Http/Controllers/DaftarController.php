@@ -26,8 +26,9 @@ class DaftarController extends Controller
         $request->validate([
             'username' => ['required', 'min:6', 'max:30'],
             'email' => ['required'],
-            'password' => ['required', 'min:8', 'max:30'],
-            'phone' => ['required', 'numeric', 'min:10', 'max:15'],
+            'password' => ['required', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required', 'min:8'],
+            'phone' => ['required', 'numeric', 'digits_between:10,15'],
         ], [
             'username.required' => 'Kamu harus mengisi Username!',
             'username.min' => 'Username minimal 6 karakter!',
@@ -35,11 +36,12 @@ class DaftarController extends Controller
             'email.required' => 'Kamu harus mengisi Email!',
             'password.required' => 'Kamu harus mengisi Kata Sandi!',
             'password.min' => 'Kata Sandi minimal 8 karakter!',
-            'password.max' => 'Kata Sandi maksimal 30 karakter!',
+            'password.confirmed' => 'Kata Sandi tidak sama!',
+            'password_confirmation.required' => 'Kamu harus mengetik ulang Kata Sandi!',
+            'password_confirmation.min' => 'Kata Sandi minimal 8 karakter!',
             'phone.required' => 'Kamu harus mengisi Nomor Telepon!',
-            'phone.min' => 'Nomor Telepon minimal 10 karakter!',
-            'phone.max' => 'Nomor Telepon maksimal 15 karakter!',
-            'phone.numeric' => 'Nomor Telepon harus diisi angka!',
+            'phone.digits_between' => 'Nomor Telepon harus 10 s.d. 15 angka!',
+            'phone.numeric' => 'Nomor Telepon harus angka!',
         ]);
 
         $params['form_params'] = array(
@@ -56,20 +58,12 @@ class DaftarController extends Controller
 
             $profile = cookie('profileUser', $responseJson, 60);
             $idUser = cookie('idUser', $response['savedUser']['_id'], 60);
+            $roleUser = cookie('roleUser', $response['savedUser']['role'], 60);
             $tokenCookie = cookie('accessToken', $response['accessToken'], 60);
 
             Log::info($profile);
 
-            return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser, $profile]);
-
-            // $action = $client->post($URI, $params);
-            // $response = json_decode($action->getBody(), true);
-            // Log::info($response);
-
-            // $idUser = cookie('idUser', $response['savedUser']['_id'], 60);
-            // $tokenCookie = cookie('accessToken', $response['accessToken'], 60);
-
-            // return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser]);
+            return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
         } catch (Exception $e) {
             Log::error($e);
             return redirect()->route('daftarView')->withErrors([$e->getMessage()]);

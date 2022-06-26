@@ -42,18 +42,12 @@ class AdminFormTambahResellerController extends Controller
         $request->validate([
             'namatoko' => ['required'],
             'username' => ['required'],
-            'email' => ['required'],
-            'phone' => ['required', 'numeric', 'digits_between:10,15'],
             'provinsi' => ['required'],
             'kota' => ['required']
 
         ], [
             'namatoko.required' => 'Kamu harus mengisi Nama Toko!',
             'username.required' => 'Kamu harus mengisi Username!',
-            'email.required' => 'Kamu harus mengisi Email!',
-            'phone.required' => 'Kamu harus mengisi Nomor Telepon!',
-            'phone.digits_between' => 'Nomor Telepon harus 10 s.d. 15 angka!',
-            'phone.numeric' => 'Nomor Telepon harus angka!',
             'provinsi.required' => 'Kamu harus mengisi Provinsi!',
             'kota.required' => 'Kamu harus mengisi Kota!',
         ]);
@@ -75,8 +69,6 @@ class AdminFormTambahResellerController extends Controller
         $params['form_params'] = array(
             'namatoko' => $request->namatoko,
             'username' => $request->username,
-            'email' => $request->email,
-            'phone' => $request->phone,
             'provinsi' => $request->provinsi,
             'kota' => $request->kota,
             'stock' => $semuaProduk

@@ -25,7 +25,11 @@
                     @foreach ($data['dataRestock'] as $item)
                     <tr>
                         <th scope="row">{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</th>
-                        <td style="text-align: left;">{{ $item['_id'] }}</td>
+                        @foreach ($dataToko as $toko)
+                        @if ($toko['_id'] == $item['id_toko'])
+                        <td style="text-align: left;">{{ $toko['namatoko'] }}</td>
+                        @endif    
+                        @endforeach
                         <td></td>
                         <td>{{ $item['status'] }}</td>
                         <td class="row d-flex justify-content-center">

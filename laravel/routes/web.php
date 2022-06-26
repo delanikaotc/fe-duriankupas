@@ -64,7 +64,8 @@ Route::post('/keluar', [MasukController::class, 'keluar'])->name('keluar')->midd
 
 // User
 Route::get('/profil', [UserProfileController::class, 'index'])->name('userProfileView')->middleware(['IsAuth', 'IsUser']);
-Route::get('/buat-pesanan/', [BuatPesananController::class, 'indexBuatPesanan'])->name('buatPesananView')->middleware(['IsAuth', 'IsUser']);
+Route::get('/buat-pesanan', [BuatPesananController::class, 'indexBuatPesanan'])->name('buatPesananView')->middleware(['IsAuth', 'IsUser']);
+Route::get('/getKota', [BuatPesananController::class, 'getKota'])->name('getKota')->middleware(['IsAuth', 'IsUser']);
 Route::post('/buat-pesanan', [BuatPesananController::class, 'buatPesanan'])->name('buatPesanan')->middleware(['IsAuth', 'IsUser']);
 Route::post('/pembayaran/{id}', [BuatPesananController::class, 'updatePesanan'])->name('updatePesanan')->middleware(['IsAuth', 'IsUser']);
 Route::get('/pembayaran/{id}', [PembayaranController::class, 'index'])->name('pembayaranView')->middleware(['IsAuth', 'IsUser']);
@@ -74,7 +75,6 @@ Route::get('/beri-ulasan/{id}', [BeriUlasanController::class, 'index'])->name('b
 Route::post('/beri-ulasan/{id}', [BeriUlasanController::class, 'kirimUlasan'])->name('kirimUlasan')->middleware(['IsAuth', 'IsUser']);
 Route::post('/pesanan-sampai/{id}', [UserPesananController::class, 'pesananSampai'])->name('pesananSampai')->middleware(['IsAuth', 'IsUser']);
 Route::get('/rincian-pesanan/{id}', [UserPesananController::class, 'rincianPesanan'])->name('rincianPesananView')->middleware(['IsAuth', 'IsUser']);
-
 // Reseller
 Route::get('/dashboard', [ResellerDashboardController::class, 'index'])->name('resellerDashboardView')->middleware(['IsAuth', 'IsReseller']);
 Route::get('/data-pemesanan-baru', [ResellerDataPemesananController::class, 'indexPemesananBaru'])->name('resellerDataPemesananBaruView')->middleware(['IsAuth', 'IsReseller']);

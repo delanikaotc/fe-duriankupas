@@ -1,13 +1,13 @@
 {{-- <main> --}}
     <div class="d-flex flex-column flex-shrink-0 sidebar" style="width: 280px;">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-          <img src="{{ asset('images/logo.png') }}" alt="" class="sidebar-logo">
+          <img src="https://i.ibb.co/p3Zft36/logo.png" alt="" class="sidebar-logo">
           <span class="fs-6" style="font-weight: 500; color: #26471d;">duriankupas.id</span>
         </a>
         <hr>
         <div class="row mt-5">
           <div class="col-3">
-            <img src="{{ asset('images/icon1.png') }}" alt="" class="sidebar-ava">
+            <img src="https://i.ibb.co/PxPg9Jy/person-icon.png" alt="" class="sidebar-ava">
           </div>
           <div class="col">
             <div style="font-weight: 600; font-size: 18px">{{ $dataProfile['username'] }}</div>

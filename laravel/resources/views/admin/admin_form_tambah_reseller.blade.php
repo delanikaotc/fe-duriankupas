@@ -28,27 +28,13 @@
                 </div>
                 <div class="mb-3 row">
                     <div class="col row">
-                        <label for="inputEmail" class="col-sm-4 col-form-label">Email</label>
-                        <div class="col-sm-8">
-                            <input name="email" placeholder="Email" type="email" class="form-control" id="inputEmail">
-                        </div>
-                    </div>
-                    <div class="col row">
-                        <label for="inputPhone" class="col-sm-4 col-form-label">Nomor Telepon</label>
-                        <div class="col-sm-8">
-                            <input name="phone" placeholder="Nomor Telepon" type="text" class="form-control" id="inputPhone">
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <div class="col row">
                         <label for="inputProvinsi" class="col-sm-4 col-form-label">Provinsi</label>
                         <div class="col-sm-8">
                             <input name="provinsi" placeholder="Provinsi" type="text" class="form-control" id="inputProvinsi">
                         </div>
                     </div>
                     <div class="col row">
-                        <label for="inputKota" class="col-sm-4 col-form-label">Kota</label>
+                        <label for="inputKota" class="col-sm-4 col-form-label">Kabupaten/Kota</label>
                         <div class="col-sm-8">
                             <input name="kota" placeholder="Kota" type="text" class="form-control" id="inputKota">
                         </div>
@@ -62,7 +48,7 @@
                   <tr>
                     <th scope="col">Foto Produk</th>
                     <th scope="col">Nama Produk</th>
-                    <th scope="col">Jumlah Request</th>
+                    <th scope="col">Jumlah Produk</th>
                   </tr>
                 </thead>
                 <tbody>

@@ -42,19 +42,25 @@
         @endforeach
         @if (Cookie::get('roleUser') == 'reseller')
         <div class="d-flex justify-content-center">   
-            <a href="{{ route('resellerDataPemesananView')}}" class="btn btn-primary">Lihat Data Pemesanan</a>
+            <a href="{{ route('resellerDataPemesananBaruView')}}" class="btn btn-primary">Lihat Data Pemesanan</a>
         </div>
         @elseif (Cookie::get('roleUser') == 'admin')
         <div class="d-flex justify-content-center">   
             <a href="{{ route('adminDataProdukView')}}" class="btn btn-primary">Edit Data Produk</a>
         </div>
         @else
-        <div class="row mt-3" style="margin-bottom:60px;">
-            <div class="d-flex justify-content-center">            
-                <button type="submit" class="btn btn-primary" style="width: 300px">Buat Pesanan</button>    
+            @if (!empty(Cookie::get('accessToken')))
+            <div class="row mt-3" style="margin-bottom:60px;">
+                <div class="d-flex justify-content-center">            
+                    <button type="submit" class="btn btn-primary" style="width: 300px">Buat Pesanan</button>    
+                </div>
+                {{-- <a class="btn btn-primary me-3" href="/buat-pesanan" role="button" style="width: 300px">Buat Pesanan</a> --}}
             </div>
-            {{-- <a class="btn btn-primary me-3" href="/buat-pesanan" role="button" style="width: 300px">Buat Pesanan</a> --}}
-        </div>
+            @else
+            <div class="d-flex justify-content-center">   
+                <a href="{{ route('masukView')}}" class="btn btn-primary">Masuk untuk Pesan</a>
+            </div>
+            @endif
         @endif
         </form>
     </div>
