@@ -30,8 +30,8 @@ class BeriUlasanController extends Controller
             Log::info($response);
 
             return view('user/user_beri_ulasan')->with([
-                'dataProfile' => $data,
-                'data' => $response,
+                'data' => $data,
+                'dataPesanan' => $response,
                 'title' => "Beri Ulasan"
             ]);
         } catch (Exception $e) {

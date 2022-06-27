@@ -53,4 +53,72 @@ class AdminDataPembeliController extends Controller
             Log::error($e);
         }
     }
+
+    function editPembeli($id)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datapembeli/' . $id;
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . cookie::get('accessToken'),
+        );
+
+        try {
+            $action = $client->get($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+            $data = json_decode(Cookie::get('profileUser'), true);
+            Log::info($response);
+
+            return view('admin/admin_edit_pembeli')->with([
+                'data' => $response,
+                'dataProfile' => $data,
+                'title' => "Edit Profil"
+            ]);
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
+
+    function simpanEditPembeli(Request $request, $id)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/updatepembeli/' . $id;
+
+        $request->validate([
+            'phone' => ['required', 'numeric', 'digits_between:10,15'],
+            'tangallahir' => ['date']
+        ], [
+            'phone.required' => 'Kamu harus mengisi Nomor Telepon!',
+            'phone.numeric' => 'Nomor telepon harus angka!',
+            'phone.digits_between' => 'Nomor telepon harus 10 s.d 15 digit!',
+            'tanggallahir.date' => 'Tanggal lahir harus berupa tanggal!'
+        ]);
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . cookie::get('accessToken'),
+        );
+
+        $params['form_params'] = array(
+            'tanggallahir' => $request->tanggallahir,
+            'jeniskelamin' => $request->jeniskelamin,
+            'phone' => $request->phone
+        );
+
+        Log::info($params['form_params']);
+
+        try {
+            $action = $client->put($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+            Log::info($response);
+
+            if (empty($response)) {
+                return redirect()->route('adminDataPembeliView')->withErrors(['Data tidak terubah!']);
+            } else {
+                return redirect()->route('adminDataPembeliView')->with('success', 'Data Pembeli berhasil diubah!');
+            }
+        } catch (Exception $e) {
+            Log::error($e);
+            return redirect()->route('editPembeli')->withErrors($e->getMessage());
+        }
+    }
 }

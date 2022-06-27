@@ -53,6 +53,8 @@
                                         @endif
                                     @elseif ($item['status'] == 'Menunggu Pembayaran')        
                                     <a class="btn btn-primary mb-2" href="{{ route('pembayaranView', $item['_id']) }}" role="button" style="width: 227px; height: 30px; font-size: 12px;">Bayar Pesanan</a>     
+                                    @elseif ($item['status'] == 'Pembayaran Ditolak')
+                                    <a class="btn btn-primary mb-2" href="{{ route('pembayaranView', $item['_id']) }}" role="button" style="width: 227px; height: 30px; font-size: 12px;">Unggah Bukti Pembayaran</a>          
                                     @elseif ($item['status'] == 'Sudah Dikirim')        
                                     <form action="{{ route('pesananSampai', $item['_id']) }}" method="post">
                                         {!! method_field('post') . csrf_field() !!}   

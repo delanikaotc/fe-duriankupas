@@ -32,9 +32,9 @@
                 <div class="mb-1">
                     <a class="{{ $title === "Pesanan Saya" ? 'active-sidebar-user' : '' }}" href="{{ route('userPesananView') }}">Daftar Pesanan</a>
                 </div>
-                <div>
+                {{-- <div>
                     <a href="">Ulasan Pesanan</a>
-                </div>
+                </div> --}}
             </div>
             <hr>
             <div>

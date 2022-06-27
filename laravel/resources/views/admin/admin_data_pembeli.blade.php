@@ -10,6 +10,13 @@
             </div>
         </div>
         @endif
+        @if ($errors->any())
+        <div class="sub-content">
+            <div class="alert alert-danger" role="alert">
+                {{ $errors->first() }}
+            </div>
+        </div>
+        @endif
         <div class="row justify-content-end mb-5">
             <form class="col-4 d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -38,7 +45,7 @@
                         <td>Jakarta</td>
                         <td class="row d-flex justify-content-center">
                             <div class="col-3">
-                                <a href="" class="btn btn-edit">
+                                <a href="{{ route('editPembeli', $item['_id']) }}" class="btn btn-edit">
                                     <span class="iconify" data-icon="clarity:edit-solid" style="color: #f2c94c; font-size: 12px; margin-left: -6px"></span>
                                 </a>
                             </div>

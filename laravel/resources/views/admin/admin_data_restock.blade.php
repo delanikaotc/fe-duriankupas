@@ -33,21 +33,14 @@
                         <td></td>
                         <td>{{ $item['status'] }}</td>
                         <td class="row d-flex justify-content-center">
-                            <div class="col-4">
+                            <div class="col">
                                 <form action="{{ route('kirimRestock', $item['_id']) }}" method="post">
                                 {!! method_field('post') . csrf_field() !!}
-                                    <button class="btn btn-terima"type="submit">                                    
-                                        <span class="iconify" data-icon="akar-icons:check" style="color: #479360; font-size: 12px; margin-left: -6px"></span>                                
-                                    </button>
+                                <button class="btn btn-kirim-barang col"type="submit">                                    
+                                    <span class="iconify" data-icon="akar-icons:check" style="color: #479360; font-size: 12px; margin-left: -6px"></span>        
+                                    Kirim                 
+                                </button>
                                 </form>
-                            </div>
-                            <div class="col-4">
-                                {{-- <form action="{{ route('terimaBuktiPembayaran') }}" method="post"> --}}
-                                {!! method_field('post') . csrf_field() !!}
-                                    <button class="btn btn-tolak"type="submit">                                    
-                                        <span class="iconify" data-icon="akar-icons:cross" style="color: #f24e1e; font-size: 12px;margin-left: -6px"></span>                                   
-                                    </button>
-                                </form>                           
                             </div>
                         </td>
                     </tr>
@@ -63,7 +56,11 @@
                     @foreach ($data['doneRestock'] as $item)
                     <tr>
                         <th scope="row">{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</th>
-                        <td style="text-align: left;">{{ $item['_id'] }}</td>
+                        @foreach ($dataToko as $toko)
+                        @if ($toko['_id'] == $item['id_toko'])
+                        <td style="text-align: left;">{{ $toko['namatoko'] }}</td>
+                        @endif    
+                        @endforeach
                         <td></td>
                         <td>{{ $item['status'] }}</td>
                     </tr>

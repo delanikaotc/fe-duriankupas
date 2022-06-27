@@ -76,14 +76,12 @@ class BuatPesananController extends Controller
             'kota' => ['required'],
             'kecamatan' => ['required'],
             'alamat' => ['required'],
-            'metodePembayaran' => ['required'],
             'kodePos' => ['required']
         ], [
             'provinsi.required' => 'Kamu harus mengisi Provinsi!',
             'kota.required' => 'Kamu harus mengisi Kota!',
             'kecamatan.required' => 'Kamu harus mengisi Kecamatan!',
             'alamat.required' => 'Kamu harus mengisi Alamat!',
-            'metodePembayaran.required' => 'Kamu harus mengisi  Metode Pembayaran!',
             'kodePos.required' => 'Kamu harus mengisi Kode Pos!',
         ]);
 

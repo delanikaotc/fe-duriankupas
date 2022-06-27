@@ -51,6 +51,7 @@ class ResellerFormTarikUangController extends Controller
             return redirect()->route('resellerDataTarikUangView')->with('success', 'Pengajuan tarik uang berhasil diajukan!');
         } catch (Exception $e) {
             Log::error($e);
+            return redirect()->route('resellerFormTarikUangView')->withErrors($e->getMessage());
         }
     }
 }

@@ -86,21 +86,64 @@ class AdminDataProdukController extends Controller
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/updateproduct/' . $id;
 
+        $file = $request->file('image');
+        Log::info($file);
+
         $params['headers'] = array(
             'token' => 'Bearer ' . Cookie::get('accessToken'),
         );
 
-        $params['form_params'] = array(
-            'nama' => $request->nama,
-            'harga' => $request->harga,
-            'deskripsi' => $request->deskripsi,
-            'img' => $request->img
-        );
+        // $params['form_params'] = array(
+        //     'nama' => $request->nama,
+        //     'harga' => $request->harga,
+        //     'deskripsi' => $request->deskripsi,
+        //     'img' => $request->img
+        // );
+
+        if (!empty($file)) {
+            $params['multipart'] = array(
+                [
+                    'name' => 'image',
+                    'contents' => file_get_contents($file->getPathname()),
+                    'filename' => $file->getClientOriginalName()
+                ],
+                [
+                    'name' => 'nama',
+                    'contents' => $request->nama
+                ],
+                [
+
+                    'name' => 'harga',
+                    'contents' => $request->harga
+                ],
+                [
+
+                    'name' => 'deskripsi',
+                    'contents' => $request->deskripsi
+                ]
+            );
+        } else {
+            $params['multipart'] = array(
+                [
+                    'name' => 'nama',
+                    'contents' => $request->nama
+                ],
+                [
+
+                    'name' => 'harga',
+                    'contents' => $request->harga
+                ],
+                [
+
+                    'name' => 'deskripsi',
+                    'contents' => $request->deskripsi
+                ]
+            );
+        }
 
         try {
             $action = $client->put($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
-            $data = json_decode(Cookie::get('profileUser'), true);
 
             Log::info($response);
 

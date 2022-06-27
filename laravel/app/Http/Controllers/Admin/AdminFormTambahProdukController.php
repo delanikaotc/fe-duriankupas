@@ -45,6 +45,7 @@ class AdminFormTambahProdukController extends Controller
 
         $file = $request->file('image');
 
+
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );

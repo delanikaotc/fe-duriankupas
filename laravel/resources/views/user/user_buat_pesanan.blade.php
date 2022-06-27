@@ -35,6 +35,12 @@
                                     <input type="hidden" readonly class="form-control-plaintext" id="staticEmail" value="{{ $data['phone'] }}">
                                 </div>
                             </div>
+                            <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
+                                <div class="col-sm-9">
+                                    {{ $data['email'] }}
+                                </div>
+                            </div>
                         </div>
                         <div class="col-6">
                             <div class="sub-title">Alamat Pengiriman</div>
@@ -73,21 +79,6 @@
                                 <label for="staticEmail" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-10" style="margin-left:8px; width: 445px">
                                     <textarea name="alamat" class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="2" style="resize: none"></textarea>                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="margin-top: -50px">
-                        <div class="sub-title">Metode Pembayaran</div>
-                            <div class="row">
-                                <label for="staticEmail" class="col-sm-2 col-form-label">Metode Pembayaran</label>
-                                <div class="col-2">
-                                    <select name="metodePembayaran" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <option selected>Pilih Pembayaran</option>
-                                        <option value="Transfer BNI">Transfer BNI</option>
-                                        <option value="Transfer BRI">Transfer BRI</option>
-                                        <option value="Transfer BCA">Transfer BCA</option>
-                                    </select>
-                                </div>
                             </div>
                         </div>
                     </div>

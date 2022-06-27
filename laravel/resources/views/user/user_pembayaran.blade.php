@@ -9,10 +9,17 @@
       </div>
   </div>
   @endif
+    @if ($dataPesanan['status'] == 'Pembayaran Ditolak')
+    <div style="text-align: center">
+      <h3 style="font-weight: 500">Bukti pembayaran sebelumnya ditolak!</h3>
+      <h3 style="color: #ffc600">Unggah Kembali Bukti Pembayaranmu</h3>
+    </div>
+    @else 
     <div style="text-align: center">
         <h3 style="font-weight: 500">Pesanan berhasil dibuat!</h3>
         <h3 style="color: #ffc600">Selesaikan pembayaranmu</h3>
     </div>
+    @endif
     <div class="sub-content">
         <div class="row d-flex justify-content-center">
           <div class="row d-flex justify-content-center">

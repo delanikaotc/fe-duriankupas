@@ -54,4 +54,54 @@ class AdminDataResellerController extends Controller
             Log::error($e);
         }
     }
+
+    function editReseller($id)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datareseller/' . $id;
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . cookie::get('accessToken'),
+        );
+
+        try {
+            $action = $client->get($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+            $data = json_decode(Cookie::get('profileUser'), true);
+            Log::info($response);
+
+            return view('admin/admin_edit_reseller')->with([
+                'data' => $response,
+                'dataProfile' => $data,
+                'title' => "Edit Profil"
+            ]);
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
+
+    function simpanEditReseller(Request $request, $id)
+    {
+        $client = new Client();
+        $URI = 'https://beduriankupas.herokuapp.com/api/admin/updatetoko/' . $id;
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . cookie::get('accessToken'),
+        );
+
+        $params['form_params'] = array(
+            'namatoko' => $request->namatoko,
+            'phone' => $request->phone,
+        );
+
+        try {
+            $action = $client->put($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+            Log::info($response);
+
+            return redirect()->route('adminDataResellerView')->with('success', 'Data Reseller berhasil diubah!');
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
 }
