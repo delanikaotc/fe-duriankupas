@@ -73,7 +73,7 @@
                 </div>
             </div>
         </div>
-        <div class="bg">
+        <div class="bg-informasi-toko">
             <div class="row mb-3 title-list-produk">
                 <div class="col-1">No.</div>
                 <div class="col-5">Nama Produk</div>

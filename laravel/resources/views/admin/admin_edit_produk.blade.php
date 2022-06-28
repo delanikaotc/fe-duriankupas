@@ -3,6 +3,13 @@
 @section('content')
 <div class="content">
     <div class="content-reseller">
+        @if ($errors->any())
+        <div class="sub-content">
+            <div class="alert alert-danger" role="alert">
+                {{ $errors->first() }}
+            </div>
+        </div>
+        @endif
         <div class="bg mb-4">
             <form action="{{ route('simpanEditProduk', $dataProduk['_id']) }}" method="post" enctype="multipart/form-data">
             {!! method_field('post') . csrf_field() !!}

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ServerException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
@@ -85,9 +86,12 @@ class AdminFormTambahResellerController extends Controller
                 return redirect()->route('adminDataResellerView')->with('success', 'Reseller berhasil ditambahkan!');
             }
             return redirect()->route('adminFormTambahResellerView')->withErrors(['Masukkan jumlah dengan benar!']);
-        } catch (Exception $e) {
+        } catch (ServerException $e) {
             Log::error($e);
-            return redirect()->route('adminFormTambahResellerView')->withErrors([$e->getMessage()]);
+            $responseError = $e->getResponse();
+            $responseErrorBodyAsString = $responseError->getBody()->getContents();
+
+            return redirect()->route('adminFormTambahResellerView')->withErrors([$responseErrorBodyAsString]);
         }
     }
 }

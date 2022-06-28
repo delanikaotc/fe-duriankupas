@@ -85,6 +85,16 @@ class AdminDataResellerController extends Controller
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/updatetoko/' . $id;
 
+        $request->validate([
+            'namatoko' => ['required'],
+            'phone' => ['required', 'numeric', 'digits_between:10,15']
+        ], [
+            'namatoko.required' => 'Kamu harus mengisi Nama Toko!',
+            'phone.required' => 'Kamu harus mengisi Nomor Telepon!',
+            'phone.numeric' => 'Nomor telepon harus angka!',
+            'phone.digits_between' => 'Nomor telepon harus 10 s.d 15 digit!',
+        ]);
+
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );

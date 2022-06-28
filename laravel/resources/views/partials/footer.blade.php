@@ -29,7 +29,7 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Halaman
+              Link
             </h6>
             <p>
               <a href="{{ route('daftarView') }}" class="text-reset">Daftar</a>
@@ -39,6 +39,9 @@
             </p>
             <p>
               <a href="{{ route('produkView') }}" class="text-reset">Produk Kami</a>
+            </p>
+            <p>
+              <a href="https://wa.me/6281289078298" class="text-reset">Jadi Reseller</a>
             </p>
             <p>
               <a href="/" class="text-reset">Tentang Kami</a>

@@ -46,6 +46,12 @@
             </a>
           </li>
           <li>
+            <a href="{{ route('adminDataUlasanPesananView') }}" class="nav-link {{ $title === "Ulasan Pesanan" ? 'active' : 'link-dark' }}">
+                <span class="bi me-2 iconify" data-icon="carbon:review"  style="color: #212427; font-size: 20px;"></span>              
+                Data Ulasan 
+            </a>
+          </li>
+          <li>
             <a href="{{ route('adminDataProdukView') }}" class="nav-link {{ $title === "Data Produk" ? 'active' : 'link-dark' }}">
                 <span class="bi me-2 iconify" data-icon="fluent:table-simple-16-regular" style="color: #212427; font-size: 20px;"></span>              
                 Produk

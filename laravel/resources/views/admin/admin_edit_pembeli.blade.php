@@ -5,7 +5,7 @@
     <div class="content-reseller">
         @if ($errors->any())
         <div class="sub-content">
-            <div class="alert alert-danger" role="alert" style="width: 12410px;">
+            <div class="alert alert-danger" role="alert">
                 {{ $errors->first() }}
             </div>
         </div>

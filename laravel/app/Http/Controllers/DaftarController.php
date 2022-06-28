@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
-
-
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 
 class DaftarController extends Controller
 {
@@ -64,9 +64,12 @@ class DaftarController extends Controller
             Log::info($profile);
 
             return redirect()->route('userProfileView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
-        } catch (Exception $e) {
+        } catch (ServerException $e) {
             Log::error($e);
-            return redirect()->route('daftarView')->withErrors([$e->getMessage()]);
+            $responseError = $e->getResponse();
+            $responseErrorBodyAsString = $responseError->getBody()->getContents();
+
+            return redirect()->route('daftarView')->withErrors([$responseErrorBodyAsString]);
         }
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ServerException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
@@ -49,9 +50,12 @@ class ResellerFormTarikUangController extends Controller
             Log::info($response);
 
             return redirect()->route('resellerDataTarikUangView')->with('success', 'Pengajuan tarik uang berhasil diajukan!');
-        } catch (Exception $e) {
+        } catch (ServerException $e) {
             Log::error($e);
-            return redirect()->route('resellerFormTarikUangView')->withErrors($e->getMessage());
+            $responseError = $e->getResponse();
+            $responseErrorBodyAsString = $responseError->getBody()->getContents();
+
+            return redirect()->route('resellerFormTarikUangView')->withErrors([$responseErrorBodyAsString]);
         }
     }
 }

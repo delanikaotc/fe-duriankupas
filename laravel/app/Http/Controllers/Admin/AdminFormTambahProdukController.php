@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ServerException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
@@ -50,7 +51,6 @@ class AdminFormTambahProdukController extends Controller
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
 
-        // $params['form_params'] = array();
 
         $params['multipart'] = array(
             [
@@ -81,9 +81,12 @@ class AdminFormTambahProdukController extends Controller
             Log::info($response);
 
             return redirect()->route('adminDataProdukView')->with('success', 'Produk berhasil ditambahkan!');
-        } catch (Exception $e) {
+        } catch (ServerException $e) {
             Log::error($e);
-            return redirect()->route('adminFormTambahProdukView')->withErrors($e->getMessage());
+            $responseError = $e->getResponse();
+            $responseErrorBodyAsString = $responseError->getBody()->getContents();
+
+            return redirect()->route('adminFormTambahProdukView')->withErrors([$responseErrorBodyAsString]);
         }
     }
 }

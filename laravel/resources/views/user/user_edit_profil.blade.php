@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="content">
+    @if ($errors->any())
+    <div class="sub-content">
+        <div class="alert alert-danger" role="alert">
+            {{ $errors->first() }}
+        </div>
+    </div>
+    @endif
     <div class="title-page">
         <h1 style="font-weight: 600">Profil</h1>
     </div>

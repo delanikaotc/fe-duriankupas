@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ServerException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
@@ -86,19 +87,26 @@ class AdminDataProdukController extends Controller
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/updateproduct/' . $id;
 
+        $request->validate([
+            'nama' => ['required', 'max:30'],
+            'harga' => ['required', 'numeric'],
+            'deskripsi' => ['max:50'],
+            'image' => ['mimes:jpeg,jpg,png'],
+        ], [
+            'nama.required' => 'Kamu harus mengisi Nama Produk!',
+            'nama.max' => 'Username maksimal 30 karakter!',
+            'harga.required' => 'Kamu harus mengisi Harga Produk!',
+            'harga.numeric' => 'Harga harus angka!',
+            'deskripsi.max' => 'Kata Sandi maksimal 50 karakter!',
+            'image.mimes' => 'Gambar harus .jpeg, .jpg, atau .png',
+        ]);
+
         $file = $request->file('image');
         Log::info($file);
 
         $params['headers'] = array(
             'token' => 'Bearer ' . Cookie::get('accessToken'),
         );
-
-        // $params['form_params'] = array(
-        //     'nama' => $request->nama,
-        //     'harga' => $request->harga,
-        //     'deskripsi' => $request->deskripsi,
-        //     'img' => $request->img
-        // );
 
         if (!empty($file)) {
             $params['multipart'] = array(
@@ -148,8 +156,12 @@ class AdminDataProdukController extends Controller
             Log::info($response);
 
             return redirect()->route('adminDataProdukView')->with('success', 'Data produk berhasil diubah!');
-        } catch (Exception $e) {
+        } catch (ServerException $e) {
             Log::error($e);
+            $responseError = $e->getResponse();
+            $responseErrorBodyAsString = $responseError->getBody()->getContents();
+
+            return redirect()->route('adminFormTambahProdukView')->withErrors([$responseErrorBodyAsString]);
         }
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cookie;
+use GuzzleHttp\Exception\ClientException;
 
 class MasukController extends Controller
 {
@@ -54,9 +55,12 @@ class MasukController extends Controller
             } elseif ($response['role'] == 'admin') {
                 return redirect()->route('adminDataPemesananView')->withCookies([$tokenCookie, $idUser, $profile, $roleUser]);
             }
-        } catch (Exception $e) {
+        } catch (ClientException  $e) {
             Log::error($e);
-            return redirect()->route('masukView')->withErrors([$e->getMessage()]);
+            $responseError = $e->getResponse();
+            $responseErrorBodyAsString = $responseError->getBody()->getContents();
+
+            return redirect()->route('masukView')->withErrors([$responseErrorBodyAsString]);
         }
     }
 

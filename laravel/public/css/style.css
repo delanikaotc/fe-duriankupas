@@ -487,7 +487,6 @@ body {
 }
 
 .bg {
-    width: 996px;
     background-color: white;
     border-radius: 8px;
     padding-top: 20px;
@@ -561,7 +560,6 @@ body {
 }
 
 .tab-bar {
-    width: 996px;
     background-color: white;
     border-radius: 8px;
     padding-top: 20px;

@@ -31,6 +31,8 @@ use App\Http\Controllers\Admin\AdminDataRestockController;
 use App\Http\Controllers\Admin\AdminDataTarikUangController;
 use App\Http\Controllers\Admin\AdminFormTambahProdukController;
 use App\Http\Controllers\Admin\AdminFormUploadBuktiController;
+use App\Http\Controllers\Admin\AdminDataUlasanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -133,6 +135,8 @@ Route::post('/admin/edit-pembeli/{id}', [AdminDataPembeliController::class, 'sim
 Route::post('/admin/hapus/{id}', [AdminDataPembeliController::class, 'hapusPembeli'])->name('hapusPembeli')->middleware(['IsAuth', 'IsAdmin']);
 
 
+//Admin-> Ulasan
+Route::get('/admin/ulasan-pesanan', [AdminDataUlasanController::class, 'index'])->name('adminDataUlasanPesananView')->middleware(['IsAuth', 'IsAdmin']);
 
 // Main Page
 //Produk
