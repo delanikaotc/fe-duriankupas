@@ -2,29 +2,33 @@
 
 namespace App\Http\Controllers\Admin;
 
+// controller untuk halaman form tambah reseller
 use App\Http\Controllers\Controller;
 
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 
 class AdminFormTambahResellerController extends Controller
 {
+    // fungsi untuk menampilkan halaman form tambah reseller
     function index()
     {
+        // API untuk mendapatkan data produk yang akan ditampilkan
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/users';
 
         try {
+            // mendapatkan data produk dari database lewat API
             $action = $client->get($URI);
             $response = json_decode($action->getBody()->getContents(), true);
 
             $data = json_decode(Cookie::get('profileUser'), true);
 
+            // diarahkan ke form tambah reseller apabila berhasil dengan data berikut
             return view('admin/admin_form_tambah_reseller')->with([
                 'dataProduk' => $response,
                 'dataProfile' => $data,
@@ -35,11 +39,14 @@ class AdminFormTambahResellerController extends Controller
         }
     }
 
+    // fungsi yang dijalankan jika admin menekan button tambahreseller pada form tambah reseller
     function tambahReseller(Request $request)
     {
+        // API untuk menambahkan toko 
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/admin/addtoko';
 
+        // validasi inputan dari front end
         $request->validate([
             'namatoko' => ['required'],
             'username' => ['required'],
@@ -53,10 +60,12 @@ class AdminFormTambahResellerController extends Controller
             'kota.required' => 'Kamu harus mengisi Kota!',
         ]);
 
+        // token yang dibutuhkan untuk menjalankan fungsi
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
 
+        // fungsi seperti membuat pesanan 
         $input = $request->all();
         Log::info($input);
         $semuaProduk = [];
@@ -67,6 +76,7 @@ class AdminFormTambahResellerController extends Controller
             }
         }
 
+        // data yang dibutuhkan untuk dikirimkan ke database tambah reseller
         $params['form_params'] = array(
             'namatoko' => $request->namatoko,
             'username' => $request->username,
@@ -74,15 +84,14 @@ class AdminFormTambahResellerController extends Controller
             'kota' => $request->kota,
             'stock' => $semuaProduk
         );
-        Log::info($semuaProduk);
 
         try {
+            // jika data semuaproduk tidak kosong maka jalankan fungsi dibawahnya
             if (!empty($semuaProduk)) {
+                // mengirimkan data reseller baru ke database lewat API
                 $action = $client->post($URI, $params);
-                $response = json_decode($action->getBody()->getContents(), true);
 
-                Log::info($response);
-
+                // diarahkan kembali ke halaman data reseller dengan pesan success
                 return redirect()->route('adminDataResellerView')->with('success', 'Reseller berhasil ditambahkan!');
             }
             return redirect()->route('adminFormTambahResellerView')->withErrors(['Masukkan jumlah dengan benar!']);

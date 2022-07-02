@@ -1,3 +1,5 @@
+{{-- script/kode tampilan halaman data tarik uang --}}
+
 @extends('layouts.reseller_main')
 
 @section('content')
@@ -16,6 +18,7 @@
             </div>
         </div>
         <div class="bg">
+            {{-- menampilkan data tarik uang menggunakan table --}}
             <table class="table table-borderless">
                 <thead>
                     <tr>
@@ -25,6 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{-- setiap data tarik uang akan ditampilkan  --}}
                     @foreach ($data as $item)
                     <tr>
                         <th scope="row">{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</th>

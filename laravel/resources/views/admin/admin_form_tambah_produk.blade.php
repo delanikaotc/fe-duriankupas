@@ -1,3 +1,5 @@
+{{-- script/kode untuk tampilan halaman tambah produk --}}
+
 @extends('layouts.admin_main')
 
 @section('content')
@@ -11,17 +13,20 @@
         </div>
         @endif
         <div class="bg mb-4">
+            {{-- form untuk menambah produk baru, apabila disubmit akan menjalankan fungsi tambahproduk --}}
             <form action="{{ route('tambahProduk') }}" method="post" enctype="multipart/form-data">
             {!! method_field('post') . csrf_field() !!}
             <div style="text-align: left;">
                 <div class="mb-3 row">
                     <div class="col row">
+                        {{-- nama produk --}}
                         <label for="inputNamaProduk" class="col-sm-4 col-form-label">Nama Produk</label>
                         <div class="col-sm-8">
                             <input name="nama" placeholder="Nama Produk" type="text" class="form-control" id="inputNamaProduk">
                         </div>
                     </div>
                     <div class="col row">
+                        {{-- harga produk --}}
                         <label for="inputHarga" class="col-sm-4 col-form-label">Harga Produk</label>
                         <div class="col-sm-8">
                             <input name="harga" placeholder="Harga" type="text" class="form-control" id="inputHarga">
@@ -29,12 +34,14 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
+                    {{-- deskripsi produk --}}
                     <label for="inputDeskripsi" class="col-sm-2 col-form-label">Deskripsi Produk</label>
                     <div class="col-sm-10">
                       <input name="deskripsi" placeholder="Deskripsi Produk" type="text" class="form-control" id="inputDeskripsiProduk">
                     </div>
                 </div>
                 <div class="mb-3 row">
+                    {{-- gambar produk --}}
                     <label for="inputGambar" class="col-sm-2 col-form-label">Gambar Produk</label>
                     <div class="col-sm-10">
                         <input name="image" type="file" class="form-control-file" id="inputBuktiPembayaran">
@@ -43,6 +50,7 @@
             </div>
         </div>
         <div class="row">
+            {{-- button tambah produk untuk submit data tambah produk --}}
             <div class="col d-flex justify-content-end" style="margin-left: -24px">
               <button type="submit" class="btn btn-primary">Tambah Produk</button>    
             </div>

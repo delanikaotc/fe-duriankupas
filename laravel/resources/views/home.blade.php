@@ -1,13 +1,20 @@
+{{-- Script/code berikut adalah implementasi untuk tampilan halaman landing page 
+menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
+
+{{-- memanggil bagian layouts.main, layouts untuk halaman-halaman utama --}}
 @extends('layouts.main')
 
+{{-- konten-konten dari halaman landing page --}}
 @section('content') 
     <div class="content">
+        {{-- alert apabila ada error dari aktivitas sebelumnya --}}
         @if ($errors->any())
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             {{ $errors->first() }}
         </div>
         @endif
     </div>
+    {{-- menampilkan carousel untuk bagian promosi --}}
     <div class="content">
         <div class="row">
             <div class="col d-flex justify-content-center">
@@ -40,6 +47,7 @@
             </div>   
         </div>
     </div>
+    {{-- menampilkan data produk yang dapat dibeli --}}
     <div class="content">
         <div class="title">
             <h2 style="color:#26471D; font-weight: 600; text-align: center">Produk Kami</h2>
@@ -65,6 +73,7 @@
             </div>
         </div>
     </div>
+    {{-- menampilkan keuntungan dari berbelanja di duriankupas.id --}}
     <div class="content">
         <div class="row">
             <div class="col d-flex justify-content-center">
@@ -112,6 +121,7 @@
         </div>
     </div>
     
+    {{-- menampilkan ulasan pesanan dari pengguna sebelumnya --}}
     <div class="content" style="margin-bottom:60px;">
         <div class="title">
             <h2 style="color:#26471D; font-weight: 600; text-align: center">Kata Mereka tentang duriankupas.id</h2>

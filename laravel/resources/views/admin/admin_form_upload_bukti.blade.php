@@ -1,3 +1,5 @@
+{{-- script/kode untuk tampilan form unggah bukti kirim uang dari admin --}}
+
 @extends('layouts.admin_main')
 
 @section('content')
@@ -11,6 +13,7 @@
         </div>
         @endif
         <div class="bg mb-4">
+            {{-- form untuk unggah bukti kirim uang, apabila disubmit akan menjalankan fungsi uploadbukti dengan id data tarik uang --}}
             <form action="{{ route('uploadBukti', $dataTarikUang['_id']) }}" method="post" enctype="multipart/form-data">
             {!! method_field('post') . csrf_field() !!}
             <div style="text-align: left;">
@@ -23,6 +26,7 @@
             </div>
         </div>
         <div class="row">
+            {{-- button unggah bukti untuk submit gambar yang dikirim --}}
             <div class="col d-flex justify-content-end" style="margin-left: -24px">
               <button type="submit" class="btn btn-primary">Unggah Bukti</button>    
             </div>

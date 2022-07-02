@@ -1,7 +1,10 @@
+{{-- memnggil main layout --}}
 @extends('layouts.main')
 
+{{-- section konten  daftar yang dipanggil pada main layout --}}
 @section('content')
 <div class="content-daftar" style="margin-bottom: 60px">
+    {{-- menampilkan alert --}}
     @if ($errors->any())
     <div class="sub-content">
         <div class="alert alert-danger" role="alert" style="width: 1248px;">
@@ -9,11 +12,15 @@
         </div>
     </div>
     @endif
+    {{-- judul halaman --}}
     <div class="title-page">
         <h1 style="font-weight: 600">Daftar</h1>
     </div>
+    {{-- tampilan card masuk  --}}
     <div class="sub-content">
         <div class="card-masuk">
+            {{-- sebuah form dengan method post, apabila disubmit akan diarahkan ke fungsi daftar
+                untuk mengecek data yang diinput --}}
             <form action="{{ route('daftar') }}" method="POST">
                 {!! method_field('post') . csrf_field() !!}
                 <div class="mb-3">
@@ -43,6 +50,7 @@
                     <p style="text-align: center; font-weight: 400px; font-size: 14px">Dengan mendaftar, saya menyetujui <br>
                     Syarat dan Ketentuan serta Kebijakan Privasi</p>
                 </div>
+                {{-- diarahkan ke halaman masuk apabila sudah memiliki akun --}}
                 <div class="sudah-punya-akun">
                     <p style="text-align: center; font-weight: 400px; font-size: 14px">Sudah punya akun? 
                         <a href="{{ route('masukView') }}">Masuk</a>

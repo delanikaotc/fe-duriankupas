@@ -1,3 +1,5 @@
+{{-- script/kode untuk tampilan halaman ubah data produk --}}
+
 @extends('layouts.admin_main')
 
 @section('content')
@@ -11,20 +13,24 @@
         </div>
         @endif
         <div class="bg mb-4">
+            {{-- form untuk ubah data produk, apabila disubmit akan menjalankan fungsi simpaneditproduk dengan id produk --}}
             <form action="{{ route('simpanEditProduk', $dataProduk['_id']) }}" method="post" enctype="multipart/form-data">
             {!! method_field('post') . csrf_field() !!}
             <div class="row">
                 <div class="col-4">
+                    {{-- gambar produk yang sudah ada --}}
                     <img class="card-biodata-img" src="{{ $dataProduk['img'] }}" alt="">
                 </div>
                 <div class="col-8" style="text-align: left;">
                     <div class="mb-3 row">
+                        {{-- nama produk --}}
                         <label for="inputNama" class="col-sm-4 col-form-label">Nama Produk</label>
                         <div class="col-sm-8">
                           <input name="nama" placeholder="Nama Produk" type="text" class="form-control" id="inputNamaProduk" value="{{ $dataProduk['nama'] }}">
                         </div>
                     </div>
                     <div class="mb-3 row">
+                        {{-- harga produk --}}
                         <label for="inputHarga" class="col-sm-4 col-form-label">Harga Produk</label>
                         <div class="col-sm-8">
                           <input name="harga" placeholder="Harga Produk" type="text" class="form-control" id="inputHargaProduk" value="{{ $dataProduk['harga'] }}">
@@ -37,6 +43,7 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
+                        {{-- unggah gambar baru produk --}}
                         <label for="inputGambar" class="col-sm-4 col-form-label">Gambar Produk</label>
                         <div class="col-sm-8">
                             <input name="image" type="file" class="form-control-file" id="image">
@@ -46,6 +53,7 @@
             </div>
         </div>
         <div class="row">
+            {{-- button simpan untuk mengirim perubahan data produk --}}
             <div class="col d-flex justify-content-end" style="margin-left: -24px">
               <button type="submit" class="btn btn-primary">Simpan</button>    
             </div>

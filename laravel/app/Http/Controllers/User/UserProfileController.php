@@ -4,31 +4,33 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 
+// controller untul halaman profil user dan ubah profil user
 use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 
 class UserProfileController extends Controller
 {
+    // fungsi untuk menangani data yang diperlukan pada halaman profil user
     function index()
     {
+        // URI API get data user by id 
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/users/profile/' . cookie::get('idUser');
 
+        // membutuhkan token untuk mengakses fungsi ini
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
 
         try {
+            // get data user by id lewat URI yang diberikan
             $action = $client->get($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
-            Log::info($response);
-            Log::info(cookie::get('accessToken'));
-            Log::info(cookie::get('roleUser'));
 
+            // jika berhasil, diarahkan ke halaman profil user dengan data berikut
             return view('user/user_home')->with([
                 'data' => $response,
                 'title' => "Profil"
@@ -38,6 +40,7 @@ class UserProfileController extends Controller
         }
     }
 
+    // fungsi yang menangani data yang diperlukan untuk tampilan edit profil
     function editProfil($id)
     {
         $client = new Client();
@@ -62,9 +65,11 @@ class UserProfileController extends Controller
 
     function simpanEditProfil(Request $request, $id)
     {
+        // URI API get data user by id 
         $client = new Client();
         $URI = 'https://beduriankupas.herokuapp.com/api/users/update/' . $id;
 
+        // validasi request yang masuk untuk data yang diberikan
         $request->validate([
             'phone' => ['required', 'numeric', 'digits_between:10,15'],
             'tangallahir' => ['date']
@@ -75,10 +80,12 @@ class UserProfileController extends Controller
             'tanggallahir.date' => 'Tanggal lahir harus berupa tanggal!'
         ]);
 
+        // fungsi ini membutuhkan token
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
 
+        // data yang akan diberikan ke database lewat API
         $params['form_params'] = array(
             'phone' => $request->phone,
             'jeniskelamin' => $request->jeniskelamin,
@@ -86,10 +93,11 @@ class UserProfileController extends Controller
         );
 
         try {
+            // mengirim data untuk diubah ke database lewat URI
             $action = $client->put($URI, $params);
             $response = json_decode($action->getBody()->getContents(), true);
-            Log::info($response);
 
+            // jika berhasil akan diarahkan ke profil dengan message sukses
             return redirect()->route('userProfileView')->with('success', 'Data berhasil diubah!');
         } catch (Exception $e) {
             Log::error($e);

@@ -1,3 +1,5 @@
+{{-- script/kode untuk tampilan ubah data reseller --}}
+
 @extends('layouts.admin_main')
 
 @section('content')
@@ -11,16 +13,19 @@
         </div>
         @endif
         <div class="bg mb-4">
+            {{-- form untuk ubah data reseller yang akan dijalankan fungsi simpaneditreseller dengan id reseller apabila admin menekan simpan --}}
             <form action="{{ route('simpanEditReseller', $data['tokonya']['_id']) }}" method="post">
             {!! method_field('post') . csrf_field() !!}
             <div class="col" style="text-align: left;">
                 <div class="mb-3 row">
+                    {{-- nama toko --}}
                     <label for="inputNamaToko" class="col-sm-2 col-form-label">Nama Toko</label>
                     <div class="col-sm-10">
                         <input name="namatoko" placeholder="Nama Toko" type="text" class="form-control" id="inputNamaToko" value="{{ $data['tokonya']['namatoko'] }}">
                     </div>
                 </div>
                 <div class="mb-3 row">
+                    {{-- nomor telepon --}}
                     <label for="inputNomorTelepon" class="col-sm-2 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-10">
                         <input name="phone" placeholder="Nama Toko" type="text" class="form-control" id="inputNomorTelepon" value="{{ $data['tokonya']['phone'] }}">
@@ -29,6 +34,7 @@
             </div>
         </div>
         <div class="row">
+            {{-- button simpan untuk submit data perubahan reseller --}}
             <div class="col d-flex justify-content-end" style="margin-left: -24px">
               <button type="submit" class="btn btn-primary">Simpan</button>    
             </div>

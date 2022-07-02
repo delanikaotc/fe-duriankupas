@@ -1,3 +1,5 @@
+{{-- layout untuk halaman-halaman yang ditujukan untuk reseller seperti dashboard, data pemesanan, request restock, dan penarikan uang --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,8 +35,10 @@
 
 </head>
 <body>
+  {{-- memanggil sidebar reseller untuk digunakan --}}
     @include('partials.sidebar_reseller')
     <div class="main-container" data-bs-spy="scroll" data-bs-target="#scrollspyNav">
+      {{-- membuat section untuk konten reseller --}}
         @yield('content')
     </div>
 </body>

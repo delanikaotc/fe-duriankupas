@@ -1,3 +1,5 @@
+{{-- script/kode untuk tampilan halaman edit data pembeli --}}
+
 @extends('layouts.admin_main')
 
 @section('content')
@@ -11,21 +13,25 @@
         </div>
         @endif
         <div class="bg mb-4">
+            {{-- form untuk mengedit data pembeli apabila button submit diklik akan menjalankan fungsi simpaneditpembeli dengan spesifik id pembeli--}}
             <form action="{{ route('simpanEditPembeli', $data['_id']) }}" method="post">
             {!! method_field('post') . csrf_field() !!}
             <div class="col" style="text-align: left;">
                 <div class="mb-3 row">
+                    {{-- username tidak dapat diedit --}}
                     <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm-10">
                         <input name="username" readonly placeholder="Username" type="text" class="form-control" id="inputUsername" value="{{ $data['username'] }}">
                     </div>
                 </div>
+                {{-- edit tanggal lahir --}}
                 <div class="mb-3 row">
                     <label for="inputTL" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                     <div class="col-sm-10">
                         <input name="tanggallahir" placeholder="Tanggal Lahir" type="date" class="form-control" id="inputTL" value="{{ date_format(date_create($data['tanggallahir']), 'dd/MM/YYYY') }}">
                     </div>
                 </div>
+                {{-- edit jenis kelamin --}}
                 <div class="mb-3 row">
                     <label for="input" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                     <div class="col-sm-10">
@@ -44,12 +50,14 @@
                         </select>                         
                     </div>
                 </div>
+                {{-- email tidak bisa diedit --}}
                 <div class="mb-3 row">
                     <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
                         <input name="email" readonly placeholder="Email" type="text" class="form-control" id="inputEmail" value="{{ $data['email'] }}">
                     </div>
                 </div>
+                {{-- mengedit nomor telepon --}}
                 <div class="mb-3 row">
                     <label for="inputPhone" class="col-sm-2 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-10">
@@ -58,6 +66,7 @@
                 </div>
             </div>
         </div>
+        {{-- button simpan untuk submit perubahan --}}
         <div class="row">
             <div class="col d-flex justify-content-end" style="margin-left: -24px">
               <button type="submit" class="btn btn-primary">Simpan</button>    

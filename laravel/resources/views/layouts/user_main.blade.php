@@ -1,3 +1,5 @@
+{{-- layout untuk halaman-halaman yang ditujukan untuk user seperti profil, edit profil, daftar pesanan, dll --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +18,13 @@
     <title>{{ $title }}</title>
 </head>
 <body>
+    {{-- memanggil komponen navbar untuk digunakan  --}}
     @include('partials.navbar')
     <div class="main-container" data-bs-spy="scroll" data-bs-target="#scrollspyNav">
+         {{-- membuat section untuk diisi konten yang diinginkan  --}}
         @yield('content')
     </div>
+    {{-- memanggil komponen footer untuk digunakan  --}}
     @include('partials.footer')
 </body>
 </html>

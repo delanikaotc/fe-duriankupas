@@ -1,10 +1,15 @@
+{{-- script/kode untuk tampilan halaman daftar pesanan user --}}
+
+{{-- menggunakan layout user --}}
 @extends('layouts.user_main')
 
+{{-- isi konten yang akan dipanggil di layout user --}}
 @section('content')
 <div class="content">
     <div class="title-page">
         <h1 style="font-weight: 600">Daftar Pesanan</h1>
     </div>
+    {{-- menampilkan alert success jika terdapat message success --}}
     @if (session()->has('success'))
     <div class="sub-content">
         <div class="alert alert-success" role="alert">
@@ -27,6 +32,7 @@
                         <div class="col d-flex justify-content-end mb-4">
                             <a class="btn btn-primary" href="{{ route('produkView') }}" role="button" style="width: 200px">Buat Pesanan Baru</a>
                         </div>
+                        {{-- menampilkan setiap data pesanan yang sudah diambil berdasarkan id user --}}
                         <div class="row">
                             @foreach ($dataPesanan as $item)
                             @if ($item['status'] != 'Menunggu Konfirmasi')

@@ -1,3 +1,6 @@
+{{-- layout untuk halaman-halaman yang ditujukan untuk admin seperti data pemesanan, 
+  data pembeli, data reseller, data restock, data penarikan uang, data produk--}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,8 +36,10 @@
 
 </head>
 <body>
+  {{-- memanggil sidebar admin untuk digunakan --}}
     @include('partials.sidebar_admin')
     <div class="main-container" data-bs-spy="scroll" data-bs-target="#scrollspyNav">
+      {{-- membuat section untuk konten admin --}}
         @yield('content')
     </div>
 </body>

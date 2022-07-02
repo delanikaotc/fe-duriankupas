@@ -26,6 +26,7 @@
                     <th scope="col">Username Pembeli</th>
                     <th scope="col">Pesanan</th>
                     <th scope="col">Total Harga</th>
+                    <th scope="col">Alamat</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
@@ -39,6 +40,7 @@
                             @endforeach
                         </td>
                         <td>@currency($item['total'])</td>
+                        <td>{{ $item['alamat'] }}, {{ $item['kecamatan'] }}, {{ $item['kota'] }}, {{ $item['provinsi'] }}</td>
                         <td align="center">
                             {{-- <div class="label-sedang-dikirim"> --}}
                             <div>

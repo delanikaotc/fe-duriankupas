@@ -1,8 +1,12 @@
+{{-- script/kode untuk tampilan dashboard reseller  --}}
+
+{{-- menggunakan layout reseller --}}
 @extends('layouts.reseller_main')
 
 @section('content')
 <div class="content">
     <div class="content-reseller">
+        {{-- menampilkan nama toko --}}
         <div class="title-page mb-4">
             <h1 style="font-weight: 600">{{ $data['tokonya']['namatoko'] }}</h1>
         </div>
@@ -14,6 +18,7 @@
                             <span class="iconify" data-icon="bi:bag-check-fill" style="color: #479360; font-size: 36px;"></span>
                         </div>
                     </div>
+                    {{-- menampilkan total transaksi --}}
                     <div class="col">
                         <div class="card-summary-reseller-title">Total Transaksi</div>
                         <div class="card-summary-reseller-numbers">{{ $data['totalTransaksi'] }}</div>
@@ -27,6 +32,7 @@
                             <span class="iconify" data-icon="fa6-solid:money-bill-wave" style="color: #548ADB; font-size: 36px;"></span>
                         </div>
                     </div>
+                     {{-- menampilkan total pendapatan --}}
                     <div class="col">
                         <div class="card-summary-reseller-title">Total Pendapatan</div>
                         <div class="card-summary-reseller-numbers">@currency($data['pendapatan'])</div>
@@ -40,6 +46,7 @@
                             <span class="iconify" data-icon="fa6-solid:wallet" style="color: #A5773F; font-size: 36px;"></span>
                         </div>
                     </div>
+                    {{-- menampilkan total saldo sekarang--}}
                     <div class="col">
                         <div class="card-summary-reseller-title">Saldo Sekarang</div>
                         <div class="card-summary-reseller-numbers">@currency($data['tokonya']['saldo'])</div>
@@ -47,6 +54,7 @@
                 </div>
             </div>
         </div>
+        {{-- menampilkan informasi toko --}}
         <div class="bg-informasi-toko mb-4">
             <div>
                 <div class="mb-3">
@@ -73,6 +81,7 @@
                 </div>
             </div>
         </div>
+        {{-- menampilkan informasi produk --}}
         <div class="bg-informasi-toko">
             <div class="row mb-3 title-list-produk">
                 <div class="col-1">No.</div>

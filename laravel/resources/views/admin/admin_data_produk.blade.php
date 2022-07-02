@@ -1,3 +1,5 @@
+{{-- script/kode tampilan halaman produk --}}
+
 @extends('layouts.admin_main')
 
 @section('content')
@@ -22,6 +24,7 @@
             </div>
           </div>
         <div class="bg">
+            {{-- menampilkan data produk menggunakan tabel --}}
             <table class="table table-borderless align-middle">
                 <thead>
                   <tr>
@@ -33,21 +36,27 @@
                   </tr>
                 </thead>
                 <tbody>
+                    {{-- setiap data produk yang ada di database diambil --}}
                     @foreach ($data as $item)
                     <tr>
                         <td>
+                            {{-- gambar produk --}}
                             <img src="{{ $item['img'] }}" alt="" class="foto-produk">
                         </td>
+                        {{-- nama produk --}}
                         <td scope="row">{{ $item['nama'] }}</td>
+                        {{-- deskripsi produk --}}
                         <td>{{ $item['deskripsi'] }}</td>
                         <td>@currency($item['harga'])</td>
                         <td class="row d-flex justify-content-center mt-3">
+                            {{-- button untuk ubah data produk --}}
                             <div class="col-2 me-1">
                                 <a class="btn btn-edit" href="{{ route('adminEditProdukView', $item['_id']) }}">
                                     <span class="iconify" data-icon="clarity:edit-solid" style="color: #f2c94c; font-size: 12px; margin-left: -6px"></span>
                                 </a>
                             </div>
                             <div class="col-2">
+                                {{-- button untuk menghapus data produk --}}
                               <form action="{{ route('hapusProduk', $item['_id']) }}" method="post">
                                 {!! method_field('post') . csrf_field() !!}
                                     <button class="btn btn-tolak"type="submit">                                    
@@ -63,5 +72,4 @@
         </div>
     </div>
 </div>
-    
 @endsection

@@ -1,3 +1,5 @@
+{{-- script/kode untuk tampilan halaman data pembeli --}}
+
 @extends('layouts.admin_main')
 
 @section('content')
@@ -24,11 +26,11 @@
               </form>
         </div>
         <div class="bg">
+            {{-- menampilkan data pembeli menggunakan table  --}}
             <table class="table table-borderless">
                 <thead>
                   <tr>
                     <th scope="col">Username</th>
-                    {{-- <th scope="col">ID</th> --}}
                     <th scope="col">Email</th>
                     <th scope="col">Nomor HP</th>
                     <th scope="col">Lokasi</th>
@@ -36,19 +38,22 @@
                   </tr>
                 </thead>
                 <tbody>
+                    {{-- setiap data pembeli yang didapatkan dari database ditampilkan --}}
                     @foreach ($data as $item)
                     <tr>
+                        {{-- menampilkan username, email, nomor telepon dari database --}}
                         <th scope="row">{{ $item['username'] }}</th>
-                        {{-- <td>{{ $item['_id'] }}</td> --}}
                         <td>{{ $item['email'] }}</td>
                         <td>{{ $item['phone'] }}</td>
                         <td>Jakarta</td>
+                        {{-- button untuk mengedit data pembeli yang diarahkan ke halaman edit data pembeli --}}
                         <td class="row d-flex justify-content-center">
                             <div class="col-3">
                                 <a href="{{ route('editPembeli', $item['_id']) }}" class="btn btn-edit">
                                     <span class="iconify" data-icon="clarity:edit-solid" style="color: #f2c94c; font-size: 12px; margin-left: -6px"></span>
                                 </a>
                             </div>
+                        {{-- button untuk menghapus data pembeli --}}
                             <div class="col-3">
                             <form action="{{ route('hapusPembeli', $item['_id']) }}" method="post">
                                 {!! method_field('post') . csrf_field() !!}

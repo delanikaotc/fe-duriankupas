@@ -1,19 +1,20 @@
 <?php
 
+// script/kode untuk mengatur routing untuk website duriankupas
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MasukController;
 use App\Http\Controllers\ProdukController;
 
-//user
+//controller halaman user
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\User\BuatPesananController;
 use App\Http\Controllers\User\PembayaranController;
 use App\Http\Controllers\User\UserPesananController;
 use App\Http\Controllers\User\BeriUlasanController;
 
-//reseller
+//controller halaman reseller
 use App\Http\Controllers\Reseller\ResellerDashboardController;
 use App\Http\Controllers\Reseller\ResellerDataPemesananController;
 use App\Http\Controllers\Reseller\ResellerDataRestockController;
@@ -21,7 +22,7 @@ use App\Http\Controllers\Reseller\ResellerFormRestockController;
 use App\Http\Controllers\Reseller\ResellerDataTarikUangController;
 use App\Http\Controllers\Reseller\ResellerFormTarikUangController;
 
-// admin
+//controller halaman admin
 use App\Http\Controllers\Admin\AdminDataPemesananController;
 use App\Http\Controllers\Admin\AdminDataPembeliController;
 use App\Http\Controllers\Admin\AdminDataResellerController;
@@ -44,12 +45,6 @@ use App\Http\Controllers\Admin\AdminDataUlasanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/ulasan', function () {
-    return view('user/user_ulasan', [
-        "title" => "Ulasan Pesanan"
-    ]);
-});
 
 //Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -97,7 +92,6 @@ Route::get('/form-tarik-uang', [ResellerFormTarikUangController::class, 'index']
 Route::post('/form-tarik-uang', [ResellerFormTarikUangController::class, 'ajukanPenarikan'])->name('ajukanPenarikan')->middleware(['IsAuth', 'IsReseller']);
 
 
-
 // Admin -> Pemesanan
 Route::get('/admin/data-pemesanan', [AdminDataPemesananController::class, 'index'])->name('adminDataPemesananView')->middleware(['IsAuth', 'IsAdmin']);
 Route::post('/admin/pembayaran-terverifikasi/{id}', [AdminDataPemesananController::class, 'terimaBuktiPembayaran'])->name('terimaBuktiPembayaran')->middleware(['IsAuth', 'IsAdmin']);
@@ -138,6 +132,5 @@ Route::post('/admin/hapus/{id}', [AdminDataPembeliController::class, 'hapusPembe
 //Admin-> Ulasan
 Route::get('/admin/ulasan-pesanan', [AdminDataUlasanController::class, 'index'])->name('adminDataUlasanPesananView')->middleware(['IsAuth', 'IsAdmin']);
 
-// Main Page
 //Produk
 Route::get('/produk', [ProdukController::class, 'index'])->name('produkView');

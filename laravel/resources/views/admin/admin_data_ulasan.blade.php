@@ -1,3 +1,5 @@
+{{-- script/kode untuk tampilan data ulasan --}}
+
 @extends('layouts.admin_main')
 
 @section('content')
@@ -11,14 +13,19 @@
         </div>
         <div class="bg" style="text-align:left;">
             <div class="row">
+                {{-- menampilkan data ulasan pesanan dan data pesanan yang diambil dari database lewat API--}}
                 @foreach ($data['review'] as $item)
                     @foreach ($dataPesanan['datapesanan'] as $pesanan)
                     @if ($pesanan['_id'] == $item['id_transaksi'])
                     <div class="card-pesanan">
                         <div class="mb-4">
+                            {{-- menampilkan username pembeli --}}
                             <div class="card-pesanan-title">Pesanan {{ $pesanan['username'] }}</div>
+                            {{-- menampilkan tanggal pesanan --}}
                             <div>{{ date_format(date_create($pesanan['createdAt']), 'd M Y, G:i') }}</div>
+                            {{-- menampilkan kota pesanan --}}
                             <div>{{ $pesanan['kota'] }}</div>
+                            {{-- menampilkan rating dengan bintang --}}
                             @if ($item['rating'] == '1')
                             <div>
                                 <img src="https://i.ibb.co/0BLH4FF/bintang-1.png" alt="">
@@ -42,6 +49,7 @@
                             @endif
                         </div>
                         <div>
+                            {{-- menampilkan ulasan --}}
                             <div>{{ $item['review'] }}</div>
                         </div>
                     </div>

@@ -1,7 +1,12 @@
+{{-- script/kode tampilan halaman data pemesanan reseller --}}
+
+{{-- menggunakan layout reseller --}}
 @extends('layouts.reseller_main')
 
+{{-- isi konten data pemesanan yang akan dipanggil pada layout reseller --}}
 @section('content')
 <div class="content">
+    {{-- menampilkan alert success apabila terdapat pesan --}}
     <div class="content-reseller">
         @if (session()->has('success'))
         <div class="sub-content">
@@ -27,12 +32,14 @@
             </div>
         </div>
         <div class="bg">
+            {{-- menampilan data pemesananmenggunakan tabel--}}
             <table class="table table-borderless">
                 <thead>
                   <tr>
                     <th scope="col">Username Pembeli</th>
                     <th scope="col">Pesanan</th>
                     <th scope="col">Total Harga</th>
+                    <th scope="col">Alamat</th>
                     <th scope="col">Status</th>
                     <th scope="col">Aksi</th>
                   </tr>
@@ -47,14 +54,15 @@
                             @endforeach
                         </td>
                         <td>@currency($item['total'])</td>
+                        <td>{{ $item['alamat'] }}, {{ $item['kecamatan'] }}, {{ $item['kota'] }}, {{ $item['provinsi'] }}</td>
                         <td align="center">
-                            {{-- <div class="label-sedang-dikirim"> --}}
                             <div>
                                 {{ $item['status'] }}
                             </div> 
                         </td>
                         <td class="row d-flex justify-content-center">
                             <div class="col">
+                                {{-- form untuk button submit, apabila ditekan akan menjalankan fungsi barangDikirim dengan id pesanan --}}
                                 <form action="{{ route('barangDikirim', $item['_id']) }}" method="post">
                                 {!! method_field('post') . csrf_field() !!}
                                     <button class="btn btn-kirim-barang"type="submit">                                    

@@ -1,3 +1,5 @@
+{{-- script/kode untuk tampilan halaman data reseller --}}
+
 @extends('layouts.admin_main')
 
 @section('content')
@@ -22,10 +24,10 @@
           </div>
         </div>
         <div class="bg">
+          {{-- table untuk menampilkan halaman data reseller --}}
             <table class="table table-borderless">
                 <thead>
                   <tr>
-                    {{-- <th scope="col">ID Reseller</th> --}}
                     <th scope="col">Username Reseller</th>
                     <th scope="col">Nama Toko</th>
                     <th scope="col">Nomor HP</th>
@@ -35,11 +37,11 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {{-- menampilkan semua reseller --}}
                   @foreach ($data['semuatoko'] as $item)
                   <tr>
                     @foreach ($data['reseller'] as $reseller)
                     @if ($reseller['_id'] == $item['id_user'])
-                    {{-- <th>{{ $reseller['_id'] }}</th> --}}
                     <td scope="row">{{ $reseller['username'] }}</td>       
                     @endif
                     @endforeach
@@ -47,13 +49,14 @@
                     <td>{{ $item['phone'] }}</td>
                     <td>{{ $item['provinsi'] }}</td>
                     <td>{{ $item['kota'] }}</td>
+                    {{-- button untuk diarahkan ke halaman edit --}}
                     <td class="row d-flex justify-content-center">
                         <div class="col-3 me-1">
                             <a href="{{ route('editReseller', $item['_id']) }}" class="btn btn-edit ">
                                 <span class="iconify" data-icon="clarity:edit-solid" style="color: #f2c94c; font-size: 12px; margin-left: -6px"></span>
                             </a>
                         </div>
-                        
+                        {{-- button untuk hapus data reseller --}}
                         <div class="col-3">
                           <form action="{{ route('hapusReseller', $item['_id']) }}" method="post">
                             {!! method_field('post') . csrf_field() !!}
@@ -61,8 +64,6 @@
                                   <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                          
                                 </button>
                             </form>
-                            {{-- <a href="">
-                                <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                            </a> --}}
                         </div>
                     </td>
                   </tr>

@@ -1,3 +1,5 @@
+{{-- layout untuk halaman-halaman utama seperti home, daftar, masuk, dan produk kami  --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +16,13 @@
     <title>{{ $title }}</title>
 </head>
 <body>
+    {{-- memanggil komponen navbar untuk digunakan  --}}
     @include('partials.navbar')
     <div class="main-container" data-bs-spy="scroll" data-bs-target="#scrollspyNav">
+        {{-- membuat section untuk diisi konten yang diinginkan  --}}
         @yield('content')
     </div>
+    {{-- memanggil komponen footer --}}
     @include('partials.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>

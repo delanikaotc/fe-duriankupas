@@ -1,10 +1,11 @@
-{{-- <main> --}}
+{{-- script/kode untuk tampilan sidebar reseller yang ditujukan untuk mengakses menu-menu reseller seperti dashboard, data pemesanan, request restock, dan penarikan uang --}}
     <div class="d-flex flex-column flex-shrink-0 sidebar" style="width: 280px;">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
           <img src="https://i.ibb.co/p3Zft36/logo.png" alt="" class="sidebar-logo">
           <span class="fs-6" style="font-weight: 500; color: #26471d;">duriankupas.id</span>
         </a>
         <hr>
+        {{-- informasi singkat reseller --}}
         <div class="row mt-5">
           <div class="col-3">
             <img src="https://i.ibb.co/PxPg9Jy/person-icon.png" alt="" class="sidebar-ava">
@@ -14,6 +15,7 @@
             <div>{{ $dataProfile['role'] }}</div>
           </div>
         </div>
+        {{-- menu reseller --}}
         <ul class="nav nav-pills flex-column mb-auto" style="margin-top: 60px">
           <li>
             <a href="{{ route('resellerDashboardView') }}" class="nav-link {{ $title === "Dashboard" ? 'active' : 'link-dark' }}" aria-current="page">
@@ -40,6 +42,7 @@
             </a>
           </li>
         </ul>
+        {{-- button keluar apabila memiliki token --}}
         @if (!empty(Cookie::get('accessToken')))
           <form action="{{ route('keluar') }}" method="POST" class="inline-block">
               {!! method_field('post') . csrf_field() !!}
@@ -48,8 +51,4 @@
               </button>
           </form>
         @endif
-        {{-- <div class="row">
-          <a href="" style="color: #EB5757; text-decoration: none; text-align: center;">Keluar</a>
-        </div> --}}
     </div>
-{{-- </main> --}}

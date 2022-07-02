@@ -1,3 +1,5 @@
+{{-- script/kode untuk tampilan form tambah reseller --}}
+
 @extends('layouts.admin_main')
 
 @section('content')
@@ -11,16 +13,19 @@
         </div>
         @endif
         <div class="bg mb-4">
+            {{-- form untuk input data reseller baru dan akan dijalankan fungsi tambahReseller ketika admin menekan button tambah reseller --}}
             <form action="{{ route('tambahReseller') }}" method="post">
             {!! method_field('post') . csrf_field() !!}
             <div style="text-align: left;">
                 <div class="mb-3 row">
+                    {{-- nama toko --}}
                     <label for="inputNamaToko" class="col-sm-2 col-form-label">Nama Toko</label>
                     <div class="col-sm-10">
                       <input name="namatoko" placeholder="Nama Toko" type="text" class="form-control" id="inputNamaToko">
                     </div>
                 </div>
                 <div class="mb-3 row">
+                    {{-- username --}}
                     <label for="inputIdUser" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm-10">
                       <input name="username" placeholder="Username" type="text" class="form-control" id="inputUsername">
@@ -28,12 +33,14 @@
                 </div>
                 <div class="mb-3 row">
                     <div class="col row">
+                        {{-- provinsi --}}
                         <label for="inputProvinsi" class="col-sm-4 col-form-label">Provinsi</label>
                         <div class="col-sm-8">
                             <input name="provinsi" placeholder="Provinsi" type="text" class="form-control" id="inputProvinsi">
                         </div>
                     </div>
                     <div class="col row">
+                        {{-- kabupaten/kota --}}
                         <label for="inputKota" class="col-sm-4 col-form-label">Kabupaten/Kota</label>
                         <div class="col-sm-8">
                             <input name="kota" placeholder="Kota" type="text" class="form-control" id="inputKota">
@@ -43,6 +50,7 @@
             </div>
         </div>
         <div class="bg mb-4">
+            {{-- inputan untuk produk dan jumlah awal reseller --}}
             <table class="table table-borderless">
                 <thead>
                   <tr>
@@ -69,6 +77,7 @@
                 </tbody>
               </table>
         </div>
+        {{-- button submit untuk mengirimkan data baru reseller --}}
         <div class="row">
             <div class="col d-flex justify-content-end" style="margin-left: -24px">
               <button type="submit" class="btn btn-primary">Tambah Reseller</button>    
