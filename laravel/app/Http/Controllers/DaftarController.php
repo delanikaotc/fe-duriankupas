@@ -26,13 +26,14 @@ class DaftarController extends Controller
 
         //fungsi validasi untuk username, email, password, dan nomor telepon
         $request->validate([
-            'username' => ['required', 'min:6', 'max:30'],
+            'username' => ['required', 'min:6', 'max:30', 'egex:/(^[a-zA-Z]+[a-zA-Z0-9]*$)/i'],
             'email' => ['required'],
             'password' => ['required', 'min:8', 'confirmed'],
             'password_confirmation' => ['required', 'min:8'],
             'phone' => ['required', 'numeric', 'digits_between:10,15'],
         ], [
             'username.required' => 'Kamu harus mengisi Username!',
+            'username.regex' => 'Username hanya bisa menggunakan tulisan dan angka!',
             'username.min' => 'Username minimal 6 karakter!',
             'username.max' => 'Username maksimal 30 karakter!',
             'email.required' => 'Kamu harus mengisi Email!',

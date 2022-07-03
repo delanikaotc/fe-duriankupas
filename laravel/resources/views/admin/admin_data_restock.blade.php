@@ -14,7 +14,7 @@
         @endif
         <div class="bg">
             {{-- menampilkan data restock dengan tabel --}}
-            <table class="table table-borderless">
+            <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">Waktu</th>
@@ -57,6 +57,8 @@
                         <th></th>
                         <td style="text-align: left;">{{ $dataRestock['product'] }}</td>
                         <td>{{ $dataRestock['jumlah'] }}</td>
+                        <td></td>
+                        <td></td>
                     </tr> 
                     @endforeach
                     @endforeach
@@ -72,12 +74,15 @@
                         @endforeach
                         <td></td>
                         <td>{{ $item['status'] }}</td>
+                        <td></td>
                     </tr>
                     @foreach ($item['product'] as $dataRestock)
                     <tr>
                         <th></th>
                         <td style="text-align: left;">{{ $dataRestock['product'] }}</td>
                         <td>{{ $dataRestock['jumlah'] }}</td>
+                        <td></td>
+                        <td></td>
                     </tr> 
                     @endforeach
                     @endforeach

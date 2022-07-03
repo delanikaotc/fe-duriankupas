@@ -27,7 +27,7 @@
         </div>
         <div class="bg">
             {{-- menampilkan data pembeli menggunakan table  --}}
-            <table class="table table-borderless">
+            <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">Username</th>

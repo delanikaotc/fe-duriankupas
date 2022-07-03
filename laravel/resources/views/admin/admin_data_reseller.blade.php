@@ -25,7 +25,7 @@
         </div>
         <div class="bg">
           {{-- table untuk menampilkan halaman data reseller --}}
-            <table class="table table-borderless">
+            <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">Username Reseller</th>

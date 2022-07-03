@@ -21,7 +21,7 @@
         @endif
         <div class="bg">
             {{-- menampilkan data tarik uang dengan tabel --}}
-            <table class="table table-borderless">
+            <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Waktu</th>

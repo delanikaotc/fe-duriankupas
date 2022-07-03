@@ -25,15 +25,15 @@
                 {!! method_field('post') . csrf_field() !!}
                 <div class="mb-3">
                     <label for="inputUsername" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{ old('username')}}">
                 </div>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email')}}">
                 </div>
                 <div class="mb-3">
                     <label for="inputNoTelp" class="form-label">Nomor Telepon</label>
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Telepon">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Telepon" value="{{ old('phone')}}">
                 </div>
                 <div class="mb-4">
                     <label for="inputPassword" class="form-label">Kata Sandi</label>

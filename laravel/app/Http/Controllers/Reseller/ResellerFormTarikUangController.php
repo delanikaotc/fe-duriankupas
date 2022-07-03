@@ -34,10 +34,11 @@ class ResellerFormTarikUangController extends Controller
 
         // validasi inputan jumlah yang diinput oleh reseller
         $request->validate([
-            'jumlah' => ['required', 'numeric'],
+            'jumlah' => ['required', 'numeric', 'min:20000'],
         ], [
             'jumlah.required' => 'Kamu harus mengisi jumlah saldo yang ingin diajukan!',
-            'jumlah.numeric' => 'Jumlah harus berisi angka saja!'
+            'jumlah.numeric' => 'Jumlah harus berisi angka saja!',
+            'jumlah.min' => 'Minimal saldo yang ditarik adalah Rp20.000'
         ]);
 
         // token untuk menjalankan fungsi

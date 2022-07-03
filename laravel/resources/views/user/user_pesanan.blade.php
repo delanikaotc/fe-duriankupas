@@ -40,7 +40,13 @@
                                 <div class="mb-4">
                                     <div class="card-pesanan-title">Pesanan</div>
                                     <div>{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</div>
-                                    <div>{{ $item['status'] }}</div>
+                                    @if ($item['status'] == 'Menunggu Pembayaran' || $item['status'] == 'Verifikasi Pembayaran' || $item['status'] == 'Menunggu Pengiriman' || $item['status'] == 'Sudah Dikirim')
+                                    <div class="label-kuning">{{ $item['status'] }}</div> 
+                                    @elseif ($item['status'] == 'Sudah Dikirim' || $item['status'] == 'Selesai' )
+                                    <div class="label-hijau">{{ $item['status'] }}</div> 
+                                    @elseif ($item['status'] == 'Pembayaran Ditolak')
+                                    <div class="label-merah">{{ $item['status'] }}</div> 
+                                    @endif
                                 </div>
                                 @foreach ($item['pesanan'] as $pesanan)
                                 <div>

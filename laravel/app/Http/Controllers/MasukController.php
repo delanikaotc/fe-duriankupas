@@ -27,10 +27,11 @@ class MasukController extends Controller
 
         // validasi input
         $request->validate([
-            'username' => ['required'],
+            'username' => ['required', 'regex:/(^[a-zA-Z]+[a-zA-Z0-9\\-]*$)/u'],
             'password' => ['required']
         ], [
             'username.required' => 'Kamu harus mengisi Username!',
+            'username.regex' => 'Username hanya bisa menggunakan tulisan dan angka!',
             'password.required' => 'Kamu harus mengisi Kata Sandi!',
         ]);
 

@@ -25,7 +25,7 @@
           </div>
         <div class="bg">
             {{-- menampilkan data produk menggunakan tabel --}}
-            <table class="table table-borderless align-middle">
+            <table class="table align-middle">
                 <thead>
                   <tr>
                     <th scope="col">Foto Produk</th>
@@ -48,9 +48,10 @@
                         {{-- deskripsi produk --}}
                         <td>{{ $item['deskripsi'] }}</td>
                         <td>@currency($item['harga'])</td>
-                        <td class="row d-flex justify-content-center mt-3">
-                            {{-- button untuk ubah data produk --}}
-                            <div class="col-2 me-1">
+                        <td>
+                            <div class="row d-flex justify-content-center mt-3">
+                                 {{-- button untuk ubah data produk --}}
+                            <div class="col-2 me-2">
                                 <a class="btn btn-edit" href="{{ route('adminEditProdukView', $item['_id']) }}">
                                     <span class="iconify" data-icon="clarity:edit-solid" style="color: #f2c94c; font-size: 12px; margin-left: -6px"></span>
                                 </a>
@@ -63,6 +64,7 @@
                                       <span class="iconify" data-icon="bi:trash-fill" style="color: #eb5757; font-size: 12px; margin-left: -6px"></span>                          
                                     </button>
                                 </form>
+                            </div>
                             </div>
                         </td>
                     </tr>

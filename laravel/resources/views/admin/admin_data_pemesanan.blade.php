@@ -14,17 +14,17 @@
         @endif
         <div class="bg" style="font-size: 14px;">
             {{-- table untuk menampilkan semua data pemesanan dari pembeli --}}
-            <table class="table table-borderless">
+            <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Pesanan</th>
-                    <th scope="col">Total Harga</th>
-                    <th scope="col">Alamat</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Bukti</th>
-                    <th scope="col">Aksi</th>
+                    <th class="col-2">Tanggal</th>
+                    <th class="col-1">Username</th>
+                    <th class="col-2">Pesanan</th>
+                    <th class="col-1">Total Harga</th>
+                    <th class="col-3">Alamat</th>
+                    <th class="col-1">Status</th>
+                    <th class="col-1">Bukti</th>
+                    <th class="col-2">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,7 @@
                         <td>
                             {{-- setiap pesanan yang diminta pembeli akan ditampilkan --}}
                             @foreach ($item['pesanan'] as $pesanan)
-                            <div>{{ $pesanan['product'] }} ({{ $pesanan['jumlah'] }})</div>
+                            <div>{{ $pesanan['product'] }} (x{{ $pesanan['jumlah'] }})</div>
                             @endforeach
                         </td>
                         {{-- total harga pesanan --}}
@@ -57,25 +57,27 @@
                         <td><img class="img-bukti-pembayaran" src="{{ $item['buktipembayaran'] }}" alt=""></td>
                         {{-- jika status pesanan adalah verifikasi pembayaran maka akan menampilkan button aksi --}}
                         @if ($item['status'] == 'Verifikasi Pembayaran')
-                        <td class="row d-flex justify-content-center">
-                            <div class="col-4">
-                                {{-- button yang apabila ditekan akan menjalankan fungsi terima bukti pembayaran dengan id pesanan --}}
-                                <form action="{{ route('terimaBuktiPembayaran', $item['_id']) }}" method="post">
-                                {!! method_field('post') . csrf_field() !!}
-                                    <button class="btn btn-terima"type="submit">                                    
-                                        <span class="iconify" data-icon="akar-icons:check" style="color: #479360; font-size: 12px; margin-left: -6px"></span>                                
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="col-4">
-                                {{-- button yang apabila ditekan akan menjalankan fungsi tolak bukti pembayaran dengan id pesanan --}}
-                                <form action="{{ route('tolakBuktiPembayaran', $item['_id']) }}" method="post">
-                                    {!! method_field('post') . csrf_field() !!}
-                                        <button class="btn btn-tolak"type="submit">                                    
-                                            <span class="iconify" data-icon="akar-icons:cross" style="color: #f24e1e; font-size: 12px;margin-left: -6px"></span>                                
-                                        </button>
-                                </form>                         
-                            </div>
+                        <td>
+                            <div class="row">
+                                <div class="col-4 me-2">
+                                    {{-- button yang apabila ditekan akan menjalankan fungsi terima bukti pembayaran dengan id pesanan --}}
+                                    <form action="{{ route('terimaBuktiPembayaran', $item['_id']) }}" method="post">
+                                        {!! method_field('post') . csrf_field() !!}
+                                            <button class="btn btn-terima"type="submit">                                    
+                                                <span class="iconify" data-icon="akar-icons:check" style="color: #479360; font-size: 12px; margin-left: -6px"></span>                                
+                                            </button>
+                                        </form>
+                                </div>
+                                <div class="col-4">
+                                    {{-- button yang apabila ditekan akan menjalankan fungsi tolak bukti pembayaran dengan id pesanan --}}
+                                    <form action="{{ route('tolakBuktiPembayaran', $item['_id']) }}" method="post">
+                                        {!! method_field('post') . csrf_field() !!}
+                                            <button class="btn btn-tolak"type="submit">                                    
+                                                <span class="iconify" data-icon="akar-icons:cross" style="color: #f24e1e; font-size: 12px;margin-left: -6px"></span>                                
+                                            </button>
+                                    </form>  
+                                </div>      
+                            </div>                 
                         </td>
                         @endif
                     </tr>
@@ -89,10 +91,10 @@
                         <th scope="row">{{ $item['username'] }}</th>
                         <td>
                             @foreach ($item['pesanan'] as $pesanan)
-                            <div>{{ $pesanan['product'] }} ({{ $pesanan['jumlah'] }})</div>
+                            <div>{{ $pesanan['product'] }} (x{{ $pesanan['jumlah'] }})</div>
                             @endforeach
                         </td>
-                        <td>{{ $item['total'] }}</td>
+                        <td>@currency($item['total'])</td>
                         <td>{{ $item['alamat'] }}, {{ $item['kecamatan'] }}, {{ $item['kota'] }}, {{ $item['provinsi'] }}</td>
                         <td align="center">
                             <div class="">
@@ -100,6 +102,7 @@
                             </div> 
                         </td>
                         <td><img class="img-bukti-pembayaran" src="{{ $item['buktipembayaran'] }}" alt=""></td>
+                        <td></td>
                     </tr>
                     @endif
                     @endforeach

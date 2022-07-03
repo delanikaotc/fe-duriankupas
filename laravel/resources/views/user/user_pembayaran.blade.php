@@ -71,6 +71,7 @@
                 <h6>Unggah Bukti Pembayaran</h6>
                   <div class="form-group">
                     <input name="image" type="file" class="form-control-file" id="inputBuktiPembayaran">
+                    <div style="color: #c4c4c4; font-size: 12px;">Format gambar harus .png, .jpg, .jpeg</div>
                   </div>
               </div>
           </div>

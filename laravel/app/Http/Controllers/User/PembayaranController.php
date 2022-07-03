@@ -96,6 +96,7 @@ class PembayaranController extends Controller
             return redirect()->route('userPesananView')->with('success', 'Unggah bukti pembayaran kamu berhasil!');
         } catch (Exception $e) {
             Log::error($e);
+            return redirect()->route('pembayaranView', $id)->withErrors(['Gambar harus jpeg, jpg, atau png!']);
         }
     }
 }
