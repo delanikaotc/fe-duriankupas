@@ -26,6 +26,7 @@
                 <div class="mb-3">
                     <label for="inputUsername" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{ old('username')}}">
+                    <p style="color: #c4c4c4; font-size: 12px; font-weight: 400; text-decoration: none;">min. 8 karakter, hanya huruf dan angka</p>
                 </div>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Email address</label>
@@ -35,9 +36,10 @@
                     <label for="inputNoTelp" class="form-label">Nomor Telepon</label>
                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Telepon" value="{{ old('phone')}}">
                 </div>
-                <div class="mb-4">
+                <div class="mb-3">
                     <label for="inputPassword" class="form-label">Kata Sandi</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi">
+                    <p style="color: #c4c4c4; font-size: 12px; font-weight: 400; text-decoration: none;">min. 8 karakter</p>
                 </div>
                 <div class="mb-4">
                     <label for="inputPassword" class="form-label">Ulangi Kata Sandi</label>
