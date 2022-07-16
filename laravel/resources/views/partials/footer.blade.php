@@ -33,10 +33,10 @@
               <a href="https://wa.me/6281289078298" class="text-reset">Jadi Reseller</a>
             </p>
             <p>
-              <a href="/" class="text-reset">Tentang Kami</a>
+              <a href="{{ route('tentangView') }}" class="text-reset">Tentang Kami</a>
             </p>
             <p>
-              <a href="/" class="text-reset">Bantuan</a>
+              <a href="{{ route('bantuanView') }}" class="text-reset">Bantuan</a>
             </p>
           </div>
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -49,12 +49,6 @@
             </p>
             <p>
               <a href="{{ route('produkView') }}" class="text-reset">Durian Medan</a>
-            </p>
-            <p>
-              <a href="{{ route('produkView') }}" class="text-reset">Durian Pelangi</a>
-            </p>
-            <p>
-              <a href="{{ route('produkView') }}" class="text-reset">Durian Mimang</a>
             </p>
           </div>
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">

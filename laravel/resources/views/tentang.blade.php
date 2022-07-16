@@ -113,24 +113,30 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu diam nec lorem ornare molestie ac ac mauris.</p>
         </div>
         <div class="row mb-4">
-            <div class="card-promo me-4">
-                <div class="mb-3">
-                    <img class="img-promo" src="https://i.ibb.co/4VfP4Tb/Screen-Shot-2022-07-16-at-16-03-53.png" alt="">
-                </div>
-                <div>Promo Ramadhan</div>
-            </div>
-            <div class="card-promo me-4">
+            <a class="card-promo me-4" href="https://www.instagram.com/p/Cb2Jhg3v-9V/" style="text-decoration: none; color: #212427;">
+                <div>
+                    <div class="mb-3">
+                        <img class="img-promo" src="https://i.ibb.co/4VfP4Tb/Screen-Shot-2022-07-16-at-16-03-53.png" alt="">
+                    </div>
+                    <div>Promo Ramadhan</div>
+                </div>    
+            </a>
+           <a href="https://www.instagram.com/p/CW-izTyPaq6/" class="card-promo me-4" style="text-decoration: none; color: #212427;">
+            <div>
                 <div class="mb-3">
                     <img class="img-promo" src="https://i.ibb.co/ccKYZz3/Screen-Shot-2022-07-16-at-16-04-30.png" alt="">
                 </div>
                 <div>Promo Gratis Ongkir</div>
             </div>
-            <div class="card-promo me-4">
-                <div class="mb-3">
-                    <img class="img-promo" src="https://i.ibb.co/nLZGjRB/Screen-Shot-2022-07-16-at-16-04-40.png" alt="">
+           </a>
+            <a href="https://www.instagram.com/p/CXIupBhvfKd/"  class="card-promo me-4" style="text-decoration: none; color: #212427;">
+                <div>
+                    <div class="mb-3">
+                        <img class="img-promo" src="https://i.ibb.co/nLZGjRB/Screen-Shot-2022-07-16-at-16-04-40.png" alt="">
+                    </div>
+                    <div>Promo Durian Monthong</div>
                 </div>
-                <div>Promo Durian Monthong</div>
-            </div>
+            </a>
         </div>
         <div class="mb-4">
             <h4>dan masih banyak lagi!</h4>
