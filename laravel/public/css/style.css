@@ -114,6 +114,11 @@ body {
     margin-top: 60px;
 }
 
+.content-tentang {
+    margin-top: 60px;
+    margin-bottom: 120px;
+}
+
 .content-daftar {
     margin-top: 60px;
     padding-left: 96px;
@@ -600,4 +605,49 @@ body {
 .img-bukti-pembayaran {
     height: 50px;
     width: 50px;
+}
+
+.img-header {
+    width: 1249px;
+    height: 284px;
+    border-radius: 12px;
+}
+
+.card-misi {
+    width: 181px;
+    height: 160px;
+    border-radius: 12px;
+    background-color: #ffff;
+    text-align: center;
+    padding-top: 32px;
+}
+
+.card-promo {
+    width: 395px;
+    height: 366px;
+    border-radius: 12px;
+    background-color: #ffff;
+    text-align: center;
+    padding-top: 24px;
+}
+
+.img-promo {
+    width: 276px;
+    height: 281px;
+    border-radius: 12px;
+}
+
+.card-kontak {
+    width: 288px;
+    height: 149px;
+    border-radius: 12px;
+    background-color: #ffff;
+    padding-top: 24px;
+    padding-left: 16px;
+}
+
+.img-hubungi {
+    width: 481px;
+    height: 250px;
+    border-radius: 12px;
 }

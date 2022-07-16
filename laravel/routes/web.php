@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MasukController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\TentangController;
+use App\Http\Controllers\BantuanController;
 
 //controller halaman user
 use App\Http\Controllers\User\UserProfileController;
@@ -48,6 +50,8 @@ use App\Http\Controllers\Admin\AdminDataUlasanController;
 
 //Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/tentang-kami', [TentangController::class, 'index'])->name('tentangView');
+Route::get('/bantuan', [BantuanController::class, 'index'])->name('bantuanView');
 
 
 // Daftar

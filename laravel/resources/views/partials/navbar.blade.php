@@ -16,11 +16,11 @@
             </li>
             {{-- halaman tentang  --}}
             <li class="nav-item">
-            <a class="nav-link" href="#">Tentang</a>
+                <a class="nav-link" href="{{ route('tentangView') }}" style="{{ $title == "Tentang Kami" ? 'color: #ffc600' : '' }}">Tentang</a>
             </li>
             {{-- halaman bantuan  --}}
             <li class="nav-item">
-            <a class="nav-link" href="#">Bantuan</a>
+                <a class="nav-link" href="{{ route('bantuanView') }}" style="{{ $title == "Bantuan" ? 'color: #ffc600' : '' }}">Bantuan</a>
             </li>
         </ul>
         </div>
