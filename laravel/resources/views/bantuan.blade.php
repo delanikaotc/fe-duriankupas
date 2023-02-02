@@ -1,12 +1,11 @@
-{{-- Script/code berikut adalah implementasi untuk tampilan halaman landing page 
-menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
+{{-- Script/code berikut adalah implementasi untuk tampilan bantuan --}}
 
 {{-- memanggil bagian layouts.main, layouts untuk halaman-halaman utama --}}
 @extends('layouts.main')
 
-{{-- konten-konten dari halaman landing page --}}
+{{-- konten-konten dari halaman bantuan--}}
 @section('content') 
-    {{-- menampilkan carousel untuk bagian promosi --}}
+    {{-- menampilkan kontak yang dapat dihubungi--}}
     <div class="content mb-4">
         <div class="row">
             <div class="col-5 me-4">
@@ -42,6 +41,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
         </div>
     </div>
 
+    {{-- menampilkan pertanyaan yang sering ditanya atau faq --}}
     <div class="content-tentang" style="margin-bottom:60px; text-align: center;">
         <div class="mb-4">
             <h3>Frequently Asked Question</h3>

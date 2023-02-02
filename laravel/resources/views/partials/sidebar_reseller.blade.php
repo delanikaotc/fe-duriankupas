@@ -8,7 +8,7 @@
         {{-- informasi singkat reseller --}}
         <div class="row mt-5">
           <div class="col-3">
-            <img src="https://i.ibb.co/PxPg9Jy/person-icon.png" alt="" class="sidebar-ava">
+            <img src="https://i.postimg.cc/bv3SC2bh/icon1.png" alt="" class="sidebar-ava">
           </div>
           <div class="col">
             <div style="font-weight: 600; font-size: 18px">{{ $dataProfile['username'] }}</div>

@@ -18,9 +18,9 @@ class BuatPesananController extends Controller
     {
         $client = new Client();
         // URI untuk post data pesanan yang didapat dari halaman produk kami
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/pesan';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/pesan';
         // URI untuk get data produk yang ada di database
-        $URIProduk = 'https://beduriankupas.herokuapp.com/api/users';
+        $URIProduk = 'https://beduriankupas.tykozidane.xyz/api/users';
 
         // membutuhkan token user untuk melanjutkan aktivitas pembelian
         $params['headers'] = array(
@@ -74,7 +74,7 @@ class BuatPesananController extends Controller
     {
         // URI untuk menambahkan data pesanan sesuai id pesanan yang didapat
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/detail/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/detail/' . $id;
 
         // pengecekan apabila data provinsi dan kota tidak sesuai
         if ($request->provinsi == 'Pilih Provinsi') {
@@ -140,7 +140,7 @@ class BuatPesananController extends Controller
     {
         // link API untuk mendapatkan data daerah
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/region';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/region';
 
         // melakukan get data daerah dari URI
         $action = $client->get($URI);
@@ -171,7 +171,7 @@ class BuatPesananController extends Controller
     {
         // URI untuk get data daerah
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/region';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/region';
 
         // command untuk get data daerah
         $action = $client->get($URI);

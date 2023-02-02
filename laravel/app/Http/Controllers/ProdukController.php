@@ -14,7 +14,7 @@ class ProdukController extends Controller
     {
         // URI untuk mendapatkan data produk
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users';
 
         try {
             // comand untuk mendapatkan data dari API menggunakan metode get

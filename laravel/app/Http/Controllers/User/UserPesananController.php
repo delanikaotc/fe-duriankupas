@@ -17,12 +17,13 @@ class UserPesananController extends Controller
     {
         // API untuk mendapatkan transaksi yang pernah dilakukan oleh pengguna dari id user
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/mytransaction/' . cookie::get('idUser');
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/mytransaction/' . cookie::get('idUser');
 
         // token yang dibutuhkan untuk menjalankan fungsi
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
         );
+
         try {
             // mengambil data transaksi dari database lewat API
             $action = $client->get($URI, $params);
@@ -46,7 +47,7 @@ class UserPesananController extends Controller
     {
         // mendapatkan data transaksi yang sudah selesai dari spesifik id pesanan
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/transaksiselesai/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/transaksiselesai/' . $id;
 
         // token yang dibutuhkan untuk mengakses fungsi
         $params['headers'] = array(
@@ -68,8 +69,8 @@ class UserPesananController extends Controller
     {
         // URI untuk mendapatkan data transaksi dan data produk
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/transaksi/' . $id;
-        $URIProduk = 'https://beduriankupas.herokuapp.com/api/users';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/transaksi/' . $id;
+        $URIProduk = 'https://beduriankupas.tykozidane.xyz/api/users';
 
         // token yang dibutuhkan untuk menjalankan fungsi
         $params['headers'] = array(

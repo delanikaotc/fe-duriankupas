@@ -17,7 +17,7 @@ class ResellerDataPemesananController extends Controller
     {
         // link API URI untuk mengambil data pemesanan
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/datapesanan';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/datapesanan';
 
         // token yang dibutuhkan untuk akses fungsi
         $params['headers'] = array(
@@ -46,7 +46,7 @@ class ResellerDataPemesananController extends Controller
     function indexRiwayatPemesanan()
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/datapesanan';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/datapesanan';
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -74,7 +74,7 @@ class ResellerDataPemesananController extends Controller
     {
         // link API URI untuk mengedit data pesanan menggunakan id
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/dikirim/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/dikirim/' . $id;
 
         // token yang dibutuhkan 
         $params['headers'] = array(

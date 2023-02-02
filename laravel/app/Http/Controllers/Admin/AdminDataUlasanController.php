@@ -16,8 +16,8 @@ class AdminDataUlasanController extends Controller
     {
         // URI API untuk mendapatkan data ulasan dan data pesanan
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/review';
-        $URIPesanan = 'https://beduriankupas.herokuapp.com/api/admin/datapesanan';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/review';
+        $URIPesanan = 'https://beduriankupas.tykozidane.xyz/api/admin/datapesanan';
 
         // token yang dibutuhkan untuk menjalani fungsi
         $params['headers'] = array(

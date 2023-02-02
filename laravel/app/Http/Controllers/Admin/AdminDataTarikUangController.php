@@ -16,8 +16,8 @@ class AdminDataTarikUangController extends Controller
     {
         // URI untuk mengambil data tarik uang 
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datatarikuang';
-        $URIReseller = 'https://beduriankupas.herokuapp.com/api/admin/datareseller';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/datatarikuang';
+        $URIReseller = 'https://beduriankupas.tykozidane.xyz/api/admin/datareseller';
 
 
         // token untuk menjalankan fungsi

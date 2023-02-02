@@ -19,7 +19,7 @@ class AdminDataProdukController extends Controller
     {
         // API untuk mendapatkan data produk
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/dataproduct';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/dataproduct';
 
         // token yang dibutuhkan untuk mengakses
         $params['headers'] = array(
@@ -48,7 +48,7 @@ class AdminDataProdukController extends Controller
     {
         // API untuk menghapus produk dengan id produk
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/deleteproduct/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/deleteproduct/' . $id;
 
         // token yang dibutuhkan untuk menjalankan fungsi 
         $params['headers'] = array(
@@ -70,7 +70,7 @@ class AdminDataProdukController extends Controller
     {
         // API untuk mendapatkan data spesifik produk dari id 
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/dataproduct/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/dataproduct/' . $id;
 
         // token yang dibutuhkan untuk menjalankan fungsi
         $params['headers'] = array(
@@ -99,7 +99,7 @@ class AdminDataProdukController extends Controller
     {
         // API untuk mengubah data produk
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/updateproduct/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/updateproduct/' . $id;
 
         // validasi inputan dari front end
         $request->validate([

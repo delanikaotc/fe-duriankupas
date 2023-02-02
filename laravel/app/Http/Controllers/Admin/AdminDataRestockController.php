@@ -17,8 +17,8 @@ class AdminDataRestockController extends Controller
     {
         // API untuk mengambil data restock dan data reseller dari database
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datarestock';
-        $URIToko = 'https://beduriankupas.herokuapp.com/api/admin/dataReseller';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/datarestock';
+        $URIToko = 'https://beduriankupas.tykozidane.xyz/api/admin/dataReseller';
 
         // token yang dibutuhkan
         $params['headers'] = array(
@@ -52,7 +52,7 @@ class AdminDataRestockController extends Controller
     {
         // API untuk mengubah status data restock dengan id 
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/restockdikirim/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/restockdikirim/' . $id;
 
         // token yang dibutuhkan
         $params['headers'] = array(

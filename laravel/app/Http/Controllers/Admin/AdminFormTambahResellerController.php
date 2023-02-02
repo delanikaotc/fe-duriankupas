@@ -19,7 +19,7 @@ class AdminFormTambahResellerController extends Controller
     {
         // API untuk mendapatkan data produk yang akan ditampilkan
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users';
 
         try {
             // mendapatkan data produk dari database lewat API
@@ -44,7 +44,7 @@ class AdminFormTambahResellerController extends Controller
     {
         // API untuk menambahkan toko 
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/addtoko';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/addtoko';
 
         // validasi inputan dari front end
         $request->validate([

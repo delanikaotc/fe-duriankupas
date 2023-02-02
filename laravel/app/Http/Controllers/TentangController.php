@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-// controller untuk mengambil data untuk data yang dibutuhkan pada home lewat controller
+// controller untuk menampilkan halaman tentang
+
 use Exception;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;

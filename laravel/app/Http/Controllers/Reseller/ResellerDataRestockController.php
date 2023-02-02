@@ -17,7 +17,7 @@ class ResellerDataRestockController extends Controller
     {
         // URI API untuk mengambil data restock
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/datarestock';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/datarestock';
 
         // token yang dibutuhkan
         $params['headers'] = array(

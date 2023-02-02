@@ -18,7 +18,7 @@ class BeriUlasanController extends Controller
     {
         // URI untuk get pesanan yang akan diberi ulasan, diambil by id pesanan
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/transaksi/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/transaksi/' . $id;
 
         // token untuk mengakses fungsi
         $params['headers'] = array(
@@ -48,7 +48,7 @@ class BeriUlasanController extends Controller
     {
         // mengirimkan data ke database menggunakan URI API
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/rating/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/rating/' . $id;
 
 
         // validasi data rating dan ulasan yang didapat

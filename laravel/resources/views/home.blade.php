@@ -26,13 +26,13 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
                     </div>
                     <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://i.ibb.co/vYGHDRW/carousel1.png" class="d-block w-100" alt="...">
+                        <img src="https://i.postimg.cc/W3hJqbyw/carousel1.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://i.ibb.co/vYGHDRW/carousel1.png" class="d-block w-100" alt="...">
+                        <img src="https://i.postimg.cc/W3hJqbyw/carousel1.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://i.ibb.co/vYGHDRW/carousel1.png" class="d-block w-100" alt="...">
+                        <img src="https://i.postimg.cc/W3hJqbyw/carousel1.png" class="d-block w-100" alt="...">
                     </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -138,7 +138,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
             </div>
             <div class="card-review">
                 <div>
-                    <img class="card-review image" src="https://i.ibb.co/BPTsjPq/Screen-Shot-2022-06-28-at-12-30-57.png" alt="">
+                    <img class="card-review image" src="https://i.postimg.cc/4GWtCkVK/AC0-B29-D7-35-D8-46-CB-8-CA5-349-D257-A1-B0-E-L0-001.jpg" alt="">
                 </div>
                 <div class="card-review info">
                     <h5>Eryn Nurrul</h5>

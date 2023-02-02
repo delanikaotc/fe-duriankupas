@@ -20,7 +20,7 @@ class PembayaranController extends Controller
     {
         // URI untuk get data pesanan
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/mytransaction/' . cookie::get('idUser');
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/mytransaction/' . cookie::get('idUser');
 
         // membutuhkan token user untuk mengakses fungsi ini
         $params['headers'] = array(
@@ -60,7 +60,7 @@ class PembayaranController extends Controller
     {
         //URI get pesanan by id untuk memasukkan bukti gambar pembayaran
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/payment/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/payment/' . $id;
 
         //validasi gambar agar tidak bisa diisi kosong atau diisi file selain extension yang diminta
         $request->validate([

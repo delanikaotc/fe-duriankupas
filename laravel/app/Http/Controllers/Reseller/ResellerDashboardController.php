@@ -17,7 +17,7 @@ class ResellerDashboardController extends Controller
     {
         // URI API untuk get data reseller
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/';
 
 
         // token yang dibutuhkan untuk akses fungsi ini

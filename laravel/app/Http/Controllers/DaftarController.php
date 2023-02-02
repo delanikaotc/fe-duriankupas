@@ -22,11 +22,11 @@ class DaftarController extends Controller
     {
         // URI API untuk post data daftar ke database
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/auth/register';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/auth/register';
 
         //fungsi validasi untuk username, email, password, dan nomor telepon
         $request->validate([
-            'username' => ['required', 'min:6', 'max:30', 'egex:/(^[a-zA-Z]+[a-zA-Z0-9]*$)/i'],
+            'username' => ['required', 'min:6', 'max:30', 'regex:/(^[a-zA-Z]+[a-zA-Z0-9]*$)/i'],
             'email' => ['required'],
             'password' => ['required', 'min:8', 'confirmed'],
             'password_confirmation' => ['required', 'min:8'],

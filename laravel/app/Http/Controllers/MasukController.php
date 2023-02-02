@@ -23,7 +23,7 @@ class MasukController extends Controller
     {
         // API untuk mengirimkan data untuk dicek untuk melakukan proses masuk
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/auth/login';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/auth/login';
 
         // validasi input
         $request->validate([

@@ -17,7 +17,7 @@ class ResellerDataTarikUangController extends Controller
     {
         // URI API untuk mengambil data penarikan uang yang dilakukan oleh spesifik reseller
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/datatarikuang';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/datatarikuang';
 
         // token yang dibutuhkan 
         $params['headers'] = array(

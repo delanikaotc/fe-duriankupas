@@ -30,7 +30,7 @@ class ResellerFormTarikUangController extends Controller
     {
         // URI API untuk mengirimkan data ke database
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/tarikuang';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/tarikuang';
 
         // validasi inputan jumlah yang diinput oleh reseller
         $request->validate([

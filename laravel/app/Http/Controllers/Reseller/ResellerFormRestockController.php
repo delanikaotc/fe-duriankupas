@@ -18,7 +18,7 @@ class ResellerFormRestockController extends Controller
     {
         // URI API untuk get data produk
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users';
 
         try {
             // mengambil data produk dari database lewat API
@@ -43,7 +43,7 @@ class ResellerFormRestockController extends Controller
     {
         // URI API untuk data restock
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/reseller/restock';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/restock';
 
         // token yang dibutuhkan
         $params['headers'] = array(

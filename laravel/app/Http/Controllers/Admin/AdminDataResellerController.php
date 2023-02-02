@@ -18,7 +18,7 @@ class AdminDataResellerController extends Controller
     {
         // API untuk mengambil data semua reseller
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datareseller';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/datareseller';
 
         // token yang dibutuhkan
         $params['headers'] = array(
@@ -47,7 +47,7 @@ class AdminDataResellerController extends Controller
     {
         // API untuk menghapus toko
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/deletetoko/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/deletetoko/' . $id;
 
         // token yang dibutuhkan
         $params['headers'] = array(
@@ -70,7 +70,7 @@ class AdminDataResellerController extends Controller
     {
         // API untuk mendapatkan data reseller dari id
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datareseller/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/datareseller/' . $id;
 
         // token yang dibutuhkan
         $params['headers'] = array(
@@ -99,7 +99,7 @@ class AdminDataResellerController extends Controller
     {
         // API untuk mengubah data reseller dengan id
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/updatetoko/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/updatetoko/' . $id;
 
         // validasi inputan yang masuk
         $request->validate([

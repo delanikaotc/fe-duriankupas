@@ -7,9 +7,12 @@
         <a class="navbar-brand" href="/">
             <img src="https://i.ibb.co/p3Zft36/logo.png" alt="" width="30" height="24">
         </a>
-        <div class="collapse navbar-collapse">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
         {{-- halaman-halaman yang ada di duriankupas.id  --}}
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             {{-- halaman produk kami  --}}
             <li class="nav-item">
             <a class="nav-link" href="{{ route('produkView') }}" style="{{ $title == "Produk Kami" ? 'color: #ffc600' : '' }}">Produk Kami</a>
@@ -42,7 +45,7 @@
             <div class="d-flex" style="padding-right:16px;">
                 <div class="row">
                     <div class="col">
-                        <img class="ava-navbar" src="https://i.ibb.co/PxPg9Jy/person-icon.png" alt="">
+                        <img class="ava-navbar" src="https://i.postimg.cc/bv3SC2bh/icon1.png" alt="">
                     </div>
                     {{-- pengecekan untuk pengambilan data alurnya berbeda apabila dia user baru daftar atau hanya melakukan login --}}
                     @if (empty($data['username']))

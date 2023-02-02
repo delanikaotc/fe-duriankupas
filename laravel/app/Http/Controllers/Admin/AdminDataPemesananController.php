@@ -17,7 +17,7 @@ class AdminDataPemesananController extends Controller
     {
         // URI API untuk mengambil semua data pemesanan pembeli
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datapesanan';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/datapesanan';
 
         // token yang dibutuhkan untuk fungsi
         $params['headers'] = array(
@@ -46,7 +46,7 @@ class AdminDataPemesananController extends Controller
     {
         // API untuk mengubah status pesanan dengan spesifik id
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/pembayaranterverifikasi/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/pembayaranterverifikasi/' . $id;
 
         // token yang dibutuhkan 
         $params['headers'] = array(
@@ -68,7 +68,7 @@ class AdminDataPemesananController extends Controller
     function tolakBuktiPembayaran($id)
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/pembayaranditolak/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/pembayaranditolak/' . $id;
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),

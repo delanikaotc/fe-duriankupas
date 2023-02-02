@@ -13,19 +13,13 @@
             </div>
         @endif
         <div class="row">
-            <div class="col-6">
-              <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            </div>
             <div class="col d-flex justify-content-end mb-4">
                 <a class="btn btn-primary" href="{{ route('adminFormTambahProdukView') }}" role="button" style="width: 200px">Tambah Produk</a>
             </div>
           </div>
         <div class="bg">
             {{-- menampilkan data produk menggunakan tabel --}}
-            <table class="table align-middle">
+            <table class="table table-borderless align-middle">
                 <thead>
                   <tr>
                     <th scope="col">Foto Produk</th>

@@ -17,7 +17,7 @@ class AdminDataPembeliController extends Controller
     {
         // URI API untuk mendapatkan semua data pembeli
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/dataPembeli';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/dataPembeli';
 
         // token untuk menjalankan fungsi
         $params['headers'] = array(
@@ -47,7 +47,7 @@ class AdminDataPembeliController extends Controller
     {
         // API untuk menghapus data pembeli
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/deletePembeli/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/deletePembeli/' . $id;
 
         // token yang dibutuhkan
         $params['headers'] = array(
@@ -70,7 +70,7 @@ class AdminDataPembeliController extends Controller
     {
         // mengambil data pembeli sesuai id
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datapembeli/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/datapembeli/' . $id;
 
         // token yang dibutuhkan
         $params['headers'] = array(
@@ -99,7 +99,7 @@ class AdminDataPembeliController extends Controller
     {
         // API untuk mengubah data pembeli dengan id
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/updatepembeli/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/updatepembeli/' . $id;
 
         // validasi data yang diinputkan
         $request->validate([

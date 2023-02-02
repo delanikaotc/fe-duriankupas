@@ -1,19 +1,18 @@
-{{-- Script/code berikut adalah implementasi untuk tampilan halaman landing page 
-menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
+{{-- Script/code berikut adalah implementasi untuk tampilan halaman tentang --}}
 
 {{-- memanggil bagian layouts.main, layouts untuk halaman-halaman utama --}}
 @extends('layouts.main')
 
-{{-- konten-konten dari halaman landing page --}}
+{{-- konten-konten dari halaman tentang --}}
 @section('content') 
-    {{-- menampilkan carousel untuk bagian promosi --}}
+    {{-- menampilkan gambar header untuk duriankupas.id --}}
     <div class="content">
         <div>
             <img src="https://i.ibb.co/RTwdTVy/Group-4235.png" alt="" class="img-header">
         </div>
     </div>
 
-    {{-- menampilkan keuntungan dari berbelanja di duriankupas.id --}}
+    {{-- menampilkan informasi dari duriankupas.id--}}
     <div class="content-tentang" style="text-align: center;">
         <div class="mb-4">
             <h3>duriankupas.id</h3>
@@ -27,7 +26,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
         </div>
     </div>
     
-    {{-- menampilkan ulasan pesanan dari pengguna sebelumnya --}}
+    {{-- menampilkan pencapaian dari duriankupas.id --}}
     <div class="content-tentang">
         <div class="row">
             <div class="col">
@@ -60,6 +59,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
         </div>
     </div>
     
+    {{-- menampilkan pengelola dari duriankupas.id --}}
     <div class="content-tentang">
         <div class="row">
             <div class="col">
@@ -104,6 +104,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
         </div>
     </div>
 
+    {{-- menampilkan promosi promosi dari duriankupas.id --}}
     <div class="content-tentang" style="margin-bottom:60px; text-align: center;">
         <div class="mb-4">
             <h3>Dapatkan Promo Menarik</h3>

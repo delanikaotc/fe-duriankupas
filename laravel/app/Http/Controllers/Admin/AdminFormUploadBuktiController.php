@@ -18,7 +18,7 @@ class AdminFormUploadBuktiController extends Controller
     {
         // URI API untuk mendapatkan data pengajuan tarik uang by id 
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/datatarikuang/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/datatarikuang/' . $id;
 
         // token yang dibutuhkan untuk mengakses fungsi
         $params['headers'] = array(
@@ -48,7 +48,7 @@ class AdminFormUploadBuktiController extends Controller
     {
         // URI API untuk mengirimkan bukti kirim uang dengan id data penarikan
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/transfer/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/transfer/' . $id;
 
         // memasukkan file image ke dalam variabel agar lebih mudah
         $file = $request->file('image');

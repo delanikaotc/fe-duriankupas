@@ -30,7 +30,7 @@ class AdminFormTambahProdukController extends Controller
     {
         // API untuk menambah produk 
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/admin/addproduct';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/admin/addproduct';
 
         // validasi inputan
         $request->validate([

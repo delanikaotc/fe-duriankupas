@@ -18,7 +18,7 @@ class UserProfileController extends Controller
     {
         // URI API get data user by id 
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/profile/' . cookie::get('idUser');
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/profile/' . cookie::get('idUser');
 
         // membutuhkan token untuk mengakses fungsi ini
         $params['headers'] = array(
@@ -44,7 +44,7 @@ class UserProfileController extends Controller
     function editProfil($id)
     {
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/profile/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/profile/' . $id;
 
         $params['headers'] = array(
             'token' => 'Bearer ' . cookie::get('accessToken'),
@@ -67,7 +67,7 @@ class UserProfileController extends Controller
     {
         // URI API get data user by id 
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users/update/' . $id;
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users/update/' . $id;
 
         // validasi request yang masuk untuk data yang diberikan
         $request->validate([

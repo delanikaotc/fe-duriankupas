@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         // assign new client untuk mengambil data pada link uri api 
         $client = new Client();
-        $URI = 'https://beduriankupas.herokuapp.com/api/users';
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/users';
 
         // menggunakan try catch agar tidak langsung berhenti ketika menemukan error
         try {

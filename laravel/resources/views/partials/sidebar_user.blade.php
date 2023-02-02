@@ -5,7 +5,7 @@
         {{-- informasi singkat mengenai user --}}
         <div class="row">
             <div class="col-3">
-                <img class="sidebar-user-avatar" src="https://i.ibb.co/PxPg9Jy/person-icon.png" alt="">
+                <img class="sidebar-user-avatar" src="https://i.postimg.cc/bv3SC2bh/icon1.png" alt="">
             </div>
             <div class="col">
                 <div class="row">
