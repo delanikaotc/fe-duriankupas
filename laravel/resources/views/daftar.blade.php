@@ -7,7 +7,7 @@
     {{-- menampilkan alert --}}
     @if ($errors->any())
     <div class="sub-content">
-        <div class="alert alert-danger" role="alert" style="width: 1248px;">
+        <div class="alert alert-danger" role="alert">
             {{ $errors->first() }}
         </div>
     </div>
@@ -45,7 +45,7 @@
                     <label for="inputPassword" class="form-label">Ulangi Kata Sandi</label>
                     <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Kata Sandi">
                 </div>
-                <div class="row d-flex justify-content-center mb-4" style="width:375px; margin-left: 0px">
+                <div class="row d-flex justify-content-center mb-4" style="margin-left: 0px; margin-right:0px">
                     <button type="submit" class="btn btn-primary">Daftar</button>    
                 </div>
                 <div style="margin-bottom:80px;">

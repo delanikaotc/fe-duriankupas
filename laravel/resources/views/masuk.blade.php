@@ -30,7 +30,7 @@
                     <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi">
                     <a href="" class="d-flex justify-content-end" style="color: #212427; font-size: 14px; font-weight: 400; text-decoration: none;">Lupa kata sandi?</a>
                 </div>
-                <div class="row d-flex justify-content-center mb-4" style="width:375px; margin-left: 0px; margin-bottom:80px;">
+                <div class="row d-flex justify-content-center mb-4" style="margin-left: 0px; margin-right: 0px; margin-bottom:80px;">
                     <button type="submit" class="btn btn-primary">Masuk</button>                  
                 </div>
                 {{-- diarahkan ke halaman daftar apabila sudah memiliki akun --}}

@@ -25,12 +25,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('bantuanView') }}" style="{{ $title == "Bantuan" ? 'color: #ffc600' : '' }}">Bantuan</a>
             </li>
-        </ul>
-        </div>
-        {{-- perubahan kondisi apabila sudah ada kegiatan daftar/masuk dan memiliki token, button daftar/masuk berganti dengan nama --}}
-
-        {{-- pengecekan role karena setiap role memiliki halaman home masing-masing --}}
-        @if (!empty(Cookie::get('accessToken')))
+            <div class="d-inline">
+                @if (!empty(Cookie::get('accessToken')))
 
             {{-- apabila user diarahkan ke halaman profil user --}}
             @if (Cookie::get('roleUser') == 'user')
@@ -63,5 +59,12 @@
             <a class="btn btn-primary" href="{{ route('masukView') }}" role="button">Masuk</a>
         </div>       
         @endif
+            </div>
+        </ul>
+        </div>
+        {{-- perubahan kondisi apabila sudah ada kegiatan daftar/masuk dan memiliki token, button daftar/masuk berganti dengan nama --}}
+
+        {{-- pengecekan role karena setiap role memiliki halaman home masing-masing --}}
+        
     </div>
 </nav>

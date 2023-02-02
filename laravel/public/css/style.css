@@ -105,9 +105,9 @@ body {
 }
 
 .carousel-inner {
-    width: 1225px;
+    /* width: 1225px;
     height: 300px;
-    border-radius: 16px;
+    border-radius: 16px; */
 }
 
 .content {
@@ -123,7 +123,7 @@ body {
     margin-top: 60px;
     padding-left: 96px;
     margin-left: -96px;
-    width: 1440px;
+    /* width: 1440px; */
     background-image: url("https://i.ibb.co/GcZqN4m/bg-durian.png");
     background-repeat: no-repeat;
 }
@@ -132,7 +132,7 @@ body {
     margin-top: 60px;
     padding-left: 96px;
     margin-left: -96px;
-    width: 1440px;
+    /* width: 1440px; */
     height: 721px;
     background-image: url("https://i.ibb.co/GcZqN4m/bg-durian.png");
     background-repeat: no-repeat;
@@ -146,60 +146,57 @@ body {
     margin-top: 56px;
 }
 
-.card-produk-home {
-    width: 288px;
+.card-produk {
     margin-right: 24px;
     border-radius: 8px;
+    text-align: center;
     background-color: white;
+    margin-bottom: 24px;
 }
 
-.card-produk-home.image {
+.card-produk.image {
     margin-top: 20px;
-    margin-left: 8px;
-    width: 248px;
-    height: 248px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    max-width: 248px;
     border-radius: 8px;
 }
 
-.card-produk-home.title {
+.card-produk.title {
     font-size: 18px;
-    margin-top: 12px;
-    margin-left: -12px;
     text-align: center;
     font-weight: 600;
 }
 
-.card-produk-home.price {
+.card-produk.price {
     font-size: 16px;
-    margin-top: 12px;
-    margin-left: -12px;
     text-align: center;
     font-weight: 500;
     padding-bottom: 12px;
 }
 
 .card-benefit {
-    width: 1225px;
-    height: 361px;
     border-radius: 8px;
     background-color: #26471d;
     color: white;
 }
 
 .content-card-benefit {
-    width: 288px;
     background: transparent;
-    margin-right: 84px;
+    text-align: center;
+    padding-left: 64px;
+    padding-right: 64px;
+    margin-bottom: 20px;
 }
 
-.content-card-benefit.bg-icon {
-    margin-top: 20px;
-    margin-left: 90px;
-    width: 90px;
-    height: 90px;
+.content-card-benefit-bg-icon {
+    /* margin-top: 20px; */
+    margin-right: 80px;
+    margin-left: 80px;
     background: #1d3616;
     border-radius: 8px;
-    padding-top: 12px;
+    padding: 12px;
 }
 
 .icon-benefit {
@@ -208,15 +205,14 @@ body {
     font-size: 64px;
 }
 
-.content-card-benefit.title {
+.content-card-benefit-title {
     font-size: 18px;
     font-weight: 600;
     text-align: center;
-    margin-left: -12px;
     margin-top: 8px;
 }
 
-.content-card-benefit.desc {
+.content-card-benefit-desc {
     font-size: 14px;
     font-weight: 400;
     text-align: center;
@@ -247,7 +243,7 @@ body {
 }
 
 .card-masuk {
-    width: 500px;
+    max-width: 500px;
     border-radius: 8px;
     background-color: white;
     padding-left: 64px;
@@ -266,7 +262,7 @@ body {
     font-size: 14px;
 }
 
-.card-produk {
+/* .card-produk {
     width: 288px;
     margin-right: 24px;
     border-radius: 8px;
@@ -299,7 +295,7 @@ body {
     text-align: center;
     font-weight: 500;
     padding-bottom: 12px;
-}
+} */
 
 .card-buat-pesanan {
     width: 1248px;
@@ -608,8 +604,8 @@ body {
 }
 
 .img-header {
-    width: 1249px;
-    height: 284px;
+    width: 100%;
+    height: auto;
     border-radius: 12px;
 }
 
@@ -623,32 +619,33 @@ body {
 }
 
 .card-promo {
-    width: 395px;
-    height: 366px;
     border-radius: 12px;
     background-color: #ffff;
     text-align: center;
     padding-top: 24px;
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
+    margin-left: 24px;
+    margin-bottom: 24px;
 }
 
 .img-promo {
-    width: 276px;
-    height: 281px;
+    max-width: 276px;
+    width: 100%;
+    height: auto;
     border-radius: 12px;
 }
 
 .card-kontak {
-    width: 288px;
-    height: 149px;
     border-radius: 12px;
     background-color: #ffff;
     padding-top: 24px;
     padding-left: 16px;
+    margin-bottom: 24px;
 }
 
 .img-hubungi {
-    width: 481px;
-    height: 250px;
+    width: 100%;
+    height: auto;
     border-radius: 12px;
+    margin-bottom: 24px;
 }

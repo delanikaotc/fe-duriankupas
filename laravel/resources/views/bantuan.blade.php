@@ -8,17 +8,17 @@
     {{-- menampilkan kontak yang dapat dihubungi--}}
     <div class="content mb-4">
         <div class="row">
-            <div class="col-5 me-4">
+            <div class="col-lg-5 col-md-12 col-sm-12 me-4">
                 <img class="img-hubungi" src="https://i.ibb.co/Ns5YGHf/Group-4247.png" alt="">
             </div>
-            <div class="col mb-4">
+            <div class="col-lg col-md-12 col-sm-12 mb-4">
                 <div class="mb-4">
                     <h3 class="mb-4">Punya Pertanyaan?</h3>
                     <p>Jika punya pertanyaan atau masalah, hubungi kami di:</p>            
                 </div>
                 <div class="col">
                     <div class="row">
-                        <div class="card-kontak me-4">
+                        <div class="col card-kontak me-4">
                             <div class="row mb-4">
                                 <div class="col-1 me-3">
                                     <span class="iconify" data-icon="fluent:call-28-filled" style="color: #212427; font-size: 28px;"></span>
@@ -27,7 +27,7 @@
                                 <div style="color: #F2C94C; font-size: 24px; text-align:center;">0813-8757-2584</div>
                             </div>
                         </div>
-                        <div class="card-kontak">
+                        <div class="col card-kontak">
                             <div class="row mb-4">
                                 <div class="col-1 me-3">
                                     <span class="iconify" data-icon="ant-design:instagram-filled" style="color: #212427; font-size: 28px;"></span>                                </div>
@@ -47,7 +47,7 @@
             <h3>Frequently Asked Question</h3>
         </div>
         <div style="margin-bottom: 60px" class="row d-flex justify-content-center">
-              <div style="width: 1000px">
+              <div>
                   <div class="accordion" id="accordionExample">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">

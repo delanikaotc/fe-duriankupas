@@ -24,7 +24,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <div class="carousel-inner">
+                    <div>
                     <div class="carousel-item active">
                         <img src="https://i.postimg.cc/W3hJqbyw/carousel1.png" class="d-block w-100" alt="...">
                     </div>
@@ -54,14 +54,14 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
         </div>
         <div class="sub-content row d-flex justify-content-center">
             @foreach ($dataProduk as $item)
-            <div class="card-produk-home">
+            <div class="col card-produk">
                 <div>
-                    <img class="card-produk-home image" src="{{ $item['img'] }}" alt="">
+                    <img class="card-produk image" src="{{ $item['img'] }}" alt="">
                 </div>
-                <div class="card-produk-home title">
+                <div class="card-produk title">
                     {{ $item['nama'] }}
                 </div>
-                <div class="card-produk-home price">
+                <div class="card-produk price">
                     @currency($item['harga'])
                 </div>
             </div>
@@ -81,37 +81,37 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
                     <div class="title">
                         <h2 style="color:white; font-weight: 600; text-align: center; padding-top: 20px">Mengapa duriankupas.id?</h2>
                     </div>
-                    <div class="sub-content row" style="margin-left: 100px">
-                        <div class="content-card-benefit">
-                            <div class="content-card-benefit bg-icon d-flex justify-content-center">
+                    <div class="sub-content row">
+                        <div class="col-lg-4 col-md-12 col-sm-12 content-card-benefit">
+                            <div class="content-card-benefit-bg-icon d-flex justify-content-center">
                                 <span class="iconify icon-benefit" data-icon="bi:emoji-smile-fill"></span>                
                             </div>
-                            <div class="content-card-benefit title">
+                            <div class="content-card-benefit-title">
                                 Terpercaya
                             </div>
-                            <div class="content-card-benefit desc">
+                            <div class="content-card-benefit-desc">
                             Terpercaya akan mengantarkan durian kupas untuk kamu    
                             </div>
                         </div>
-                        <div class="content-card-benefit">
-                            <div class="content-card-benefit bg-icon d-flex justify-content-center">
+                        <div class="col-lg-4 col-md-12 col-sm-12 content-card-benefit">
+                            <div class="content-card-benefit-bg-icon d-flex justify-content-center">
                                 <span class="iconify icon-benefit" data-icon="fa-solid:money-bill-wave"></span>
                             </div>
-                            <div class="content-card-benefit title">
+                            <div class="content-card-benefit-title">
                                 Murah
                             </div>
-                            <div class="content-card-benefit desc">
+                            <div class="content-card-benefit-desc">
                                 Harga pas untuk durian kupas berkualitas, rasa dijamin enak
                             </div>
                         </div>
-                        <div class="content-card-benefit">
-                            <div class="content-card-benefit bg-icon d-flex justify-content-center">
+                        <div class="col-lg-4 col-md-12 col-sm-12 content-card-benefit">
+                            <div class="content-card-benefit-bg-icon d-flex justify-content-center">
                                 <span class="iconify icon-benefit" data-icon="fa-solid:shipping-fast"></span>
                             </div>
-                            <div class="content-card-benefit title">
+                            <div class="content-card-benefit-title">
                                 Cepat
                             </div>
-                            <div class="content-card-benefit desc">
+                            <div class="content-card-benefit-desc">
                                 Durian kupas kamu cepat sampai ke tangan kamu
                             </div>
                         </div>
@@ -147,6 +147,4 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
             </div>
         </div>
     </div>    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
 @endsection
