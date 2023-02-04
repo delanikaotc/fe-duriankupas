@@ -61,15 +61,20 @@
                             </div> 
                         </td>
                         <td class="row d-flex justify-content-center">
-                            <div class="col">
-                                {{-- form untuk button submit, apabila ditekan akan menjalankan fungsi barangDikirim dengan id pesanan --}}
-                                <form action="{{ route('barangDikirim', $item['_id']) }}" method="post">
-                                {!! method_field('post') . csrf_field() !!}
-                                    <button class="btn btn-kirim-barang"type="submit">                                    
-                                        <span class="iconify" data-icon="akar-icons:check" style="color: #479360; font-size: 12px; margin-left: -6px"></span>                                
-                                        Kirim Barang
-                                    </button>
-                                </form>
+                            <div class="col">       
+                                @if ($status[$item['_id']] == true)
+                                    {{-- form untuk button submit, apabila ditekan akan menjalankan fungsi barangDikirim dengan id pesanan --}}
+                                    <form action="{{ route('barangDikirim', $item['_id']) }}" method="post">
+                                        {!! method_field('post') . csrf_field() !!}
+                                        <button class="btn btn-kirim-barang"type="submit">
+                                            <span class="iconify" data-icon="akar-icons:check"
+                                                style="color: #479360; font-size: 12px; margin-left: -6px"></span>
+                                            Kirim Barang
+                                        </button>
+                                    </form>
+                                @else
+                                    <p style="color:#eb5757">Stok tidak cukup!</p>
+                                @endif
                             </div>
                         </td>
                     </tr>

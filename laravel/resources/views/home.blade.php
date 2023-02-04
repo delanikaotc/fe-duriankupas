@@ -56,12 +56,12 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
             @foreach ($dataProduk as $item)
             <div class="col card-produk">
                 <div>
-                    <img class="card-produk image" src="{{ $item['img'] }}" alt="">
+                    <img class="card-produk-image" src="{{ $item['img'] }}" alt="">
                 </div>
-                <div class="card-produk title">
+                <div class="card-produk-title">
                     {{ $item['nama'] }}
                 </div>
-                <div class="card-produk price">
+                <div class="card-produk-price">
                     @currency($item['harga'])
                 </div>
             </div>
@@ -126,8 +126,8 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
         <div class="title">
             <h2 style="color:#26471D; font-weight: 600; text-align: center">Kata Mereka tentang duriankupas.id</h2>
         </div>
-        <div class="sub-content row d-flex justify-content-center" style="margin-left: 100px">
-            <div class="card-review">
+        <div class="sub-content row d-flex justify-content-center">
+            <div class="card-review mb-5">
                 <div>
                     <img class="card-review image" src="https://res.cloudinary.com/db31tyok/image/upload/v1656394232/duriankupas/tyok_qvddud.jpg" alt="">
                 </div>
@@ -136,7 +136,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
                     Ga ribet, puas, manis! Recommended banget buat para pencinta durian
                 </div>
             </div>
-            <div class="card-review">
+            <div class="card-review mb-5">
                 <div>
                     <img class="card-review image" src="https://i.postimg.cc/4GWtCkVK/AC0-B29-D7-35-D8-46-CB-8-CA5-349-D257-A1-B0-E-L0-001.jpg" alt="">
                 </div>

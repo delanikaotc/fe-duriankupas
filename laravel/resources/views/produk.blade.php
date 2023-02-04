@@ -28,15 +28,15 @@
         <div class="col card-produk">
             <div>
                 {{-- gambar produk --}}
-                <img src="{{ $item['img'] }}" alt="" class="card-produk image">
+                <img src="{{ $item['img'] }}" alt="" class="card-produk-image">
             </div>
-            <div class="card-produk title">
+            <div class="card-produk-title">
                 {{-- nama produk --}}
                 {{ $item['nama'] }}
                 {{-- input hidden untuk assign nama produk untuk database pesanan --}}
                 <input type="hidden" name="ArrPesanan[{{ $k }}][product]" style="text-align: center;" type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $item['nama'] }}"> 
             </div>
-            <div class="card-produk price">
+            <div class="card-produk-price">
                 {{-- menampilkan harga dengan rupiah --}}
                 @currency($item['harga'])
             </div>

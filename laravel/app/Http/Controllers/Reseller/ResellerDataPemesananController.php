@@ -30,12 +30,15 @@ class ResellerDataPemesananController extends Controller
             $response = json_decode($action->getBody()->getContents(), true);
 
             $data = json_decode(Cookie::get('profileUser'), true);
+            $isStockAvailable = $this->periksaStock($response['pesananBaru']);
+            Log::debug($isStockAvailable);
 
             //jika berhasil akan diarahkan ke halaman data pemesanan baru dengan data berikut
             return view('reseller/reseller_data_pemesanan_baru')->with([
                 'dataProfile' => $data,
                 'data' => $response,
-                'title' => "Data Pemesanan"
+                'title' => "Data Pemesanan",
+                'status' => $isStockAvailable
             ]);
         } catch (Exception $e) {
             Log::error($e);
@@ -91,4 +94,75 @@ class ResellerDataPemesananController extends Controller
             Log::error($e);
         }
     }
+
+    function periksaStock($dataPesanan)
+    {
+        $isStockAvailable = [];
+        $client = new Client();
+        $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/';
+
+        $params['headers'] = array(
+            'token' => 'Bearer ' . cookie::get('accessToken'),
+        );
+
+        try {
+            $action = $client->get($URI, $params);
+            $response = json_decode($action->getBody()->getContents(), true);
+            $dataStock = $response['tokonya']['stock'];
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+
+        for ($i = 0; $i < count($dataPesanan); $i++) {
+            $isStockAvailable[$dataPesanan[$i]['_id']] = true;
+            for ($j = 0; $j < count($dataPesanan[$i]['pesanan']); $j++) {
+                for ($k = 0; $k < count($dataStock); $k++) {
+                    $itemDurian = $dataStock[$k];
+                    if ($dataPesanan[$i]['pesanan'][$j]['product'] == $itemDurian['product']) {
+                        if ($dataPesanan[$i]['pesanan'][$j]['jumlah'] > $itemDurian['jumlah'] || $isStockAvailable[$dataPesanan[$i]['_id']] == false) {
+                            $isStockAvailable[$dataPesanan[$i]['_id']] = false;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return $isStockAvailable;
+    }
+
+    //     function periksaStock($dataPesanan)
+    //     {
+    //         $isStockAvailable = [];
+    //         $client = new Client();
+    //         $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/';
+
+    //         $params['headers'] = array(
+    //             'token' => 'Bearer ' . cookie::get('accessToken'),
+    //         );
+
+    //         try {
+    //             $action = $client->get($URI, $params);
+    //             $response = json_decode($action->getBody()->getContents(), true);
+    //             $dataStock = $response['tokonya']['stock'];
+    //         } catch (Exception $e) {
+    //             Log::error($e);
+    //         }
+
+    //         for ($i = 0; $i < count($dataPesanan); $i++) {
+    //             for ($j = 0; $j < count($dataPesanan[$i]['pesanan']); $j++) {
+    //                 for ($k = 0; $k < count($dataStock); $k++) {
+    //                     $itemDurian = $dataStock[$k];
+    //                     if ($dataPesanan[$i]['pesanan'][$j]['product'] == $itemDurian['product']) {
+    //                         if ($dataPesanan[$i]['pesanan'][$j]['jumlah'] > $itemDurian['jumlah']) {
+    //                             $isStockAvailable[$dataPesanan[$i]['_id']] = false;
+    //                             break 2;
+    //                         } else {
+    //                             $isStockAvailable[$dataPesanan[$i]['_id']] = true;
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         return $isStockAvailable;
+    //     }
 }

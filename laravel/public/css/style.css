@@ -154,7 +154,7 @@ body {
     margin-bottom: 24px;
 }
 
-.card-produk.image {
+.card-produk-image {
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
@@ -163,13 +163,13 @@ body {
     border-radius: 8px;
 }
 
-.card-produk.title {
+.card-produk-title {
     font-size: 18px;
     text-align: center;
     font-weight: 600;
 }
 
-.card-produk.price {
+.card-produk-price {
     font-size: 16px;
     text-align: center;
     font-weight: 500;
@@ -223,7 +223,7 @@ body {
 .card-review {
     width: 440px;
     background-color: white;
-    margin-right: 116px;
+    margin-right: 64px;
 }
 
 .card-review.image {
@@ -261,41 +261,6 @@ body {
     color: #212427 !important;
     font-size: 14px;
 }
-
-/* .card-produk {
-    width: 288px;
-    margin-right: 24px;
-    border-radius: 8px;
-    margin-bottom: 24px;
-    background-color: white;
-    text-align: center;
-}
-
-.card-produk.image {
-    margin-top: 20px;
-    margin-left: 8px;
-    width: 248px;
-    height: 173px;
-    border-radius: 8px;
-}
-
-.card-produk.title {
-    font-size: 18px;
-    margin-top: 12px;
-    margin-left: -12px;
-    text-align: center;
-    font-weight: 600;
-    background-color: transparent;
-}
-
-.card-produk.price {
-    font-size: 16px;
-    margin-top: 12px;
-    margin-left: -12px;
-    text-align: center;
-    font-weight: 500;
-    padding-bottom: 12px;
-} */
 
 .card-buat-pesanan {
     width: 1248px;
