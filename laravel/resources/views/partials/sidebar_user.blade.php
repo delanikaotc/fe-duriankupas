@@ -1,6 +1,6 @@
 {{-- script/kode ini adalah untuk tampilan sidebar user yang ditujukan untuk mengakses menu-menu untuk user --}}
 
-<div class="col-2" style="margin-right: 108px;">
+<div class="col-lg-3 col-sm-12 col-md-12 mb-4">
     <div class="sidebar-user">
         {{-- informasi singkat mengenai user --}}
         <div class="row">
