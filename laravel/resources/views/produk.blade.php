@@ -25,7 +25,7 @@
     <div class="sub-content row d-flex justify-content-center">
         {{-- menampilkan data produk setiap ada data produk yang diambil dari API --}}
         @foreach ($dataProduk as $k => $item)
-        <div class="col card-produk">
+        <div class="col-lg-3 col-md-12 col-sm-12 card-produk">
             <div>
                 {{-- gambar produk --}}
                 <img src="{{ $item['img'] }}" alt="" class="card-produk-image">

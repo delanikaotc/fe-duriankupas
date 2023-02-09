@@ -39,13 +39,13 @@
                             <div class="row mb-2" style="font-weight:400; font-size:14px">
                                 {{-- menampilkan nama --}}
                                 <div class="col-4 mb-2">Nama</div>
-                                <div class="col-4 mb-2">{{ $data['username'] }}</div>
+                                <div class="col-8 mb-2" style="">{{ $data['username'] }}</div>
                             </div>
                             <div class="row mb-2" style="font-weight:400; font-size:14px">
                                 {{-- menampilkan tanggal lahir jika nilai tidak NULL --}}
                                 <div class="col-4 mb-2">Tanggal Lahir</div>
                                 @if ($data['tanggallahir'] != NULL)
-                                <div class="col-4 mb-2">{{ date_format(date_create($data['tanggallahir']), 'd M Y') }}</div>   
+                                <div class="col-8 mb-2">{{ date_format(date_create($data['tanggallahir']), 'd M Y') }}</div>   
                                 @else
                                 <div></div>   
                                 @endif
@@ -53,7 +53,7 @@
                             <div class="row mb-2" style="font-weight:400; font-size:14px">
                                 {{-- menampilkan jenis kelamin --}}
                                 <div class="col-4 mb-2">Jenis Kelamin</div>
-                                <div class="col-4 mb-2">{{ $data['jeniskelamin'] }}</div>
+                                <div class="col-8 mb-2">{{ $data['jeniskelamin'] }}</div>
                             </div>
                             {{-- menampilkan informasi kontak --}}
                             <div class="mb-3" style="font-weight:400; font-size:14px">
@@ -62,12 +62,12 @@
                             <div class="row mb-2" style="font-weight:400; font-size:14px">
                                 {{-- menampilkan email  --}}
                                 <div class="col-4 mb-2">Email</div>
-                                <div class="col-4">{{ $data['email'] }}</div>
+                                <div class="col-8" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $data['email'] }}</div>
                             </div>
                             <div class="row mb-4" style="font-weight:400; font-size:14px">
                                 {{-- menampilkan nomor hp --}}
                                 <div class="col-4 mb-2">Nomor HP</div>
-                                <div class="col-4 mb-2">{{ $data['phone'] }}</div>
+                                <div class="col-8 mb-2">{{ $data['phone'] }}</div>
                             </div>
                             {{-- button mengarahkan ke ubah profil apabila diklik --}}
                             <div>

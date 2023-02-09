@@ -48,7 +48,7 @@
                         {{-- button kirim dengan fungsi submit --}}
                         <div class="mb-3 row">
                             <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary col-2">Kirim</button>
+                                <button type="submit" class="btn btn-primary col-lg-2 col-md-2 col-sm-2">Kirim</button>
                             </div>
                         </div>
                     </form>

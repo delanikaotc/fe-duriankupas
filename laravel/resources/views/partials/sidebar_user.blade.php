@@ -7,7 +7,7 @@
             <div class="col-3">
                 <img class="sidebar-user-avatar" src="https://i.postimg.cc/bv3SC2bh/icon1.png" alt="">
             </div>
-            <div class="col">
+            <div class="col-9">
                 <div class="row">
                     @if(!empty($data['username']))
                     <div style="font-weight: 600; font-size: 18px">{{ $data['username'] }}</div>

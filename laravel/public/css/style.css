@@ -10,6 +10,13 @@ body {
     margin-right: 96px;
 }
 
+@media screen and (max-width: 480px) {
+    .main-container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
 .icon-footer {
     width: 30px;
     height: 30px;
@@ -21,6 +28,13 @@ body {
     padding-left: 96px;
     padding-right: 96px;
     font-weight: 600;
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 .navbar .navbar-collapse .navbar-nav li a {
@@ -90,11 +104,10 @@ body {
 }
 
 .btn.btn-keluar {
-    background-color: transparent;
-    border-color: transparent;
+    background-color: #ff2e2e;
+    border-color: #ff2e2e;
     font-weight: 500;
-    color: #eb5757;
-    padding: 0px;
+    color: #ffff;
 }
 
 .btn.btn-kirim-barang {
@@ -252,6 +265,13 @@ body {
     padding-bottom: 24px;
 }
 
+@media screen and (max-width: 480px) {
+    .card-masuk {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
 .card-masuk a {
     color: #ffc600;
     font-weight: 600;
@@ -263,7 +283,6 @@ body {
 }
 
 .card-buat-pesanan {
-    width: 1248px;
     border-radius: 8px;
     background-color: white;
     padding: 20px;
@@ -344,6 +363,7 @@ body {
 .sidebar-user-title {
     font-size: 16px;
     margin-bottom: 8px;
+    font-weight: 500;
 }
 
 .sidebar-user-subtitle {
@@ -391,6 +411,11 @@ body {
     padding: 20px;
     font-size: 14px;
     margin-bottom: 18px;
+}
+
+.btn-card-pesanan {
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .card-pesanan-title {
@@ -573,12 +598,19 @@ body {
 }
 
 .card-misi {
-    width: 181px;
-    height: 160px;
     border-radius: 12px;
     background-color: #ffff;
     text-align: center;
-    padding-top: 32px;
+    padding: 24px;
+    margin-bottom: 12px;
+    min-width: 50px;
+}
+
+@media screen and (max-width: 480px) {
+    .card-misi {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
 }
 
 .card-promo {

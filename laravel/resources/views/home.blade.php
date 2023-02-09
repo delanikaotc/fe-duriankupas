@@ -17,7 +17,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
     {{-- menampilkan carousel untuk bagian promosi --}}
     <div class="content">
         <div class="row">
-            <div class="col d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                     <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -54,7 +54,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
         </div>
         <div class="sub-content row d-flex justify-content-center">
             @foreach ($dataProduk as $item)
-            <div class="col card-produk">
+            <div class="col-lg-3 col-md-12 col-sm-12 card-produk">
                 <div>
                     <img class="card-produk-image" src="{{ $item['img'] }}" alt="">
                 </div>

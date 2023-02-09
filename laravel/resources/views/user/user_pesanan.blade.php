@@ -56,27 +56,29 @@
                                     <div>
                                         @if ($item['status'] == 'Selesai')
                                             @if ($item['review'] == false)
-                                            <div>
+                                            <div class="row btn-card-pesanan">
                                                 <a class="btn btn-primary mb-2" href="{{ route('beriUlasanView', $item['_id']) }}" role="button" style="font-size: 12px;">Beri Ulasan</a>              
                                             </div>
                                             @endif
                                         @elseif ($item['status'] == 'Menunggu Pembayaran')        
-                                        <div>
+                                        <div class="row btn-card-pesanan">
                                             <a class="btn btn-primary mb-2" href="{{ route('pembayaranView', $item['_id']) }}" role="button" style="font-size: 12px;">Bayar Pesanan</a>     
                                         </div>
                                         @elseif ($item['status'] == 'Pembayaran Ditolak')
-                                        <div>
+                                        <div class="row btn-card-pesanan">
                                             <a class="btn btn-primary mb-2" href="{{ route('pembayaranView', $item['_id']) }}" role="button" style="font-size: 12px;">Unggah Bukti Pembayaran</a>          
                                         </div>
                                         @elseif ($item['status'] == 'Sudah Dikirim')        
                                         <form action="{{ route('pesananSampai', $item['_id']) }}" method="post">
-                                            {!! method_field('post') . csrf_field() !!}   
-                                            <button class="btn btn-primary mb-2" type="submit" style="font-size: 12px;">
-                                                Pesanan Sudah Sampai
-                                            </button>  
+                                            {!! method_field('post') . csrf_field() !!}  
+                                            <div class="row btn-card-pesanan">
+                                                <button class="btn btn-primary mb-2" type="submit" style="font-size: 12px;">
+                                                    Pesanan Sudah Sampai
+                                                </button> 
+                                            </div>  
                                         </form>                    
                                         @endif
-                                        <div>
+                                        <div class="row btn-card-pesanan">
                                             <a class="btn btn-outline-primary" href="{{ route('rincianPesananView', $item['_id']) }}" role="button" style="font-size: 12px;">Rincian Pesanan</a>
                                         </div>
                                     </div>

@@ -39,17 +39,23 @@
                     </p>
                 </div>
                 <div class="row">
-                    <div class="card-misi me-4 mb-4">
-                        <div style="font-weight: 700;font-size: 40px;color: #F2C94C;">100+</div>
-                        <div style="font-weight: 500;font-size: 18px;">Produk Terjual</div>
+                    <div class="col-lg-3 col-md-12-col-sm-12">
+                        <div class="card-misi">
+                            <div style="font-weight: 700;font-size: 40px;color: #F2C94C;">100+</div>
+                            <div style="font-weight: 500;font-size: 18px;">Produk Terjual</div>
+                        </div>
                     </div>
-                    <div class="card-misi me-4 mb-4">
-                        <div style="font-weight: 700;font-size: 40px;color: #F2C94C;">100+</div>
-                        <div style="font-weight: 500;font-size: 18px;">Akun Pembeli</div>
+                    <div class="col-lg-3 col-md-12-col-sm-12">
+                        <div class="card-misi">
+                            <div style="font-weight: 700;font-size: 40px;color: #F2C94C;">100+</div>
+                            <div style="font-weight: 500;font-size: 18px;">Akun Pembeli</div>
+                        </div>
                     </div>
-                    <div class="card-misi me-4 mb-4">
-                        <div style="font-weight: 700;font-size: 40px;color: #F2C94C;">100+</div>
-                        <div style="font-weight: 500;font-size: 18px;">Cabang Reseller</div>
+                    <div class="col-lg-3 col-md-12-col-sm-12">
+                        <div class="card-misi">
+                            <div style="font-weight: 700;font-size: 40px;color: #F2C94C;">100+</div>
+                            <div style="font-weight: 500;font-size: 18px;">Cabang Reseller</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,25 +70,25 @@
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <div class="col card-produk">
+                    <div class="col-lg-5 col-md-12 col-sm-12 card-produk">
                         <div>
-                            <img class="card-produk image" src="https://i.ibb.co/x8mLj6J/Rectangle-923.png" alt="">
+                            <img class="card-produk-image" src="https://i.ibb.co/x8mLj6J/Rectangle-923.png" alt="">
                         </div>
-                        <div class="card-produk title">
+                        <div class="card-produk-title">
                             M. Farhan Suherman
                         </div>
-                        <div class="card-produk price">
+                        <div class="card-produk-price">
                             Tim Marketing
                         </div>
                     </div>
-                    <div class="col card-produk">
+                    <div class="col-lg-5 col-md-12 col-sm-12 card-produk">
                         <div>
-                            <img class="card-produk image" src="https://i.ibb.co/m8wvLSb/Rectangle-923-1.png" alt="">
+                            <img class="card-produk-image" src="https://i.ibb.co/m8wvLSb/Rectangle-923-1.png" alt="">
                         </div>
-                        <div class="card-produk title">
+                        <div class="card-produk-title">
                             Asma
                         </div>
-                        <div class="card-produk price">
+                        <div class="card-produk-price">
                             Tim Operasional
                         </div>
                     </div>

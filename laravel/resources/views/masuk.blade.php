@@ -8,7 +8,7 @@
 <div class="content-masuk" style="margin-bottom: 60px">
     {{-- menampilkan alert jika terdapat error --}}
     @if ($errors->any())
-        <div class="alert alert-danger" role="alert" style="width: 1248px;">
+        <div class="alert alert-danger" role="alert">
             {{ $errors->first() }}
           </div>
         @endif
