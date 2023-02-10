@@ -3,8 +3,8 @@
 
 <footer class="text-center text-lg-start bg-light text-muted">
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" ></section>
-    <section class="">
-      <div class="container text-center text-md-start mt-5">
+    <section>
+      <div class="contaier text-center text-md-start mt-5">
         {{-- info singkat mengenai duriankupas.id  --}}
         <div class="row mt-3">
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">

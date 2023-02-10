@@ -30,8 +30,8 @@
                         <div class="row">
                             @foreach ($dataPesanan as $item)
                             @if ($item['status'] != 'Menunggu Konfirmasi')
-                            <div class="col-lg-4 col-sm-12 col-md-6">
-                                <div class="card-pesanan">
+                            <div class="col-lg-4 col-sm-12 col-md-6 my-2">
+                                <div class="card-pesanan h-100">
                                     <div class="mb-4">
                                         <div class="card-pesanan-title">Pesanan</div>
                                         <div>{{ date_format(date_create($item['createdAt']), 'd M Y, G:i') }}</div>

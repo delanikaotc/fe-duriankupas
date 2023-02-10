@@ -26,7 +26,7 @@
                 <div style="margin-bottom: 20px"><h4 style="font-weight:600">Form Buat Pesanan</h4></div>
                 <div class="form-pesanan">
                     <div class="row d-flex">
-                        <div class="col-lg-6 col-md-12 col-sm-12 mr-2 mb-2">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
                             {{-- data diri pembeli --}}
                             <div class="card-buat-pesanan">
                                 <div class="sub-title">Data Diri Pembeli</div>
@@ -59,8 +59,8 @@
                                 <div class="sub-title">Alamat Pengiriman</div>
                                 <div class="row mb-3">
                                     <div class="row">
-                                        <label for="staticEmail" class="col-lg-3 col-md-12 col-sm-12 col-form-label">Provinsi</label>
-                                        <div class="col-lg-3 col-sm">
+                                        <label for="staticEmail" class="col-lg-2 col-md-12 col-sm-12 col-form-label">Provinsi</label>
+                                        <div class="col-lg-4 col-sm">
                                             <select id="provinsi" name="provinsi" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                                 <option>Pilih Provinsi</option>
                                                 {{-- menampilkan list provinsi yang ada resellernya sesuai dari data pada database --}}
@@ -81,8 +81,8 @@
                                 <div class="row mb-3">
                                     <div class="row">
                                         {{-- mengisi kecamatan --}}
-                                        <label for="staticEmail" class="col-lg-3 col-md-12 col-sm-12 col-form-label">Kecamatan</label>
-                                        <div class="col-lg-3">
+                                        <label for="staticEmail" class="col-lg-2 col-md-12 col-sm-12 col-form-label">Kec.</label>
+                                        <div class="col-lg-4">
                                             <input name="kecamatan" class="form-control form-control-sm" type="text" placeholder="Kecamatan" aria-label=".form-control-sm example">                               
                                         </div>
                                         {{-- mengisi kodepos --}}
@@ -94,8 +94,8 @@
                                 </div>
                                 {{-- mengisi alamat --}}
                                 <div class="row mb-3">
-                                    <label for="staticEmail" class="col-lg-3 col-md-12 col-sm-12 col-form-label">Alamat</label>
-                                    <div class="col-lg-9 col-md-12 col-sm-12">
+                                    <label for="staticEmail" class="col-lg-2 col-md-12 col-sm-12 col-form-label">Alamat</label>
+                                    <div class="col-lg-10 col-md-12 col-sm-12">
                                         <textarea name="alamat" class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="2" style="resize: none"></textarea>                            
                                     </div>
                                 </div>
@@ -110,72 +110,78 @@
                 <div class="container-fluid">
                     {{-- tabel rincian pesanan --}}
                     <div style="overflow-x:auto;">
-                        <table id="pesanan" class="table table-borderless" >
+                        <table id="pesanan" class="table table-borderless ">
                             <thead>
-                                <tr class="d-flex">
-                                    <th class="col-lg-6" colspan="2" style="text-align: left;"><h4 style="font-weight:600">Produk Dipesan</h4></th>
-                                    <th class="col-lg-2">Harga Satuan</th>
-                                    <th class="col-lg-2">Jumlah</th>
-                                    <th class="col-lg-2" style="text-align: right;">Subtotal Produk</th>
+                                <tr>
+                                    <th style="text-align: left;" colspan="2">
+                                        <h4 style="font-weight:600">Produk Dipesan</h4>
+                                    </th>
+                                    <th>Harga Satuan</th>
+                                    <th>Jumlah</th>
+                                    <th style="text-align: right;">Subtotal Produk</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {{-- deklarasi variabel untuk penghitungan total pesanan --}}
                                 @php
-                                $subtotal = 0;
-                                $ongkir = 9000;
+                                    $subtotal = 0;
+                                    $ongkir = 9000;
                                 @endphp
-                                
+
                                 {{-- menampilkan data pesanan yang didapat dari halaman produk kami --}}
                                 @foreach ($dataPesanan['pesanan'] as $item)
-                                <tr class="d-flex">
-                                    {{-- get data produk untuk disamakan dengan data pemesanan agar mendapatkan informasi gambar, nama, dan harga --}}
-                                    @foreach ($dataProduk as $produk)
-                                    @if ($produk['nama'] == $item['product'])
-                                    <td class="col-1" style="text-align: left;">
-                                        <img style="max-width: 50px; width:100%; height: auto;" src="{{ $produk['img']}}" alt="">
-                                    </td>
-                                    <td class="col-5" style="text-align: left;">{{ $item['product'] }}</td>
-                                    <td class="col-2">@currency($produk['harga'])</td>
-                                    <td class="col-2">{{ $item['jumlah'] }}</td>
-                                    {{-- menghitung subtotal dengan mengkalikan jumlah dan harga produk --}}
-                                    <td class="col-2" style="text-align: right;">@currency ($produk['harga'] * $item['jumlah'])
-                                    </td>
-                                    {{-- penghitungan total pesanan --}}
-                                    @php
-                                    $subtotal += $produk['harga'] * $item['jumlah'];
-                                    @endphp
-                                    @endif
-                                    @endforeach
-                                </tr>   
+                                    <tr>
+                                        {{-- get data produk untuk disamakan dengan data pemesanan agar mendapatkan informasi gambar, nama, dan harga --}}
+                                        @foreach ($dataProduk as $produk)
+                                            @if ($produk['nama'] == $item['product'])
+                                                <td style="text-align: left;" colspan="2">
+                                                    <img style="max-width: 50px; width:100%; height: auto;"
+                                                        src="{{ $produk['img'] }}" alt="">
+                                                    {{ $item['product'] }}
+                                                </td>
+                                                <td>@currency($produk['harga'])</td>
+                                                <td>{{ $item['jumlah'] }}</td>
+                                                {{-- menghitung subtotal dengan mengkalikan jumlah dan harga produk --}}
+                                                <td style="text-align: right;">@currency($produk['harga'] * $item['jumlah'])
+                                                </td>
+                                                {{-- penghitungan total pesanan --}}
+                                                @php
+                                                    $subtotal += $produk['harga'] * $item['jumlah'];
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                    </tr>
                                 @endforeach
                                 <tr>
-                                    <td><hr></td>
+                                    <td colspan="5">
+                                        <hr>
+                                    </td>
                                 </tr>
-                                <tr class="d-flex" style="text-align: right;">
-                                    <td class="col-10">Subtotal Pesanan:</td>
-                                    <td class="col-2">@currency($subtotal)</td>
+                                <tr style="text-align: right;">
+                                    <td colspan="4">Subtotal Pesanan:</td>
+                                    <td colspan="1">@currency($subtotal)</td>
                                 </tr>
-                                <tr class="d-flex" style="text-align: right;">
-                                    <td class="col-10">Ongkos Kirim:</td>
-                                    <td class="col-2">@currency($ongkir)</td>
+                                <tr style="text-align: right;">
+                                    <td colspan="4">Ongkos Kirim:</td>
+                                    <td colspan="1">@currency($ongkir)</td>
                                 </tr>
-                                <tr class="d-flex" style="text-align: right;">
-                                    <td class="col-10">Total pesanan:</td>
-                                    <td class="col-2">
-                                        <input style="text-align: right; font-weight: 600;" type="text" readonly class="form-control-plaintext" id="staticEmail" value="@currency($subtotal + $ongkir)">
-                                       {{-- input hidden untuk mengambil data total pesanan --}}
-                                        <input style="text-align: right; font-weight: 600;" type="hidden" name="total" readonly class="form-control-plaintext" id="staticEmail" value="{{ $subtotal + $ongkir }}">
+                                <tr style="text-align: right;">
+                                    <td colspan="4">Total pesanan:</td>
+                                    <td colspan="1">
+                                        <input style="text-align: right; font-weight: 600;" type="text" readonly
+                                            class="form-control-plaintext" id="staticEmail"
+                                            value="@currency($subtotal + $ongkir)">
+                                        {{-- input hidden untuk mengambil data total pesanan --}}
+                                        <input style="text-align: right; font-weight: 600;" type="hidden"
+                                            name="total" readonly class="form-control-plaintext" id="staticEmail"
+                                            value="{{ $subtotal + $ongkir }}">
                                     </td>
                                 </tr>
                                 {{-- button lanjut pembayaran --}}
-                                <tr class="d-flex" style="text-align: right; margin-top: 16px" >
-                                    <td class="col-12">
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
+                    {{-- button lanjut pembayaran --}}
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">Lanjut Pembayaran</button>    
                     </div>

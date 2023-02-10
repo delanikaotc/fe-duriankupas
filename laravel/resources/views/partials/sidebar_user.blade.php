@@ -3,11 +3,11 @@
 <div class="col-lg-3 col-sm-12 col-md-12 mb-4">
     <div class="sidebar-user">
         {{-- informasi singkat mengenai user --}}
-        <div class="row">
-            <div class="col-3">
-                <img class="sidebar-user-avatar" src="https://i.postimg.cc/bv3SC2bh/icon1.png" alt="">
+        <div class="flex-container">
+            <div class="flex-item-image mb-2">
+                <img class="sidebar-user-avatar rounded-circle" src="https://i.ibb.co/bHLV8Dp/Screen-Shot-2023-02-10-at-20-16-50.png" alt="">
             </div>
-            <div class="col-9">
+            <div class="flex-item-name">
                 <div class="row">
                     @if(!empty($data['username']))
                     <div style="font-weight: 600; font-size: 18px">{{ $data['username'] }}</div>

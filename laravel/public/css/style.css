@@ -117,13 +117,11 @@ body {
     color: #479360;
 }
 
-.carousel-inner {
-    /* width: 1225px;
-    height: 300px;
-    border-radius: 16px; */
+.content {
+    margin-top: 108px;
 }
 
-.content {
+.content-carousel {
     margin-top: 60px;
 }
 
@@ -161,6 +159,7 @@ body {
 
 .card-produk {
     margin-right: 24px;
+    margin-left: 24px;
     border-radius: 8px;
     text-align: center;
     background-color: white;
@@ -231,28 +230,6 @@ body {
     text-align: center;
     margin-top: 16px;
     padding-bottom: 20px;
-}
-
-.card-review {
-    width: 440px;
-    background-color: white;
-    margin-right: 64px;
-}
-
-.card-review.image {
-    width: 440px;
-    height: 210px;
-    margin-left: -12px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-bottom: 8px;
-}
-
-.card-review.info {
-    width: 426px;
-    background-color: white;
-    padding-bottom: 12px;
-    padding-right: 12px;
 }
 
 .card-masuk {
@@ -349,15 +326,88 @@ body {
     border-radius: 12px;
 }
 
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item-name {
+    flex: 75%;
+}
+
+.flex-item-image {
+    flex: 25%;
+}
+
+@media (max-width: 1500px) {
+    .flex-item-name {
+        flex: 75%;
+    }
+
+    .flex-item-image {
+        flex: 25%;
+    }
+}
+
+@media (max-width: 1224px) {
+    .flex-item-name {
+        flex: 70%;
+    }
+
+    .flex-item-image {
+        flex: 30%;
+    }
+}
+
+@media (max-width: 992px) {
+    .flex-item-name {
+        flex: 90%;
+    }
+
+    .flex-item-image {
+        flex: 10%;
+    }
+}
+
+@media (max-width: 732px) {
+    .flex-item-name {
+        flex: 85%;
+    }
+
+    .flex-item-image {
+        flex: 15%;
+    }
+}
+
+@media (max-width: 566px) {
+    .flex-item-name {
+        flex: 80%;
+    }
+
+    .flex-item-image {
+        flex: 20%;
+    }
+}
+
+@media (max-width: 330px) {
+    .flex-item-name {
+        flex: 75%;
+    }
+
+    .flex-item-image {
+        flex: 25%;
+    }
+}
+
 .active-sidebar-user {
     font-weight: 600;
     color: #26471d !important;
 }
 
 .sidebar-user-avatar {
-    max-width: 50px;
+    width: 50px;
+    /* width: 100%; */
     height: 50px;
-    border-radius: 50px;
 }
 
 .sidebar-user-title {
@@ -643,4 +693,11 @@ body {
     height: auto;
     border-radius: 12px;
     margin-bottom: 24px;
+}
+
+.img-review {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    border: 5px solid #f2c94c;
 }
