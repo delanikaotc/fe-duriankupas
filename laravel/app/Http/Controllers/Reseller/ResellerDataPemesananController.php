@@ -129,40 +129,4 @@ class ResellerDataPemesananController extends Controller
         }
         return $isStockAvailable;
     }
-
-    //     function periksaStock($dataPesanan)
-    //     {
-    //         $isStockAvailable = [];
-    //         $client = new Client();
-    //         $URI = 'https://beduriankupas.tykozidane.xyz/api/reseller/';
-
-    //         $params['headers'] = array(
-    //             'token' => 'Bearer ' . cookie::get('accessToken'),
-    //         );
-
-    //         try {
-    //             $action = $client->get($URI, $params);
-    //             $response = json_decode($action->getBody()->getContents(), true);
-    //             $dataStock = $response['tokonya']['stock'];
-    //         } catch (Exception $e) {
-    //             Log::error($e);
-    //         }
-
-    //         for ($i = 0; $i < count($dataPesanan); $i++) {
-    //             for ($j = 0; $j < count($dataPesanan[$i]['pesanan']); $j++) {
-    //                 for ($k = 0; $k < count($dataStock); $k++) {
-    //                     $itemDurian = $dataStock[$k];
-    //                     if ($dataPesanan[$i]['pesanan'][$j]['product'] == $itemDurian['product']) {
-    //                         if ($dataPesanan[$i]['pesanan'][$j]['jumlah'] > $itemDurian['jumlah']) {
-    //                             $isStockAvailable[$dataPesanan[$i]['_id']] = false;
-    //                             break 2;
-    //                         } else {
-    //                             $isStockAvailable[$dataPesanan[$i]['_id']] = true;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         return $isStockAvailable;
-    //     }
 }

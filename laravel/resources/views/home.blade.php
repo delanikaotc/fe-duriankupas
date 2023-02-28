@@ -8,7 +8,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
 @section('content') 
     {{-- alert apabila ada error dari aktivitas sebelumnya --}}
     @if ($errors->any())
-    <div class="content">
+    <div class="content-home">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             {{ $errors->first() }}
         </div>
@@ -50,7 +50,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
     </div>
 
     {{-- menampilkan data produk yang dapat dibeli --}}
-    <div class="content">
+    <div class="content-home">
         <div class="title">
             <h2 style="color:#26471D; font-weight: 600; text-align: center">Produk Kami</h2>
         </div>
@@ -76,7 +76,7 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
         </div>
     </div>
     {{-- menampilkan keuntungan dari berbelanja di duriankupas.id --}}
-    <div class="content">
+    <div class="content-home">
         <div class="row">
             <div class="col d-flex justify-content-center">
                 <div class="card-benefit">
@@ -124,11 +124,11 @@ menggunakakan blade.html sesuai ketentuan view pada Laravel --}}
     </div>
     
     {{-- menampilkan ulasan pesanan dari pengguna sebelumnya --}}
-    <div class="content" style="margin-bottom:60px;">
+    <div class="content-home" style="margin-bottom:60px;">
         <div class="title">
             <h2 style="color:#26471D; font-weight: 600; text-align: center">Kata Mereka tentang duriankupas.id</h2>
         </div>
-        <div class="sub-content">
+        <div class="sub-content-home">
             <div id="carouselReview" class="carousel slide text-center carousel-dark" data-bs-ride="true">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
